@@ -1,0 +1,146 @@
+body{
+	background-image: url("wall.jpg");
+	background-size: cover;
+	overflow: hidden;
+}
+
+.mbdiv {
+	background-color: #EFEDEC;
+	color: white;
+	text-align: center;
+	font-size: 16px;
+	height: 30px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
+	transition: height 0.25s ease 0.1s;
+}
+
+.mbdiv:hover {
+	height: 60px;
+}
+
+.mbindicator {
+	height: 4px;
+	width: 35px;
+	border-radius: 500px;
+	background-color: grey;
+	opacity: 100%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.25s ease 0.1s;
+}
+
+.mbdiv:hover .mbindicator{
+	opacity: 0;
+}
+
+.mbindicator:hover{
+	opacity: 0;
+}
+
+.mbitems{
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+	display: flex;
+	opacity: 0%;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.25s ease 0.1s;
+}
+
+.mbdiv:hover .mbitems{
+	opacity: 100%;
+}
+
+.mbbtn{
+	width: 70px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mbbtn:hover{
+	background: white;
+}
+
+.mbimgclr{
+	display: none;
+	z-index: 99;
+}
+
+.mbbtn:hover .mbimgclr{
+	display: initial;
+}
+
+.mbbtn:hover .mbimgbw{
+	display: none;
+}
+
+img{
+	width: 23px;
+	height: 23px;
+}
+
+.mbac{
+	width: 70px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.mbac:hover{
+	background: white;
+}
+
+.mbac div{
+	color: #5E5E5E;
+	font-family: Segoe UI;
+	font-weight: Bold;
+	font-size: 14px;
+}
+
+.startmenu{
+	width: 500px;
+	height: 560px;
+	background-color: #EDEDED;
+	border-radius: 4px;
+	display: none;
+	margin: 0;
+	position: absolute;
+	bottom: -20%;
+	left: 50%;
+	transform: translate(-50%, 48%);
+	transition-timing-function: ease-in;
+	box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
+	transition: 0.5s;
+}
+
+.bgOverlay{
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
