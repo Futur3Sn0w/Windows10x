@@ -21,3 +21,7 @@ The bar at the bottom (called the 'taskbar' or 'multibar') shows an indicator in
  - Added issue report for said launcher launching script(s)
  - Pulled a lot of hair out
  - Almost threw laptop across the studio but refrained. Self control(?).
+
+# Day 2: 11/17/2020
+ - Added 43+ Fluent icons for future use
+ - Changed the wallpaper to the split-screen beach wallpaper
