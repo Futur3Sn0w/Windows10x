@@ -17,3 +17,7 @@ The bar at the bottom (called the 'taskbar' or 'multibar') shows an indicator in
  - Animations on multibar when entering and leaving
  - Added delay to multibar when entering and leaving
  - Added 'Action Center' space with working clock
+ - Implemented (broken) launcher launching script(s)
+ - Added issue report for said launcher launching script(s)
+ - Pulled a lot of hair out
+ - Almost threw laptop across the studio but refrained. Self control(?).
