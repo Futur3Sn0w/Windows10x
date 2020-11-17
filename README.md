@@ -11,7 +11,7 @@ Although I decided to create this rather suddenly, it has quickly become a passi
 If you follow me on twitter (www.twitter.com/futur3sn0w), you'll notice that anytime I post about the project, I use the #10XinHTML tag. This way, if I forget to update something here, or I want to talk about the project, you can click the tag to view all posts pertaining to the project. :D
 
 # Using the site
-The site is hosted at https://futur3sn0w.github.com/windows10x 
+The site is hosted at https://futur3sn0w.github.io/Windows10x/ 
 The bar at the bottom (called the 'taskbar' or 'multibar') shows an indicator in the center, and the time on the right. Hovering over the indicator (or anywhere on the multibar) will expand it, revealing the Start Button and Task View button. It also expands the clock, and (in the future) reveals the icon for the Action Center, where you can access your toggles and sliders.
 (More to be added in the future)
 
