@@ -3,18 +3,17 @@
 <title>Windows 10X</title>
 <link rel="stylesheet" href="css.css">
 </head>
-<body onload="startTime()">
-<div class="bgOverlay"></div>
+<body>
 <div class="startmenu" id="startdiv">
 
 </div>
 
-<div class="mbdiv">
+<div class="mbdiv" onclick="hideStartFunction()">
 <div class="mbindicator"></div>
 <div class="mbitems">
-<div class="mbbtn startbtn" onclick="f1()" id="startbtn">
-<img class="mbimgbw" src="10x2.svg">
-<img class="mbimgclr" src="10x.svg">
+<div class="mbbtn startbtn" onclick="myFunction()" id="startbtn">
+<img class="mbimgbw" src="10x2.svg" onclick="myFunction()">
+<img class="mbimgclr" src="10x.svg" onclick="myFunction()">
 </div>
 <div class="mbbtn taskviewbtn" id="taskviewbtn">
 <img class="mbimgbw" src="10xts2.svg">
@@ -22,46 +21,59 @@
 </div>
 </div>
 <div class="mbac">
-<div id="txt"></div>
+<div id="currentTime"></div>
 </div>
 </div>
 
 <script>
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  var s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('txt').innerHTML =
-  h + ":" + m;
-  var t = setTimeout(startTime, 500);
+window.onload = function() {
+  clock();  
+    function clock() {
+    var now = new Date();
+    var TwentyFourHour = now.getHours();
+    var hour = now.getHours();
+    var min = now.getMinutes();
+    var sec = now.getSeconds();
+    var mid = 'pm';
+    if (min < 10) {
+      min = "0" + min;
+    }
+    if (hour > 12) {
+      hour = hour - 12;
+    }    
+    if(hour==0){ 
+      hour=12;
+    }
+    if(TwentyFourHour < 12) {
+       mid = 'am';
+    }     
+  document.getElementById('currentTime').innerHTML =     hour+':'+min ;
+    setTimeout(clock, 1000);
+    }
 }
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
+
+</script>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction()
+{
+document.getElementById("startdiv").style.display = "block";
 }
 </script>
 
-<!-- welp, i tried. guess thisll have to be for later!
 <script>
-window.onload = function(){
-	var popup = document.getElementById('startdiv');
-    var overlay = document.getElementById('bgOverlay');
-    var openButton = document.getElementById('startbtn');
-    document.onclick = function(e){
-        if(e.target == 'body'){
-            popup.style.display = 'none';
-            overlay.style.display = 'none';
-        }
-        if(e.target === openButton){
-         	popup.style.display = 'block';
-            overlay.style.display = 'initial';
-        }
-    };
-}
+function hideStartFunction(){
+  var divToHide = document.getElementById('startdiv');
+  document.onclick = function(e){
+    if(e.target.id !== 'startdiv'){
+      //element clicked wasn't the div; hide the div
+      divToHide.style.display = 'none';
+    }
+  };
+};
 </script>
--->
+
 </body>
 </html>
