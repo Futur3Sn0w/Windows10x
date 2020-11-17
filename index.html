@@ -5,7 +5,15 @@
 <title>Windows 10X</title>
 <link rel="stylesheet" href="css.css">
 </head>
-<body>
+<body id="clickable">
+<ul id="menu">
+	<li class="menuitem">Change your background</li>
+	<li class="menuitem"></li>
+	<li class="menuitem"></li>
+</ul>
+
+<div id="out-click"></div>
+
 <div class="startmenu" id="startdiv">
 
 </div>
@@ -78,6 +86,27 @@ function hideStartFunction(){
     }
   };
 };
+</script>
+
+<script>
+  const clickable = document.getElementById('clickable')
+  const menu = document.getElementById('menu')
+  const outClick = document.getElementById('out-click')
+
+  clickable.addEventListener('contextmenu', e => {
+    e.preventDefault()
+
+    menu.style.top = `${e.clientY}px`
+    menu.style.left = `${e.clientX}px`
+    menu.classList.add('show')
+
+    outClick.style.display = "block"
+  })
+
+  outClick.addEventListener('click', () => {
+    menu.classList.remove('show')
+    outClick.style.display = "none"
+  })
 </script>
 
 </body>
