@@ -132,3 +132,49 @@ img{
 	transform: translate(-50%, -30%);
 	transition: opacity 0.25s ease 0.1s;
 }
+
+.tooltip1, .tooltip2, .tooltip3{
+	width: auto;
+	background-color: #EDEDED;
+	color: #605D5E;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px 10px;
+	font-family: Segoe UI;
+	font-size: 14px;
+	opacity: 0;
+	transition-delay: .5s;
+	transition-duration: .2s;
+}
+
+#startbtn:hover .tooltip1 {
+	opacity: 100%;
+}
+
+#taskviewbtn:hover .tooltip2 {
+	opacity: 100%;
+}
+
+#mbacbtn:hover .tooltip3 {
+	opacity: 100%;
+}
+
+.tooltip1{
+	position: absolute;
+	bottom: 150%;
+	left: 7%;
+}
+
+.tooltip2{
+	width: 70px;
+	position: absolute;
+	bottom: 150%;
+	left: 43%;
+}
+
+.tooltip3{
+	width: 100px;
+	position: absolute;
+	bottom: 150%;
+	left: 93.5%;
+}
