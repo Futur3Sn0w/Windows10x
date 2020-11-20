@@ -28,8 +28,8 @@
 <div class="backOverlay" id="clickable"></div>
 <ul id="menu">
 	<li class="menuitem">Change your background</li>
-	<li class="menuitem"></li>
-	<li class="menuitem"></li>
+	<li class="menuitem" onclick="myF()">wall1</li>
+	<li class="menuitem" onclick="myF2()">wall2</li>
 </ul>
 
 <div id="out-click"></div>
@@ -57,6 +57,20 @@
 <div id="currentTime"></div>
 </div>
 </div>
+
+<script>
+function myF() {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('wall.jpg')";
+}
+</script>
+
+<script>
+function myF2() {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('wall2.jpg')";
+}
+</script>
 
 <script>
 window.onload = function() {
