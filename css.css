@@ -114,7 +114,7 @@ img{
 
 .mbac div{
 	color: #5E5E5E;
-	font-family: Segoe UI Semibold;
+	font-family: Segsb;
 	font-size: 14px;
 }
 
@@ -144,7 +144,7 @@ img{
 	text-align: center;
 	border-radius: 6px;
 	padding: 10px 10px;
-	font-family: Segoe UI;
+	font-family: Seg;
 	font-size: 14px;
 	opacity: 0;
 	transition-delay: .5s;
@@ -211,7 +211,7 @@ img{
   padding-right: 10px;
   transition: 0.1s;
   color: #000;
-  font-family: Segoe UI Semibold;
+  font-family: Segsb;
 }
 
 /* saved for later
