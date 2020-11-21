@@ -6,31 +6,18 @@
 <title>Windows 10X</title>
 <link rel="stylesheet" href="css.css">
 <link rel="stylesheet" href="segoe.css">
-<style>
-@font-face {
-  font-family: Seg;
-  src: url(font/normal.ttf);
-};
 
-@font-face {
-   font-family: Segb;
-   src: url(font/bold.ttf);
-};
-
-@font-face {
-   font-family: Segsb;
-   src: url(font/semi.ttf);
-};
-</style>
 </head>
 
 <body>
 <div class="backOverlay" id="clickable"></div>
-<ul id="menu">
-	<li class="menuitem">Change your background</li>
-	<li class="menuitem" onclick="myF()">wall1</li>
-	<li class="menuitem" onclick="myF2()">wall2</li>
-</ul>
+<div id="menu">
+	<div class="menuitem">Change your background</div>
+	<div class="walls">
+	<div class="menuitem2" id="wb1" onclick="myF()"></div>
+	<div class="menuitem2" id="wb2" onclick="myF2()"></div>
+	</div>
+</div>
 
 <div id="out-click"></div>
 

@@ -188,8 +188,8 @@ img{
   background-color: #e5e5e5;
   padding-top: 5px;
   padding-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 45px;
+  padding-left: 15px;
+  padding-right: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
   position: absolute;
@@ -197,21 +197,56 @@ img{
   z-index: 201;
   opacity: 0;
   transition: opacity 0.1s;
+  width: 230px;
+  height: 120px;
+  
 }
 
 #menu.show {
   opacity: 1;
 }
 
-.menuitem {
+.walls{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.menuitem, .menuitem2 {
   display: block;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
   transition: 0.1s;
   color: #000;
   font-family: Segsb;
+  border-radius: 3px;
+}
+
+.menuitem {
+	width: auto;
+	height: 50px;
+	line-height: 40px;
+	transition: opacity 0.5s;
+}
+
+#wb1{
+	background-image: url("wall.jpg");
+	background-size: cover;
+	transition: opacity 0.2s;
+}
+
+#wb1:hover, #wb2:hover{
+	opacity: 70%
+}
+
+#wb2{
+	background-image: url("wall2.jpg");
+	background-size: cover;
+}
+
+.menuitem2 {
+	width: 70px;
+	height: 70px;
+	margin-right: 10px;
+	
 }
 
 /* saved for later
