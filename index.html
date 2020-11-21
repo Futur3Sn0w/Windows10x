@@ -12,11 +12,15 @@
 <body>
 <div class="backOverlay" id="clickable"></div>
 <div id="menu">
-	<div class="menuitem">Change your background</div>
+	<div class="menuitem" id="menuitem">Change your background</div>
 	<div class="walls">
-	<div class="menuitem2" id="wb1" onclick="myF()"></div>
+	<div class="menuitem2" id="wb1" onclick="myF1()"></div>
 	<div class="menuitem2" id="wb2" onclick="myF2()"></div>
+	<div class="menuitem2" id="wb3" onclick="myF3()"></div>
+	<div class="menuitem2" id="wb4" onclick="myF4()"></div>
+	<div class="menuitem2" id="wb5" onclick="myF5()"></div>
 	</div>
+	<div class="darkmodetoggle" id="darkmodetoggle" onclick="myDark()">Dark mode (EXPERIMENTAL)<br>(Refresh to disable)</div>
 </div>
 
 <div id="out-click"></div>
@@ -25,28 +29,44 @@
 
 </div>
 
-<div class="mbdiv" onclick="hideStartFunction()">
-<div class="mbindicator"></div>
+<div class="mbdiv" id="mbdiv" onclick="hideStartFunction()">
+<div class="mbindicator" id="mbindicator"></div>
 <div class="mbitems">
 <div class="mbbtn startbtn" onclick="myFunction()" id="startbtn">
-<span class="tooltip1">Start</span>
+<span class="tooltip1" id="tooltip1">Start</span>
 <img class="mbimgbw" src="10x2.svg" onclick="myFunction()">
 <img class="mbimgclr" src="10x.svg" onclick="myFunction()">
 </div>
 <div class="mbbtn taskviewbtn" id="taskviewbtn">
-<span class="tooltip2">Task View</span>
+<span class="tooltip2" id="tooltip2">Task View</span>
 <img class="mbimgbw" src="10xts2.svg">
 <img class="mbimgclr" src="10xts.svg">
 </div>
 </div>
 <div class="mbac" id="mbacbtn">
-<span class="tooltip3">Action Center</span>
+<span class="tooltip3" id="tooltip3">Action Center</span>
 <div id="currentTime"></div>
 </div>
 </div>
 
 <script>
-function myF() {
+function myDark() {
+  document.getElementById('mbdiv').style.backgroundColor = "#3A3A3A";
+  document.getElementById('mbindicator').style.backgroundColor = "#B0B0B0";
+  document.getElementById('currentTime').style.color = "#B0B0B0";
+  document.getElementById('menu').style.backgroundColor = "#3A3A3A";
+  document.getElementById('menuitem').style.color = "#B0B0B0";
+  document.getElementById('darkmodetoggle').style.color = "#B0B0B0";
+  document.getElementById('tooltip1').style.color = "#B0B0B0";
+  document.getElementById('tooltip2').style.color = "#B0B0B0";
+  document.getElementById('tooltip3').style.color = "#B0B0B0";
+  document.getElementById('tooltip1').style.backgroundColor = "#3A3A3A";
+  document.getElementById('tooltip2').style.backgroundColor = "#3A3A3A";
+  document.getElementById('tooltip3').style.backgroundColor = "#3A3A3A";
+}
+</script>
+<script>
+function myF1() {
   document.body.style.backgroundColor = "#f3f3f3";
   document.body.style.backgroundImage = "url('wall.jpg')";
 }
@@ -58,6 +78,25 @@ function myF2() {
   document.body.style.backgroundImage = "url('wall2.jpg')";
 }
 </script>
+<script>
+function myF3() {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('wall3.jpg')";
+}
+</script>
+<script>
+function myF4() {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('wall4.jpg')";
+}
+</script>
+<script>
+function myF5() {
+  document.body.style.backgroundColor = "#f3f3f3";
+  document.body.style.backgroundImage = "url('wall5.jpg')";
+}
+</script>
+
 
 <script>
 window.onload = function() {

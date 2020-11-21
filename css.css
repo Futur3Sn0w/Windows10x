@@ -184,22 +184,22 @@ img{
 }
 
 #menu {
-  display: block;
-  background-color: #e5e5e5;
-  padding-top: 5px;
-  padding-bottom: 20px;
-  padding-left: 15px;
-  padding-right: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
-  position: absolute;
-  transform-origin: center;
-  z-index: 201;
-  opacity: 0;
-  transition: opacity 0.1s;
-  width: 230px;
-  height: 120px;
-  
+	display: block;
+	background-color: #e5e5e5;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+	padding-right: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
+	position: absolute;
+	transform-origin: center;
+	z-index: 201;
+	opacity: 0;
+	transition: opacity 0.1s;
+	width: 230px;
+	height: 160px;
+	overflow-y: hidden;
 }
 
 #menu.show {
@@ -207,54 +207,74 @@ img{
 }
 
 .walls{
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
+	display: block;
+	overflow: scroll;
+	height: 85px;
+	white-space: nowrap;
+	padding-left: 0;
+	padding-right: 0;
 }
 
-.menuitem, .menuitem2 {
-  display: block;
-  transition: 0.1s;
-  color: #000;
-  font-family: Segsb;
-  border-radius: 3px;
+.menuitem, .menuitem2, .darkmodetoggle {
+	display: block;
+	transition: 0.1s;
+	color: #000;
+	font-family: Segsb;
+	border-radius: 3px;
+}
+
+.darkmodetoggle{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+
+.darkmodetoggle:hover{
+	background-color: #EEE;
 }
 
 .menuitem {
-	width: auto;
-	height: 50px;
 	line-height: 40px;
 	transition: opacity 0.5s;
 }
 
-#wb1{
-	background-image: url("wall.jpg");
+#wb1, #wb2, #wb3, #wb4, #wb5{
 	background-size: cover;
 	transition: opacity 0.2s;
+	width: 70px;
+	height: 70px;
+	display: inline-block;
 }
 
-#wb1:hover, #wb2:hover{
+#wb1:hover, #wb2:hover, #wb3:hover, #wb4:hover, #wb5:hover{
 	opacity: 70%
+}
+
+#wb1{
+	background-image: url("wall.jpg");
 }
 
 #wb2{
 	background-image: url("wall2.jpg");
-	background-size: cover;
+}
+
+#wb3{
+	background-image: url("wall3.jpg");
+}
+
+#wb4{
+	background-image: url("wall4.jpg");
+}
+
+#wb5{
+	background-image: url("wall5.jpg");
 }
 
 .menuitem2 {
 	width: 70px;
 	height: 70px;
 	margin-right: 10px;
-	
 }
-
-/* saved for later
-.menuitem:hover {
-  background-color: #eee;
-  cursor: pointer;
-}
-*/
 
 #out-click {
   height: 100vh;
@@ -273,4 +293,35 @@ img{
 	top: 0;
 	left: 0;
 	z-index: 198;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 5px;
+	background: transparent;
+	border-radius: 100px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: transparent; 
+	border-radius: 100px;
+	width: 0;
+	height: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 100px;
+	width: 0;
+	height: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+	border-radius: 100px;
+	width: 0;
+	height: 5px;
 }
