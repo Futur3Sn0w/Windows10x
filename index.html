@@ -20,7 +20,12 @@
 	<div class="menuitem2" id="wb4" onclick="myF4()"></div>
 	<div class="menuitem2" id="wb5" onclick="myF5()"></div>
 	</div>
-	<div class="darkmodetoggle" id="darkmodetoggle" onclick="myDark()">Dark mode (EXPERIMENTAL)<br>(Refresh to disable)</div>
+	<div class="darkmodetoggle" id="darkmodetoggle">
+	<label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+		Dark Mode
+	</label>
+	</div>
 </div>
 
 <div id="out-click"></div>
@@ -50,20 +55,28 @@
 </div>
 
 <script>
-function myDark() {
-  document.getElementById('mbdiv').style.backgroundColor = "#3A3A3A";
-  document.getElementById('mbindicator').style.backgroundColor = "#B0B0B0";
-  document.getElementById('currentTime').style.color = "#B0B0B0";
-  document.getElementById('menu').style.backgroundColor = "#3A3A3A";
-  document.getElementById('menuitem').style.color = "#B0B0B0";
-  document.getElementById('darkmodetoggle').style.color = "#B0B0B0";
-  document.getElementById('tooltip1').style.color = "#B0B0B0";
-  document.getElementById('tooltip2').style.color = "#B0B0B0";
-  document.getElementById('tooltip3').style.color = "#B0B0B0";
-  document.getElementById('tooltip1').style.backgroundColor = "#3A3A3A";
-  document.getElementById('tooltip2').style.backgroundColor = "#3A3A3A";
-  document.getElementById('tooltip3').style.backgroundColor = "#3A3A3A";
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
 }
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
 </script>
 <script>
 function myF1() {

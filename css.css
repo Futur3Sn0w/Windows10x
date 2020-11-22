@@ -4,8 +4,22 @@ body{
 	overflow: hidden;
 }
 
+:root {
+    --prim-div-color: #EFEDEC;
+    --sec-div-color: #615F5F;
+    --font-color: #615F5F;
+    --hov-color: #FFFFFF;
+}
+
+[data-theme="dark"] {
+    --prim-div-color: #3A3A3A;
+    --sec-div-color: #B0B0B0;
+    --font-color: #B0B0B0;
+    --hov-color: #605D5E;
+}
+
 .mbdiv {
-	background-color: #EFEDEC;
+	background-color: var(--prim-div-color);
 	color: white;
 	text-align: center;
 	font-size: 16px;
@@ -30,7 +44,7 @@ body{
 	height: 4px;
 	width: 35px;
 	border-radius: 500px;
-	background-color: grey;
+	background-color: var(--sec-div-color);
 	opacity: 100%;
 	margin: 0;
 	position: absolute;
@@ -76,7 +90,7 @@ body{
 }
 
 .mbbtn:hover{
-	background: white;
+	background: var(--hov-color);
 }
 
 .mbimgclr{
@@ -109,11 +123,11 @@ img{
 }
 
 .mbac:hover{
-	background: white;
+	background: var(--hov-color);
 }
 
 .mbac div{
-	color: #5E5E5E;
+	color: var(--font-color);
 	font-family: Segsb;
 	font-size: 14px;
 }
@@ -139,8 +153,8 @@ img{
 
 .tooltip1, .tooltip2, .tooltip3{
 	width: auto;
-	background-color: #EDEDED;
-	color: #605D5E;
+	background-color: var(--prim-div-color);
+	color: var(--font-color);
 	text-align: center;
 	border-radius: 6px;
 	padding: 10px 10px;
@@ -185,7 +199,7 @@ img{
 
 #menu {
 	display: block;
-	background-color: #e5e5e5;
+	background-color: var(--prim-div-color);
 	padding-top: 5px;
 	padding-bottom: 20px;
 	padding-left: 15px;
@@ -218,7 +232,7 @@ img{
 .menuitem, .menuitem2, .darkmodetoggle {
 	display: block;
 	transition: 0.1s;
-	color: #000;
+	color: var(--font-color);
 	font-family: Segsb;
 	border-radius: 3px;
 }
@@ -230,7 +244,7 @@ img{
 }
 
 .darkmodetoggle:hover{
-	background-color: #EEE;
+	background-color: var(--hov-color);
 }
 
 .menuitem {
