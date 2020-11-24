@@ -12,3 +12,13 @@
    font-family: Segsb;
    src: url(font/semi.ttf);
 }
+
+@font-face {
+	font-family: FluentFilled;
+	src: url(font/fluent_filled.ttf);
+}
+
+@font-face {
+	font-family: FluentRegular;
+	src: url(font/fluent_regular.ttf);
+}
