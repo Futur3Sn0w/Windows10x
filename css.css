@@ -9,6 +9,8 @@ body{
     --sec-div-color: #615F5F;
     --font-color: #615F5F;
     --hov-color: #FFFFFF;
+	--start-btn: url(10x2.svg);
+	--tskvw-btn: url(10xts2.svg);
 }
 
 [data-theme="dark"] {
@@ -16,6 +18,8 @@ body{
     --sec-div-color: #B0B0B0;
     --font-color: #B0B0B0;
     --hov-color: #605D5E;
+	--start-btn: url(10x3.svg);
+	--tskvw-btn: url(10xts3.svg);
 }
 
 .mbdiv {
@@ -78,6 +82,14 @@ body{
 
 .mbdiv:hover .mbitems{
 	opacity: 100%;
+}
+
+#startbtn2{
+	content: var(--start-btn);
+}
+
+#tskvwbtn2{
+	content: var(--tskvw-btn);
 }
 
 .mbbtn{
