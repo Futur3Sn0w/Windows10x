@@ -178,7 +178,6 @@ img{
 	height: 560px;
 	background-color: #EDEDED;
 	border-radius: 4px;
-	display: none;
 	box-shadow: 0px 0px 10px -10px rgba(0,0,0,0.2);
 	margin: 0;
 	position: absolute;
@@ -186,6 +185,8 @@ img{
 	left: 50%;
 	transform: translate(-50%, -30%);
 	transition: opacity 0.25s ease 0.1s;
+	z-index: 202;
+	display: none;
 }
 
 .tooltip1, .tooltip2, .tooltip3{

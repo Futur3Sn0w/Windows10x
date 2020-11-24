@@ -30,14 +30,14 @@
 
 <div id="out-click"></div>
 
-<div class="startmenu" id="startdiv">
+<ul class="startmenu" id="startdiv">
 
-</div>
+</ul>
 
 <div class="mbdiv" id="mbdiv" onclick="hideStartFunction()">
 <div class="mbindicator" id="mbindicator"></div>
 <div class="mbitems">
-<div class="mbbtn startbtn" onclick="myFunction()" id="startbtn">
+<div class="mbbtn startbtn" id="startbtn">
 <span class="tooltip1" id="tooltip1">Start</span>
 <img class="mbimgbw" id="startbtn2" onclick="myFunction()">
 <img class="mbimgclr" src="10x.svg" onclick="myFunction()">
@@ -85,7 +85,6 @@ function myF1() {
   document.body.style.backgroundImage = "url('wall.jpg')";
 }
 </script>
-
 <script>
 function myF2() {
   document.body.style.backgroundColor = "#f3f3f3";
@@ -110,8 +109,6 @@ function myF5() {
   document.body.style.backgroundImage = "url('wall5.jpg')";
 }
 </script>
-
-
 <script>
 window.onload = function() {
   clock();  
@@ -139,27 +136,6 @@ window.onload = function() {
     }
 }
 
-</script>
-
-<script>
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function myFunction()
-{
-document.getElementById("startdiv").style.display = "block";
-}
-</script>
-
-<script>
-function hideStartFunction(){
-  var divToHide = document.getElementById('startdiv');
-  document.onclick = function(e){
-    if(e.target.id !== 'startdiv'){
-      //element clicked wasn't the div; hide the div
-      divToHide.style.display = 'none';
-    }
-  };
-};
 </script>
 
 <script>
