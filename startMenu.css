@@ -1,0 +1,59 @@
+.startMenu {
+    position: absolute;
+    left: 50%;
+    bottom: 65px;
+    transform: translateX(-50%) translateY(100%);
+    width: 650px;
+    height: 700px;
+    background-color: var(--taskbar);
+    border-radius: 5px;
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .2s, transform .3s;
+}
+
+.smTop {
+    height: 130px;
+    width: 100%;
+    background: rgba(0, 0, 0, .1);
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+.searchBar {
+    resize: none;
+    width: 80%;
+    height: 50px;
+    border-radius: 3px;
+    border: none;
+    font: 400 16px Seg;
+    line-height: 50px;
+    padding: 0 50px 0 50px;
+    box-shadow: 0px 2px 2px 0px rgba(145, 123, 153, 0.4);
+    transition: box-shadow .2s;
+}
+
+.searchBar::before {
+    content: 'bb';
+}
+
+.searchBar:focus {
+    outline: none;
+    box-shadow: 0px 2px 4px 0px rgba(145, 123, 153, 0.8);
+}
+
+.smtIcon {
+    position: absolute;
+    font: 400 23px FLNTREG;
+}
+
+.searchIcon {
+    transform: rotateY(180deg);
+    left: 80px;
+}
+
+.micIcon {
+    right: 80px;
+}

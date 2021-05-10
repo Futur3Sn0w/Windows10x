@@ -1,0 +1,114 @@
+.taskbar {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    background: var(--taskbar);
+    transition: height .2s;
+    overflow: hidden;
+}
+
+.taskbar:hover {
+    height: 60px;
+    overflow: visible;
+}
+
+.taskbar:hover .tbIndicator {
+    opacity: 0;
+}
+
+.taskbar:hover .tbButtons {
+    opacity: 1;
+}
+
+.tbIndicator {
+    width: 30px;
+    height: 5px;
+    background: var(--tb-indicator);
+    border-radius: 100px;
+    transition: opacity .1s;
+}
+
+.tbButtons {
+    opacity: 0;
+    transition: .2s opacity;
+    position: absolute;
+    display: flex;
+    gap: 1px;
+}
+
+.tbbBtn::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    height: max-content;
+    background: var(--taskbar);
+    border-radius: 4px;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: .2s opacity .4s;
+}
+
+.tbbBtn {
+    display: grid;
+    place-content: center;
+    position: relative;
+    width: 70px;
+    height: 60px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    transition: background .2s;
+}
+
+.tbbStart {
+    background-image: var(--start-btn);
+}
+
+.tbbTaskView {
+    background-image: var(--tskvw-btn);
+}
+
+.tbbStart:hover {
+    background-image: url(startColor.svg);
+}
+
+.tbbTaskView:hover {
+    background-image: url(taskviewColor.svg);
+}
+
+.tbbBtn:hover {
+    background-color: var(--tb-hov);
+}
+
+.tbbBtn:hover::before {
+    opacity: 1;
+}
+
+.statusArea {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    background: transparent;
+    color: var(--font);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 10px 0 10px;
+}
+
+.statusArea:hover {
+    background-color: var(--tb-hov);
+}
+
+.statusArea:hover::before {
+    opacity: 0;
+}

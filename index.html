@@ -1,163 +1,91 @@
 <html>
 
 <head profile="http://www.w3.org/2005/10/profile">
-<link rel="icon" type="image/png" href="icon.png">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<title>Windows 10X</title>
-<link rel="stylesheet" href="css.css">
-<link rel="stylesheet" href="segoe.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>Windows 10X</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="segoe.css">
+    <link rel="stylesheet" href="taskbar.css">
+    <link rel="stylesheet" href="startMenu.css">
 
 </head>
 
 <body>
-<div class="backOverlay" id="clickable"></div>
-<div id="menu">
-	<div class="menuitem" id="menuitem">Change your background</div>
-	<div class="walls">
-	<div class="menuitem2" id="wb1" onclick="myF1()"></div>
-	<div class="menuitem2" id="wb2" onclick="myF2()"></div>
-	<div class="menuitem2" id="wb3" onclick="myF3()"></div>
-	<div class="menuitem2" id="wb4" onclick="myF4()"></div>
-	<div class="menuitem2" id="wb5" onclick="myF5()"></div>
-	</div>
-	<div class="darkmodetoggle" id="darkmodetoggle">
-	<label class="theme-switch" for="checkbox">
-        <input type="checkbox" id="checkbox" />
-		Dark Mode
-	</label>
-	</div>
-</div>
 
-<div id="out-click"></div>
+    <div class="startMenu" id="startMenu">
+        <div class="smTop">
+            <textarea class="searchBar" rows="1" placeholder="Search the web and your stuff"></textarea>
+            <div class="smtIcon searchIcon">︵</div>
+            <div class="smtIcon micIcon"></div>
+        </div>
+        <div class="smBottom"></div>
+    </div>
 
-<ul class="startmenu" id="startdiv">
+    <div class="taskBar" id="taskbar">
+        <div class="tbIndicator"></div>
+        <div class="tbButtons">
+            <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
+            <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
+        </div>
+        <div class="statusArea">
+            <div class="saTime" id="saTime"></div>
+            <div class="saIcons" id="saIcons"></div>
+        </div>
+    </div>
 
-</ul>
+    <script>
+        function startBtn() {
+            if (document.getElementById("startMenu").style.opacity === "0") {
+                document.getElementById("startMenu").style.opacity = "1";
+                document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(0)";
+            } else {
+                document.getElementById("startMenu").style.opacity = "0";
+                document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+            }
+        }
+    </script>
+    <script>
+        document.addEventListener('mouseup', function(e) {
+            var container = document.getElementById("startMenu");
+            if (!container.contains(e.target)) {
+                document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+                container.style.opacity = '0';
 
-<div class="mbdiv" id="mbdiv" onclick="hideStartFunction()">
-<div class="mbindicator" id="mbindicator"></div>
-<div class="mbitems">
-<div class="mbbtn startbtn" id="startbtn">
-<span class="tooltip1" id="tooltip1">Start</span>
-<img class="mbimgbw" id="startbtn2" onclick="myFunction()">
-<img class="mbimgclr" src="10x.svg" onclick="myFunction()">
-</div>
-<div class="mbbtn taskviewbtn" id="taskviewbtn">
-<span class="tooltip2" id="tooltip2">Task View</span>
-<img class="mbimgbw" id="tskvwbtn2">
-<img class="mbimgclr" src="10xts.svg">
-</div>
-</div>
-<div class="mbac" id="mbacbtn">
-<span class="tooltip3" id="tooltip3">Action Center</span>
-<div id="currentTime"></div>
-<div id="aclogo">憐 </div>
-</div>
-</div>
+            }
+        });
+    </script>
 
-<script>
-const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem('theme');
+    <script>
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var session = "AM";
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
-    }
-}
+            if (h == 0) {
+                h = 12;
+            }
 
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    }
-    else {        document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-    }    
-}
+            if (h > 12) {
+                h = h - 12;
+                session = "PM";
+            }
 
-toggleSwitch.addEventListener('change', switchTheme, false);
-</script>
-<script>
-function myF1() {
-  document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('wall.jpg')";
-}
-</script>
-<script>
-function myF2() {
-  document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('wall2.jpg')";
-}
-</script>
-<script>
-function myF3() {
-  document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('wall3.jpg')";
-}
-</script>
-<script>
-function myF4() {
-  document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('wall4.jpg')";
-}
-</script>
-<script>
-function myF5() {
-  document.body.style.backgroundColor = "#f3f3f3";
-  document.body.style.backgroundImage = "url('wall5.jpg')";
-}
-</script>
-<script>
-window.onload = function() {
-  clock();  
-    function clock() {
-    var now = new Date();
-    var TwentyFourHour = now.getHours();
-    var hour = now.getHours();
-    var min = now.getMinutes();
-    var sec = now.getSeconds();
-    var mid = 'pm';
-    if (min < 10) {
-      min = "0" + min;
-    }
-    if (hour > 12) {
-      hour = hour - 12;
-    }    
-    if(hour==0){ 
-      hour=12;
-    }
-    if(TwentyFourHour < 12) {
-       mid = 'am';
-    }     
-  document.getElementById('currentTime').innerHTML =     hour+':'+min ;
-    setTimeout(clock, 1000);
-    }
-}
+            h = (h < 10) ? h : h;
+            m = (m < 10) ? "0" + m : m;
 
-</script>
+            var time = h + ":" + m;
+            document.getElementById("saTime").innerText = time;
+            document.getElementById("saTime").textContent = time;
 
-<script>
-  const clickable = document.getElementById('clickable')
-  const menu = document.getElementById('menu')
-  const outClick = document.getElementById('out-click')
+            setTimeout(showTime, 1000);
 
-  clickable.addEventListener('contextmenu', e => {
-    e.preventDefault()
+        }
 
-    menu.style.top = `${e.clientY}px`
-    menu.style.left = `${e.clientX}px`
-    menu.classList.add('show')
-
-    outClick.style.display = "block"
-  })
-
-  outClick.addEventListener('click', () => {
-    menu.classList.remove('show')
-    outClick.style.display = "none"
-  })
-</script>
+        showTime();
+    </script>
 
 </body>
+
 </html>
