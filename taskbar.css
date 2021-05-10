@@ -112,7 +112,18 @@
     background: transparent;
     color: var(--font);
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
-    padding: 0 10px 0 10px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.saIcons {
+    font: 600 13px FLNTREG;
+}
+
+.taskbar:hover .statusArea {
+    padding-right: 10px;
+    align-items: flex-end;
+    flex-direction: column;
 }

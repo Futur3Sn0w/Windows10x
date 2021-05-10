@@ -20,11 +20,11 @@
     top: 0;
     height: 17%;
     width: 100%;
-    background: rgba(0, 0, 0, .1);
+    background: rgba(0, 0, 0, .07);
     display: flex;
     place-items: center;
     place-content: center;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
 }
 
 .searchBar {
@@ -270,7 +270,7 @@
     opacity: 60%;
     font: 100 12px Segsb;
     padding-left: 55px;
-    content: "In testing";
+    content: attr(data-subLabel);
 }
 
 .rt1 {
