@@ -87,11 +87,11 @@
 }
 
 .tbbStart:hover {
-    background-image: url(startColor.svg);
+    background-image: url(btnIcons/startColor.svg);
 }
 
 .tbbTaskView:hover {
-    background-image: url(taskviewColor.svg);
+    background-image: url(btnIcons/taskviewColor.svg);
 }
 
 .tbbBtn:hover,

@@ -1,5 +1,5 @@
 body {
-    background-image: url("wall2.jpg");
+    background-image: url("Walls/wall2.jpg");
     background-size: cover;
     overflow: hidden;
     margin: 0;
@@ -15,8 +15,9 @@ body {
         --font: #615F5F;
         --font2: #000000;
         --tb-hov: #FFFFFF;
-        --start-btn: url(startDark.svg);
-        --tskvw-btn: url(taskviewDark.svg);
+        --icn-hov: #ffffff60;
+        --start-btn: url(btnIcons/startDark.svg);
+        --tskvw-btn: url(btnIcons/taskviewDark.svg);
         --storeIcon: url(icons/MicrosoftStoreDark.png);
         --stickiesIcon: url(icons/MicrosoftStickyNotesDark.png);
     }
@@ -31,8 +32,9 @@ body {
         --font: #B0B0B0;
         --font2: #FFFFFF;
         --tb-hov: #605D5E;
-        --start-btn: url(startLight.svg);
-        --tskvw-btn: url(taskviewLight.svg);
+        --icn-hov: #ffffff26;
+        --start-btn: url(btnIcons/startLight.svg);
+        --tskvw-btn: url(btnIcons/taskviewLight.svg);
         --storeIcon: url(icons/MicrosoftStoreLight.png);
         --stickiesIcon: url(icons/MicrosoftStickyNotesLight.png);
     }

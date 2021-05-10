@@ -4,8 +4,8 @@
     bottom: 65px;
     transform: translateX(-50%) translateY(100%);
     box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
-    width: 650px;
-    height: 700px;
+    width: 700px;
+    height: 750px;
     background-color: var(--startMenu);
     backdrop-filter: blur(90px) saturate(400%);
     border-radius: 6px;
@@ -16,7 +16,9 @@
 }
 
 .smTop {
-    height: 130px;
+    position: absolute;
+    top: 0;
+    height: 17%;
     width: 100%;
     background: rgba(0, 0, 0, .1);
     display: flex;
@@ -60,21 +62,21 @@
 
 .searchIcon {
     transform: rotateY(180deg);
-    left: 80px;
+    left: 12%;
 }
 
 .micIcon {
-    right: 80px;
+    right: 12%;
 }
 
 .smBottom {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 570px;
-    display: flex;
-    flex-direction: column;
+    height: 83%;
     color: var(--font2);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .smbSection {
@@ -85,7 +87,8 @@
     display: flex;
     height: 80px;
     align-items: center;
-    padding: 0 65px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .ss1Lbl {
@@ -93,13 +96,21 @@
 }
 
 .ss1Btn {
-    position: absolute;
-    right: 70px;
+    margin-left: auto;
     font: 400 13px Segsb;
     background-color: var(--searchBar);
     color: var(--font2);
     padding: 4px 15px;
     border-radius: 100px;
+    transition: background-color .1s;
+}
+
+.ss1Btn:hover {
+    background-color: var(--startMenu);
+}
+
+.ss1Btn::after {
+    content: "Show all";
 }
 
 .smbSect2 {
@@ -108,26 +119,30 @@
     grid-template-rows: auto auto auto;
     place-content: center;
     place-items: center;
-    gap: 10px;
+    gap: 7px;
     padding: 0 60px 0 0;
 }
 
 .ss2Icon {
     position: relative;
-    width: 95px;
-    height: 95px;
+    width: 120px;
+    height: 90px;
     border-radius: 4px;
-    background-color: black;
     display: flex;
     justify-content: center;
     background-repeat: no-repeat;
-    background-size: 50px;
-    background-position: center;
+    background-size: 48px;
+    background-position: 50% 10px;
+    transition: background-color .1s;
+}
+
+.ss2Icon:hover {
+    background-color: var(--icn-hov);
 }
 
 .ss2Icon::after {
     position: absolute;
-    bottom: 0;
+    bottom: 5px;
     content: attr(data-label);
     font: 400 14px Segsb;
     width: max-content;
@@ -191,4 +206,37 @@
 
 .ss2Icon15 {
     background-image: url(icons/WindowsCalculator.png);
+}
+
+.smbSep {
+    height: 2px;
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.smbSect3 {
+    height: 500px;
+}
+
+@media screen and (max-width: 600px) {
+    .startMenu {
+        width: 95%;
+        height: calc(100% - 80px);
+        top: 10px;
+    }
+    .smbSect1,
+    .searchBar {
+        width: 86%;
+    }
+    .smbSect2 {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto auto auto;
+    }
+    .ss2Icon:hover {
+        background-color: transparent;
+    }
+    .ss1Btn:hover {
+        background-color: var(--searchBar);
+    }
 }
