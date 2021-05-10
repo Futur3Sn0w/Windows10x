@@ -18,8 +18,8 @@ body {
         --icn-hov: #ffffff60;
         --start-btn: url(btnIcons/startDark.svg);
         --tskvw-btn: url(btnIcons/taskviewDark.svg);
-        --storeIcon: url(icons/MicrosoftStoreDark.png);
-        --stickiesIcon: url(icons/MicrosoftStickyNotesDark.png);
+        --storeIcon: url(Icons/MicrosoftStoreDark.png);
+        --stickiesIcon: url(Icons/MicrosoftStickyNotesDark.png);
     }
 }
 
@@ -35,7 +35,7 @@ body {
         --icn-hov: #ffffff26;
         --start-btn: url(btnIcons/startLight.svg);
         --tskvw-btn: url(btnIcons/taskviewLight.svg);
-        --storeIcon: url(icons/MicrosoftStoreLight.png);
-        --stickiesIcon: url(icons/MicrosoftStickyNotesLight.png);
+        --storeIcon: url(Icons/MicrosoftStoreLight.png);
+        --stickiesIcon: url(Icons/MicrosoftStickyNotesLight.png);
     }
 }
