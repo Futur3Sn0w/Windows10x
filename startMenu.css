@@ -3,14 +3,16 @@
     left: 50%;
     bottom: 65px;
     transform: translateX(-50%) translateY(100%);
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
     width: 650px;
     height: 700px;
-    background-color: var(--taskbar);
-    border-radius: 5px;
-    display: flex;
+    background-color: var(--startMenu);
+    backdrop-filter: blur(90px) saturate(400%);
+    border-radius: 6px;
     overflow: hidden;
     opacity: 0;
     transition: opacity .2s, transform .3s;
+    color: var(--font2);
 }
 
 .smTop {
@@ -26,13 +28,20 @@
     resize: none;
     width: 80%;
     height: 50px;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
-    font: 400 16px Seg;
+    font: 400 16px Segsb;
     line-height: 50px;
     padding: 0 50px 0 50px;
-    box-shadow: 0px 2px 2px 0px rgba(145, 123, 153, 0.4);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.15);
     transition: box-shadow .2s;
+    background-color: var(--searchBar);
+    color: var(--font2);
+}
+
+::placeholder {
+    color: var(--font2);
+    opacity: .4;
 }
 
 .searchBar::before {
@@ -41,7 +50,7 @@
 
 .searchBar:focus {
     outline: none;
-    box-shadow: 0px 2px 4px 0px rgba(145, 123, 153, 0.8);
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.3);
 }
 
 .smtIcon {
@@ -56,4 +65,130 @@
 
 .micIcon {
     right: 80px;
+}
+
+.smBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    color: var(--font2);
+}
+
+.smbSection {
+    width: 100%;
+}
+
+.smbSect1 {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    padding: 0 65px;
+}
+
+.ss1Lbl {
+    font: 100 16px Segb;
+}
+
+.ss1Btn {
+    position: absolute;
+    right: 70px;
+    font: 400 13px Segsb;
+    background-color: var(--searchBar);
+    color: var(--font2);
+    padding: 4px 15px;
+    border-radius: 100px;
+}
+
+.smbSect2 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    place-content: center;
+    place-items: center;
+    gap: 10px;
+    padding: 0 60px 0 0;
+}
+
+.ss2Icon {
+    position: relative;
+    width: 95px;
+    height: 95px;
+    border-radius: 4px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    background-position: center;
+}
+
+.ss2Icon::after {
+    position: absolute;
+    bottom: 0;
+    content: attr(data-label);
+    font: 400 14px Segsb;
+    width: max-content;
+}
+
+.ss2Icon1 {
+    background-image: url(icons/MicrosoftEdge.png);
+}
+
+.ss2Icon2 {
+    background-image: url(icons/Mail.png);
+}
+
+.ss2Icon3 {
+    background-image: url(icons/Calendar.png);
+}
+
+.ss2Icon4 {
+    background-image: url(icons/OneNote.png);
+}
+
+.ss2Icon5 {
+    background-image: url(icons/MicrosoftPhotos.png);
+}
+
+.ss2Icon6 {
+    background-image: url(icons/MicrosoftToDo.png);
+}
+
+.ss2Icon7 {
+    background-image: url(icons/WindowsVoiceRecorder.png);
+}
+
+.ss2Icon8 {
+    background-image: var(--storeIcon);
+}
+
+.ss2Icon9 {
+    background-image: url(icons/MicrosoftNews.png);
+}
+
+.ss2Icon10 {
+    background-image: url(icons/WindowsFileExplorer.png);
+}
+
+.ss2Icon11 {
+    background-image: var(--stickiesIcon);
+}
+
+.ss2Icon12 {
+    background-image: url(icons/WindowsMaps.png);
+}
+
+.ss2Icon13 {
+    background-image: url(icons/WindowsSettings.png);
+}
+
+.ss2Icon14 {
+    background-image: url(icons/MSNWeather.png);
+}
+
+.ss2Icon15 {
+    background-image: url(icons/WindowsCalculator.png);
 }

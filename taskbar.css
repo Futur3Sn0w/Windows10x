@@ -6,7 +6,9 @@
     justify-content: center;
     width: 100%;
     height: 30px;
-    background: var(--taskbar);
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.4);
+    background-color: var(--taskbar);
+    backdrop-filter: blur(90px) saturate(400%);
     transition: height .2s;
     overflow: hidden;
 }
@@ -40,11 +42,13 @@
     gap: 1px;
 }
 
-.tbbBtn::before {
+.tbbBtn::before,
+.statusArea::before {
     content: attr(data-tooltip);
     position: absolute;
     top: -40px;
     left: 50%;
+    box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.30);
     transform: translateX(-50%);
     width: max-content;
     height: max-content;
@@ -54,6 +58,11 @@
     padding: 5px 10px;
     opacity: 0;
     transition: .2s opacity .4s;
+}
+
+.statusArea::before {
+    right: 0;
+    left: 20px;
 }
 
 .tbbBtn {
@@ -85,11 +94,13 @@
     background-image: url(taskviewColor.svg);
 }
 
-.tbbBtn:hover {
-    background-color: var(--tb-hov);
+.tbbBtn:hover,
+.statusArea:hover {
+    background-color: rgba(0, 0, 0, 0.10);
 }
 
-.tbbBtn:hover::before {
+.tbbBtn:hover::before,
+.statusArea:hover::before {
     opacity: 1;
 }
 
@@ -104,12 +115,4 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0 10px 0 10px;
-}
-
-.statusArea:hover {
-    background-color: var(--tb-hov);
-}
-
-.statusArea:hover::before {
-    opacity: 0;
 }

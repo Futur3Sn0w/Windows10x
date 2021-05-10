@@ -1,5 +1,5 @@
 body {
-    background-image: url("wall.jpg");
+    background-image: url("wall2.jpg");
     background-size: cover;
     overflow: hidden;
     margin: 0;
@@ -8,22 +8,32 @@ body {
 
 @media (prefers-color-scheme: light) {
      :root {
-        --taskbar: #EFEDEC;
+        --taskbar: #efedece0;
+        --startMenu: #efedecb0;
+        --searchBar: #ffffff;
         --tb-indicator: #615F5F;
         --font: #615F5F;
+        --font2: #000000;
         --tb-hov: #FFFFFF;
         --start-btn: url(startDark.svg);
         --tskvw-btn: url(taskviewDark.svg);
+        --storeIcon: url(icons/MicrosoftStoreDark.png);
+        --stickiesIcon: url(icons/MicrosoftStickyNotesDark.png);
     }
 }
 
 @media (prefers-color-scheme: dark) {
      :root {
-        --taskbar: #3A3A3A;
+        --taskbar: #3a3a3ae0;
+        --startMenu: #272727bb;
+        --searchBar: #ffffff25;
         --tb-indicator: #B0B0B0;
         --font: #B0B0B0;
+        --font2: #FFFFFF;
         --tb-hov: #605D5E;
         --start-btn: url(startLight.svg);
         --tskvw-btn: url(taskviewLight.svg);
+        --storeIcon: url(icons/MicrosoftStoreLight.png);
+        --stickiesIcon: url(icons/MicrosoftStickyNotesLight.png);
     }
 }
