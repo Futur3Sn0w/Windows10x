@@ -24,6 +24,7 @@
     display: flex;
     place-items: center;
     place-content: center;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.1);
 }
 
 .searchBar {
@@ -136,7 +137,8 @@
     transition: background-color .1s;
 }
 
-.ss2Icon:hover {
+.ss2Icon:hover,
+.recTile:hover {
     background-color: var(--icn-hov);
 }
 
@@ -211,11 +213,88 @@
 .smbSep {
     height: 1px;
     margin-top: 50px;
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, .2);
 }
 
 .smbSect3 {
-    height: 500px;
+    height: 300px;
+}
+
+.ss3Lbl {
+    font: 100 16px Segb;
+    position: absolute;
+    padding: 30px 60px;
+}
+
+.ss3Lbl2 {
+    font: 100 14px Seg;
+    position: absolute;
+    width: 100%;
+    padding: 70px 0;
+    text-align: center;
+}
+
+.recentTiles {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    width: 100%;
+    margin: 110px auto;
+    gap: 6px;
+}
+
+.recTile {
+    width: 180px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 43px;
+    background-position: 10px 50%;
+    transition: background-color .2s;
+}
+
+.recTile::before {
+    font: 100 13px Segsb;
+    padding-left: 55px;
+    content: attr(data-label1);
+}
+
+.recTile::after {
+    opacity: 60%;
+    font: 100 12px Segsb;
+    padding-left: 55px;
+    content: "In testing";
+}
+
+.rt1 {
+    background-image: url(icons/MicrosoftTeams.png);
+}
+
+.rt2 {
+    background-image: url(icons/Spotify.png);
+}
+
+.rt3 {
+    background-image: url(icons/Twitter.png);
+}
+
+.rt4 {
+    background-image: url(icons/GrooveMusic.png);
+}
+
+.rt5 {
+    background-image: url(icons/Office.png);
+}
+
+.rt6 {
+    background-image: url(icons/VSCode.png);
 }
 
 @media screen and (max-width: 600px) {
