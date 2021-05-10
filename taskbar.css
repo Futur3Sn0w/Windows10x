@@ -49,6 +49,7 @@
     width: max-content;
     height: max-content;
     background: var(--taskbar);
+    color: var(--font);
     border-radius: 4px;
     padding: 5px 10px;
     opacity: 0;
