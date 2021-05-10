@@ -274,27 +274,27 @@
 }
 
 .rt1 {
-    background-image: url(icons/MicrosoftTeams.png);
+    background-image: url(Icons/MicrosoftTeams.png);
 }
 
 .rt2 {
-    background-image: url(icons/Spotify.png);
+    background-image: url(Icons/Spotify.png);
 }
 
 .rt3 {
-    background-image: url(icons/Twitter.png);
+    background-image: url(Icons/Twitter.png);
 }
 
 .rt4 {
-    background-image: url(icons/GrooveMusic.png);
+    background-image: url(Icons/GrooveMusic.png);
 }
 
 .rt5 {
-    background-image: url(icons/Office.png);
+    background-image: url(Icons/Office.png);
 }
 
 .rt6 {
-    background-image: url(icons/VSCode.png);
+    background-image: url(Icons/VSCode.png);
 }
 
 @media screen and (max-width: 600px) {
