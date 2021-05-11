@@ -11,7 +11,9 @@ body {
         --taskbar: #efedece0;
         --startMenu: #efedecb0;
         --searchBar: #ffffff;
+        --searchBar2: #ffffff;
         --searchBar-border: #dddddd;
+        --searchBar-border2: #dddddd;
         --tb-indicator: #615F5F;
         --font: #615F5F;
         --font2: #000000;
@@ -31,7 +33,9 @@ body {
         --taskbar: #3a3a3ae0;
         --startMenu: #272727bb;
         --searchBar: #ffffff25;
-        --searchBar-border: #cccccc;
+        --searchBar2: #00000094;
+        --searchBar-border: #4b4b4b;
+        --searchBar-border2: #7e7e7e;
         --tb-indicator: #B0B0B0;
         --font: #B0B0B0;
         --font2: #FFFFFF;

@@ -4,7 +4,7 @@
     position: absolute;
     width: 100vw;
     height: calc(100% - 30px);
-    background: var(--window-main);
+    background: var(--taskbar);
     opacity: 0;
     transform: scale(0);
     transform-origin: center;
@@ -17,7 +17,7 @@
     position: relative;
     width: 100%;
     height: 30px;
-    background: inherit;
+    background: transparent;
 }
 
 .titlebarText {
@@ -84,14 +84,6 @@
     background-color: #E36571;
 }
 
-.appContent {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: calc(100% - 30px);
-    background-color: inherit;
-}
-
 .acHead {
     position: absolute;
     top: 10%;
@@ -142,6 +134,11 @@
 }
 
 .page1 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--window-main);
     z-index: 5;
     transform: scale(1);
     opacity: 1;
@@ -149,10 +146,16 @@
 }
 
 .page2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 84%;
+    height: 100%;
     z-index: 4;
-    transform: scale(.4);
+    transform: scale(.8);
     opacity: 0;
     transition: opacity .2s, transform .3s;
+    background-color: var(--window-main);
 }
 
 .setTile {
@@ -169,7 +172,20 @@
     color: steelblue;
 }
 
-.setTile:hover {
+.st1,
+.st2,
+.st3,
+.st5,
+.st6,
+.st7,
+.st8,
+.st9,
+.st10,
+.st11 {
+    opacity: .5;
+}
+
+.st4:hover {
     background-color: var(--btn-hov);
 }
 
@@ -205,8 +221,67 @@
     padding-left: 55px;
 }
 
-.settingsPage2Sidebar {
+.sp2Sidebar {
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 55px;
+    width: 16%;
     height: 100%;
-    width: 18%;
-    background: black;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    color: var(--font2);
+    backdrop-filter: blur(90px) saturate(400%);
+}
+
+.sp2sbTab::before {
+    position: absolute;
+    padding-left: 40px;
+    content: attr(data-tabLabel);
+    font: 400 15px Segsb;
+}
+
+.sp2sbTab {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    color: var(--font2);
+    padding-left: 12px;
+    font: 400 21px FLNTREG;
+    transition: background-color .15s;
+}
+
+.sp2sbTab:hover {
+    background-color: var(--icn-hov);
+}
+
+.FindaSetting2 {
+    resize: none;
+    width: 90%;
+    height: 35px;
+    border-radius: 4px;
+    border: none;
+    font: 400 14px Segsb;
+    line-height: 30px;
+    padding: 0 50px 0 15px;
+    margin: 10px auto;
+    border: 2px solid var(--searchBar-border2);
+    transition: box-shadow .2s;
+    background-color: var(--searchBar2);
+    color: var(--font2);
+}
+
+.FindaSetting2:focus {
+    border: 2px solid var(--font);
+    outline: none;
+}
+
+.ssLabel {
+    width: 100%;
+    height: 45px;
+    padding: 10px 0 0 18px;
+    font: 400 15px Segb;
 }
