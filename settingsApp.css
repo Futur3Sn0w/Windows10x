@@ -3,7 +3,7 @@
     display: flex;
     position: absolute;
     width: 100vw;
-    height: calc(100% - 30px);
+    height: calc(100% - var(--tbSize));
     background: var(--taskbar);
     opacity: 0;
     transform: scale(0);
@@ -253,20 +253,21 @@
     padding-left: 12px;
     font: 400 21px FLNTREG;
     transition: background-color .15s;
+    border-left: 6px solid transparent;
 }
 
-.sp2sbTab::after {
-    left: 3px;
-    position: absolute;
-    content: "";
-    width: 5px;
-    height: 25px;
-    background: transparent;
-    border-radius: 100px;
-}
 
-.ssTab1::after {
-    background: var(--accent);
+/* .ssTab2,
+.ssTab3,
+.ssTab4,
+.ssTab5,
+.ssTab6,
+.ssTab8 {
+    display: none;
+} */
+
+.ssTab1 {
+    border-left-color: var(--accent);
 }
 
 .sp2sbTab:hover {
@@ -301,7 +302,16 @@
     font: 400 15px Segb;
 }
 
+.p2Page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    transition: opacity .3s;
+}
+
 .p2Background {
+    z-index: 5;
     padding: 70px 40px;
     display: flex;
     flex-direction: column;
@@ -381,4 +391,83 @@
 
 .customWall::after {
     content: "Custom wallpapers coming soon!"
+}
+
+.p2Taskbar {
+    padding: 70px 40px;
+    z-index: 4;
+}
+
+.autoHideLbl::before {
+    content: "Automatically collapse the taskbar";
+    font: 400 15px Segsb;
+}
+
+.autoHide {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }

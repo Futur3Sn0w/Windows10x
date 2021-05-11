@@ -96,17 +96,17 @@
             <div class="sp2sbTab ssTab0" data-tabLabel="Home" onclick="resetSettings()"></div>
             <textarea rows="1" placeholder="Find a setting" class="FindaSetting2"></textarea>
             <label class="ssLabel">Personalization</label>
-            <div class="sp2sbTab ssTab1" data-tabLabel="Background"></div>
-            <div class="sp2sbTab ssTab2" data-tabLabel="Colors"></div>
-            <div class="sp2sbTab ssTab3" data-tabLabel="Lock screen"></div>
-            <div class="sp2sbTab ssTab4" data-tabLabel="Themes"></div>
-            <div class="sp2sbTab ssTab5" data-tabLabel="Fonts"></div>
-            <div class="sp2sbTab ssTab6" data-tabLabel="Launcher"></div>
-            <div class="sp2sbTab ssTab7" data-tabLabel="Taskbar"></div>
-            <div class="sp2sbTab ssTab8" data-tabLabel="Device usage">ﴅ</div>
+            <div class="sp2sbTab ssTab1" id="ssTab1" onclick="settT4P1()" data-tabLabel="Background"></div>
+            <div class="sp2sbTab ssTab2" id="ssTab2" data-tabLabel="Colors"></div>
+            <div class="sp2sbTab ssTab3" id="ssTab3" data-tabLabel="Lock screen"></div>
+            <div class="sp2sbTab ssTab4" id="ssTab4" data-tabLabel="Themes"></div>
+            <div class="sp2sbTab ssTab5" id="ssTab5" data-tabLabel="Fonts"></div>
+            <div class="sp2sbTab ssTab6" id="ssTab6" data-tabLabel="Launcher"></div>
+            <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
+            <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
         </div>
         <div class="appContent page2" id="page2">
-            <div class="p2page p2Background">
+            <div class="p2page p2Background" id="ssPage1">
                 <label class="p2bLabel">Background</label>
                 <div class="wallPrev" id="wallPrev"></div>
                 <div class="wallStrip">
@@ -117,6 +117,15 @@
                     <div class="wsp ws5" onclick="wall5()"></div>
                 </div>
                 <div class="customWall"></div>
+            </div>
+            <div class="p2page p2Taskbar" id="ssPage7">
+                <div class="autoHide">
+                    <label class="autoHideLbl"></label>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                      </label>
+                </div>
             </div>
 
         </div>
@@ -309,6 +318,7 @@
             document.getElementById("page2").style.transform = "scale(.8)";
             document.getElementById("settBack").style.display = "none";
             document.getElementById("settingsTitlebarText").style.left = "15px";
+            settT4P1();
         }
 
         function settTab4() {
@@ -320,6 +330,24 @@
             document.getElementById("page1").style.transform = "scale(1.2)";
             document.getElementById("settBack").style.display = "flex";
             document.getElementById("settingsTitlebarText").style.left = "60px";
+        }
+
+        function settT4P1() {
+            document.getElementById("ssTab1").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab7").style.borderLeftColor = "transparent"
+            document.getElementById("ssPage1").style.opacity = 1;
+            document.getElementById("ssPage1").style.zIndex = 5;
+            document.getElementById("ssPage7").style.opacity = 0;
+            document.getElementById("ssPage7").style.zIndex = 4;
+        }
+
+        function settT4P7() {
+            document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab7").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssPage1").style.opacity = 0;
+            document.getElementById("ssPage1").style.zIndex = 4;
+            document.getElementById("ssPage7").style.opacity = 1;
+            document.getElementById("ssPage7").style.zIndex = 5;
         }
 
         function showHideSettings() {

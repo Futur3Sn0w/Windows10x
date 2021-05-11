@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 30px;
+    height: var(--tbSize);
     box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.4);
     background-color: var(--taskbar);
     backdrop-filter: blur(90px) saturate(400%);
@@ -15,7 +15,7 @@
 }
 
 .taskbar:hover {
-    height: 60px;
+    height: var(--tbSizeM);
     overflow: visible;
 }
 
