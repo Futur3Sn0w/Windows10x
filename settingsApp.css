@@ -1,5 +1,5 @@
 .settingsApp {
-    z-index: 1;
+    z-index: 3;
     display: flex;
     position: absolute;
     width: 100vw;
@@ -169,7 +169,7 @@
     padding: 0 10px 0 15px;
     transition: background-color .2s;
     font: 400 40px FLNTREG;
-    color: steelblue;
+    color: var(--accent);
 }
 
 .st1,
@@ -183,6 +183,7 @@
 .st10,
 .st11 {
     opacity: .5;
+    cursor: not-allowed;
 }
 
 .st4:hover {
@@ -254,6 +255,20 @@
     transition: background-color .15s;
 }
 
+.sp2sbTab::after {
+    left: 3px;
+    position: absolute;
+    content: "";
+    width: 5px;
+    height: 25px;
+    background: transparent;
+    border-radius: 100px;
+}
+
+.ssTab1::after {
+    background: var(--accent);
+}
+
 .sp2sbTab:hover {
     background-color: var(--icn-hov);
 }
@@ -284,4 +299,86 @@
     height: 45px;
     padding: 10px 0 0 18px;
     font: 400 15px Segb;
+}
+
+.p2Background {
+    padding: 70px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p2bLabel {
+    font: 400 30px Segb;
+    padding-bottom: 20px;
+}
+
+.wallPrev {
+    width: 400px;
+    height: 225px;
+    background-image: var(--wall1);
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.wallStrip {
+    position: relative;
+    padding-top: 50px;
+    display: flex;
+}
+
+.wallStrip::before {
+    content: "Choose your picture";
+    font: 400 16px Segsb;
+    position: absolute;
+    top: 20px;
+}
+
+.wsp {
+    width: 90px;
+    height: 90px;
+    margin-right: 5px;
+    background-size: cover;
+    border-radius: 4px;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+
+.wsp:hover {
+    opacity: .6;
+}
+
+.ws1 {
+    background-image: var(--wall1);
+}
+
+.ws2 {
+    background-image: var(--wall2);
+}
+
+.ws3 {
+    background-image: var(--wall3);
+}
+
+.ws4 {
+    background-image: var(--wall4);
+}
+
+.ws5 {
+    background-image: var(--wall5);
+}
+
+.customWall {
+    background-color: var(--btn-hov);
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    width: max-content;
+    color: var(--font2);
+    font: 400 14px Segsb;
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.customWall::after {
+    content: "Custom wallpapers coming soon!"
 }

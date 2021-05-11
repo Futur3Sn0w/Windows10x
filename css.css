@@ -1,5 +1,13 @@
+:root {
+    --wall1: url("Walls/wall1.jpg");
+    --wall2: url("Walls/wall2.jpg");
+    --wall3: url("Walls/wall3.jpg");
+    --wall4: url("Walls/wall4.jpg");
+    --wall5: url("Walls/wall5.jpg");
+}
+
 body {
-    background-image: url("Walls/wall2.jpg");
+    background-image: var(--wall1);
     background-size: cover;
     overflow: hidden;
     margin: 0;
@@ -14,7 +22,10 @@ body {
         --searchBar2: #ffffff;
         --searchBar-border: #dddddd;
         --searchBar-border2: #dddddd;
+        --context-menu: #efefef;
+        --context-hov: #e0e0e0;
         --tb-indicator: #615F5F;
+        --accent: steelblue;
         --font: #615F5F;
         --font2: #000000;
         --tb-hov: #FFFFFF;
@@ -36,7 +47,10 @@ body {
         --searchBar2: #00000094;
         --searchBar-border: #4b4b4b;
         --searchBar-border2: #7e7e7e;
+        --context-menu: #444444;
+        --context-hov: #686868;
         --tb-indicator: #B0B0B0;
+        --accent: steelblue;
         --font: #B0B0B0;
         --font2: #FFFFFF;
         --tb-hov: #605D5E;
@@ -48,4 +62,35 @@ body {
         --stickiesIcon: url(Icons/MicrosoftStickyNotesLight.png);
         --window-main: #000000;
     }
+}
+
+.desktopContext {
+    z-index: 10;
+    position: absolute;
+    opacity: 0;
+    color: var(--font2);
+    font: 400 14px Segsb;
+    transition: opacity .1s;
+}
+
+.dci {
+    background-color: var(--context-menu);
+    padding: 5px 10px;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.50);
+    border-radius: 4px;
+}
+
+.dci:hover {
+    background-color: var(--context-hov);
+}
+
+.dc1::before {
+    content: "Change your wallpaper";
+}
+
+.desktopLayer {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
 }

@@ -13,7 +13,13 @@
 
 </head>
 
-<body>
+<body id="body" onload="setWall()">
+
+    <div class="desktopLayer" id="desktopLayer"></div>
+
+    <div class="desktopContext" id="desktopContext">
+        <div class="dci dc1" onclick="openSettingsToBackground()"></div>
+    </div>
 
     <div class="startMenu" id="startMenu">
         <div class="smTop">
@@ -100,6 +106,18 @@
             <div class="sp2sbTab ssTab8" data-tabLabel="Device usage">ﴅ</div>
         </div>
         <div class="appContent page2" id="page2">
+            <div class="p2page p2Background">
+                <label class="p2bLabel">Background</label>
+                <div class="wallPrev" id="wallPrev"></div>
+                <div class="wallStrip">
+                    <div class="wsp ws1" onclick="wall1()"></div>
+                    <div class="wsp ws2" onclick="wall2()"></div>
+                    <div class="wsp ws3" onclick="wall3()"></div>
+                    <div class="wsp ws4" onclick="wall4()"></div>
+                    <div class="wsp ws5" onclick="wall5()"></div>
+                </div>
+                <div class="customWall"></div>
+            </div>
 
         </div>
     </div>
@@ -170,6 +188,75 @@
     </script>
 
     <script>
+        var desktopMenu = document.querySelector(".desktopContext");
+
+        document.onclick = hideMenu;
+        document.getElementById("desktopLayer").oncontextmenu = rightClick;
+
+        function hideMenu() {
+            document.getElementById("desktopContext")
+                .style.opacity = "0"
+        }
+
+        function rightClick(e) {
+            e.preventDefault();
+
+            if (document.getElementById("desktopContext")
+                .style.opacity == "1")
+                hideMenu();
+            else {
+                var menu = document.getElementById("desktopContext")
+
+                menu.style.opacity = '1';
+                menu.style.left = e.pageX + "px";
+                menu.style.top = e.pageY + "px";
+            }
+        }
+    </script>
+
+    <script>
+        function setWall() {
+            const wallCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('wall='))
+                .split('=')[1];
+
+            document.getElementById("body").style.backgroundImage = wallCookie;
+            document.getElementById("wallPrev").style.backgroundImage = wallCookie;
+        }
+
+        function wall1() {
+            document.cookie = "wall=" + document.getElementById("body").style.backgroundImage;
+            document.getElementById("body").style.backgroundImage = "var(--wall1)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--wall1)";
+        }
+
+        function wall2() {
+            document.cookie = "wall=var(--wall2)";
+            document.getElementById("body").style.backgroundImage = "var(--wall2)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--wall2)";
+        }
+
+        function wall3() {
+            document.cookie = "wall=var(--wall3)";
+            document.getElementById("body").style.backgroundImage = "var(--wall3)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--wall3)";
+        }
+
+        function wall4() {
+            document.cookie = "wall=var(--wall4)";
+            document.getElementById("body").style.backgroundImage = "var(--wall4)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--wall4)";
+        }
+
+        function wall5() {
+            document.cookie = "wall=var(--wall5)";
+            document.getElementById("body").style.backgroundImage = "var(--wall5)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--wall5)";
+        }
+    </script>
+
+    <script>
         function openSettings() {
             document.getElementById("settingsApp").style.transformOrigin = "center";
             document.getElementById("settingsApp").style.transform = "scale(1)";
@@ -179,6 +266,18 @@
             document.getElementById("startMenu").style.opacity = '0';
             document.getElementById("settBack").style.display = "none";
             document.getElementById("settingsTitlebarText").style.left = "15px";
+        }
+
+        function openSettingsToBackground() {
+            document.getElementById("settingsApp").style.transformOrigin = "center";
+            document.getElementById("settingsApp").style.transform = "scale(1)";
+            document.getElementById("settingsApp").style.opacity = "1";
+            document.getElementById("tbbSettings").style.display = "inline";
+            document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+            document.getElementById("startMenu").style.opacity = '0';
+            document.getElementById("settBack").style.display = "none";
+            document.getElementById("settingsTitlebarText").style.left = "15px";
+            settTab4();
         }
 
         function closeSettings() {
