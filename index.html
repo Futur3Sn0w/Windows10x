@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="segoe.css">
     <link rel="stylesheet" href="taskbar.css">
     <link rel="stylesheet" href="startMenu.css">
+    <link rel="stylesheet" href="settingsApp.css">
 
 </head>
 
@@ -38,7 +39,7 @@
                 <div class="ss2Icon ss2Icon10" data-label="Files"></div>
                 <div class="ss2Icon ss2Icon11" data-label="Sticky Notes"></div>
                 <div class="ss2Icon ss2Icon12" data-label="Maps"></div>
-                <div class="ss2Icon ss2Icon13" data-label="Settings"></div>
+                <div class="ss2Icon ss2Icon13" data-label="Settings" onclick="openSettings()"></div>
                 <div class="ss2Icon ss2Icon14" data-label="Weather"></div>
                 <div class="ss2Icon ss2Icon15" data-label="Calculator"></div>
             </div>
@@ -58,10 +59,43 @@
         </div>
     </div>
 
+    <div class="settingsApp" id="settingsApp">
+        <div class="titlebar" data-titlebar="Settings">
+            <label class="titlebarText" id="settingsTitlebarText">Settings</label>
+            <div class="settingsBackButton" id="settBack" onclick="resetSettings()"></div>
+            <div class="windowButtons">
+                <div class="wbMin" onclick="hideSettings()"></div>
+                <div class="wbClose" onclick="closeSettings()"></div>
+            </div>
+        </div>
+        <div class="appContent page1" id="page1">
+            <div class="acHead" data-achead="Settings"></div>
+            <textarea rows="1" placeholder="Find a setting" class="FindaSetting"></textarea>
+            <div class="settSearchIcon"></div>
+            <div class="settingsTiles">
+                <div class="setTile st1" data-tileName="System" data-tileDesc="Display, sounds, notifications, battery"></div>
+                <div class="setTile st2" data-tileName="Devices" data-tileDesc="Bluetooth, printers, mouse"></div>
+                <div class="setTile st3" data-tileName="Network & Internet" data-tileDesc="Wi-Fi, airplane mode, VPN"></div>
+                <div class="setTile st4" onclick="settTab4()" data-tileName="Personalization" data-tileDesc="Background, colors, taskbar"></div>
+                <div class="setTile st5" data-tileName="Apps" data-tileDesc="Uninstall, apps for websites, offline maps"></div>
+                <div class="setTile st6" data-tileName="Accounts" data-tileDesc="Your accounts, email, sync"></div>
+                <div class="setTile st7" data-tileName="Time & Language" data-tileDesc="Region, keyboard"></div>
+                <div class="setTile st8" data-tileName="Ease of Access" data-tileDesc="Narrator, text size"></div>
+                <div class="setTile st9" data-tileName="Search" data-tileDesc="Find my files, permissions"></div>
+                <div class="setTile st10" data-tileName="Privacy" data-tileDesc="Location, camera, microphone, feedback">ﰡ</div>
+                <div class="setTile st11" data-tileName="Update & Security" data-tileDesc="Troubleshoot, Find my device"></div>
+            </div>
+        </div>
+        <div class="appContent page2" id="page2">
+            <div class="settingsPage2Sidebar"></div>
+        </div>
+    </div>
+
     <div class="taskBar" id="taskbar">
         <div class="tbIndicator"></div>
         <div class="tbButtons">
             <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
+            <div class="tbbBtn tbbAppIcon tbbSettings" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
         <div class="statusArea" data-tooltip="Action Center">
@@ -120,6 +154,69 @@
         }
 
         showTime();
+    </script>
+
+    <script>
+        function openSettings() {
+            document.getElementById("settingsApp").style.transformOrigin = "center";
+            document.getElementById("settingsApp").style.transform = "scale(1)";
+            document.getElementById("settingsApp").style.opacity = "1";
+            document.getElementById("tbbSettings").style.display = "inline";
+            document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+            document.getElementById("startMenu").style.opacity = '0';
+            document.getElementById("settBack").style.display = "none";
+            document.getElementById("settingsTitlebarText").style.left = "15px";
+        }
+
+        function closeSettings() {
+            document.getElementById("settingsApp").style.transformOrigin = "center";
+            document.getElementById("settingsApp").style.transform = "scale(0)";
+            document.getElementById("settingsApp").style.opacity = "0";
+            document.getElementById("tbbSettings").style.display = "none";
+            resetSettings();
+        }
+
+        function hideSettings() {
+            document.getElementById("settingsApp").style.transformOrigin = "bottom";
+            document.getElementById("settingsApp").style.transform = "scale(0)";
+            document.getElementById("settingsApp").style.opacity = "0";
+        }
+
+        function showSettings() {
+            document.getElementById("settingsApp").style.transformOrigin = "bottom";
+            document.getElementById("settingsApp").style.transform = "scale(1)";
+            document.getElementById("settingsApp").style.opacity = "1";
+        }
+
+        function resetSettings() {
+            document.getElementById("page1").style.opacity = "1";
+            document.getElementById("page1").style.zIndex = "5";
+            document.getElementById("page1").style.transform = "scale(1)";
+            document.getElementById("page2").style.opacity = "0";
+            document.getElementById("page2").style.zIndex = "4";
+            document.getElementById("page2").style.transform = "scale(.8)";
+            document.getElementById("settBack").style.display = "none";
+            document.getElementById("settingsTitlebarText").style.left = "15px";
+        }
+
+        function settTab4() {
+            document.getElementById("page2").style.zIndex = "5";
+            document.getElementById("page2").style.opacity = "1";
+            document.getElementById("page2").style.transform = "scale(1)";
+            document.getElementById("page1").style.opacity = "0";
+            document.getElementById("page1").style.zIndex = "4";
+            document.getElementById("page1").style.transform = "scale(1.2)";
+            document.getElementById("settBack").style.display = "flex";
+            document.getElementById("settingsTitlebarText").style.left = "60px";
+        }
+
+        function showHideSettings() {
+            if (document.getElementById("settingsApp").style.transform === "scale(0)") {
+                showSettings();
+            } else {
+                hideSettings();
+            }
+        }
     </script>
 
 </body>

@@ -1,0 +1,211 @@
+.settingsApp {
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    height: calc(100% - 30px);
+    background: var(--window-main);
+    opacity: 0;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform .3s, opacity .2s;
+}
+
+.titlebar {
+    z-index: 10;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: inherit;
+}
+
+.titlebarText {
+    font: 400 12px Seg;
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--font2);
+}
+
+.windowButtons {
+    top: 0;
+    right: 0;
+    position: absolute;
+    gap: 1px;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+}
+
+.wbMin,
+.wbClose,
+.settingsBackButton {
+    font: 400 15px FLNTREG;
+    width: 45px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    color: var(--font2);
+}
+
+.settingsBackButton::before {
+    content: "";
+}
+
+.wbMin::before {
+    content: "ﱰ";
+}
+
+.wbClose::before {
+    content: "";
+}
+
+.wbMin:hover,
+.settingsBackButton:hover {
+    background-color: #a0a0a022;
+}
+
+.wbMin:active,
+.settingsBackButton:active {
+    background-color: #a0a0a033;
+}
+
+.wbClose:hover {
+    background-color: #E81123;
+    color: white;
+}
+
+.wbClose:active {
+    background-color: #E36571;
+}
+
+.appContent {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    background-color: inherit;
+}
+
+.acHead {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+}
+
+.acHead::before {
+    font: 600 35px Segb;
+    content: attr(data-achead);
+    color: var(--font2);
+}
+
+.FindaSetting {
+    position: absolute;
+    top: 11%;
+    right: 20%;
+    resize: none;
+    width: 320px;
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    font: 400 16px Segsb;
+    line-height: 38px;
+    padding: 0 50px 0 15px;
+    border: 2px solid var(--searchBar-border);
+    transition: box-shadow .2s;
+    background-color: var(--searchBar);
+    color: var(--font2);
+}
+
+::placeholder {
+    color: var(--font2);
+    opacity: .4;
+}
+
+.FindaSetting:focus {
+    border: 2px solid var(--font);
+    outline: none;
+}
+
+.settSearchIcon {
+    color: var(--font2);
+    opacity: .4;
+    position: absolute;
+    font: 400 17px FLNTREG;
+    top: 12.3%;
+    right: 20.7%;
+}
+
+.page1 {
+    z-index: 5;
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity .2s, transform .3s;
+}
+
+.page2 {
+    z-index: 4;
+    transform: scale(.4);
+    opacity: 0;
+    transition: opacity .2s, transform .3s;
+}
+
+.setTile {
+    position: relative;
+    width: 250px;
+    height: 90px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px 0 15px;
+    transition: background-color .2s;
+    font: 400 40px FLNTREG;
+    color: steelblue;
+}
+
+.setTile:hover {
+    background-color: var(--btn-hov);
+}
+
+.settingsTiles {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+}
+
+.setTile::before {
+    top: 10%;
+    position: absolute;
+    content: attr(data-tileName);
+    font: 400 16px Segsb;
+    color: var(--font2);
+    padding-left: 55px;
+}
+
+.setTile::after {
+    top: 37%;
+    position: absolute;
+    content: attr(data-tileDesc);
+    font: 400 14px Seg;
+    opacity: 60%;
+    color: var(--font2);
+    padding-left: 55px;
+}
+
+.settingsPage2Sidebar {
+    height: 100%;
+    width: 18%;
+    background: black;
+}

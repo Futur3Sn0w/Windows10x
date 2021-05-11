@@ -11,15 +11,18 @@ body {
         --taskbar: #efedece0;
         --startMenu: #efedecb0;
         --searchBar: #ffffff;
+        --searchBar-border: #dddddd;
         --tb-indicator: #615F5F;
         --font: #615F5F;
         --font2: #000000;
         --tb-hov: #FFFFFF;
         --icn-hov: #ffffff60;
+        --btn-hov: #eeeeee;
         --start-btn: url(btnIcons/startDark.svg);
         --tskvw-btn: url(btnIcons/taskviewDark.svg);
         --storeIcon: url(Icons/MicrosoftStoreDark.png);
         --stickiesIcon: url(Icons/MicrosoftStickyNotesDark.png);
+        --window-main: #FFFFFF;
     }
 }
 
@@ -28,14 +31,17 @@ body {
         --taskbar: #3a3a3ae0;
         --startMenu: #272727bb;
         --searchBar: #ffffff25;
+        --searchBar-border: #cccccc;
         --tb-indicator: #B0B0B0;
         --font: #B0B0B0;
         --font2: #FFFFFF;
         --tb-hov: #605D5E;
         --icn-hov: #ffffff26;
+        --btn-hov: #4b4b4b;
         --start-btn: url(btnIcons/startLight.svg);
         --tskvw-btn: url(btnIcons/taskviewLight.svg);
         --storeIcon: url(Icons/MicrosoftStoreLight.png);
         --stickiesIcon: url(Icons/MicrosoftStickyNotesLight.png);
+        --window-main: #000000;
     }
 }

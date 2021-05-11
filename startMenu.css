@@ -1,4 +1,5 @@
 .startMenu {
+    z-index: 10;
     position: absolute;
     left: 50%;
     bottom: 65px;
@@ -45,10 +46,6 @@
 ::placeholder {
     color: var(--font2);
     opacity: .4;
-}
-
-.searchBar::before {
-    content: 'bb';
 }
 
 .searchBar:focus {
@@ -135,6 +132,7 @@
     background-size: 48px;
     background-position: 50% 10px;
     transition: background-color .1s;
+    cursor: pointer;
 }
 
 .ss2Icon:hover,
