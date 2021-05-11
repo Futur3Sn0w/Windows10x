@@ -87,6 +87,12 @@
     background-image: var(--tskvw-btn);
 }
 
+.tbbSettings {
+    display: none;
+    background-image: url(Icons/WindowsSettings.png);
+    background-size: 30px;
+}
+
 .tbbStart:hover {
     background-image: url(btnIcons/startColor.svg);
 }
