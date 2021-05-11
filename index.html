@@ -122,23 +122,24 @@
                 <div class="autoHide">
                     <label class="autoHideLbl"></label>
                     <label class="switch">
-                        <input type="checkbox" checked>
+                        <input type="checkbox" id="autoHideCheckbox" onclick="autoHideTaskbar()" checked>
                         <span class="slider round"></span>
                       </label>
+                      <label id="test"></label>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="taskBar" id="taskbar">
-        <div class="tbIndicator"></div>
-        <div class="tbButtons">
+    <div class="taskBar" id="taskbar" onmouseover="showTaskbar()">
+        <div class="tbIndicator" id="tbIndicator"></div>
+        <div class="tbButtons" id="tbButtons">
             <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
             <div class="tbbBtn tbbAppIcon tbbSettings" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
-        <div class="statusArea" data-tooltip="Action Center">
+        <div class="statusArea" id="statusArea" data-tooltip="Action Center">
             <div class="saTime" id="saTime"></div>
             <div class="saIcons" id="saIcons"></div>
         </div>
@@ -356,6 +357,39 @@
             } else {
                 hideSettings();
             }
+        }
+    </script>
+
+    <script>
+        let root = document.documentElement;
+
+        document.getElementById("taskbar").onmouseleave = autoHideTaskbar();
+
+        function autoHideTaskbar(){
+            if (document.getElementById("autoHideCheckbox").checked) {
+                document.getElementById("taskbar").addEventListener("mouseleave", hideTaskbar());
+
+            } else if (!document.getElementById("autoHideCheckbox").checked) {
+                document.getElementById("taskbar").addEventListener("mouseleave", showTaskbar());
+            }
+        }
+
+        function showTaskbar(){
+            root.style.setProperty('--tbSize', '50px');
+            document.getElementById("tbButtons").style.opacity = "1";
+            document.getElementById("tbIndicator").style.opacity = "0";
+            document.getElementById("statusArea").style.paddingRight = "10px";
+            document.getElementById("statusArea").style.alignItems = "flex-end";
+            document.getElementById("statusArea").style.flexDirection = "column";
+        }
+
+        function hideTaskbar(){
+            root.style.setProperty('--tbSize', '30px');
+            document.getElementById("tbButtons").style.opacity = "0";
+            document.getElementById("tbIndicator").style.opacity = "1";
+            document.getElementById("statusArea").style.paddingRight = "0";
+            document.getElementById("statusArea").style.alignItems = "center";
+            document.getElementById("statusArea").style.flexDirection = "row";
         }
     </script>
 

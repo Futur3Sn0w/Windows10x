@@ -14,11 +14,6 @@
     overflow: hidden;
 }
 
-.taskbar:hover {
-    height: var(--tbSizeM);
-    overflow: visible;
-}
-
 .taskbar:hover .tbIndicator {
     opacity: 0;
 }
@@ -71,12 +66,16 @@
     place-content: center;
     position: relative;
     width: 70px;
-    height: 60px;
+    height: var(--tbSizeM);
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 22px;
     background-position: center;
     transition: background .2s;
+}
+
+.tbbBtn:active{
+    background-size: 18px;
 }
 
 .tbbStart {
@@ -91,6 +90,11 @@
     display: none;
     background-image: url(Icons/WindowsSettings.png);
     background-size: 30px;
+    transition: background-size .1s;
+}
+
+.tbbSettings:active{
+    background-size: 26px;
 }
 
 .tbbStart:hover {
@@ -113,7 +117,7 @@
 
 .statusArea {
     width: 60px;
-    height: 60px;
+    height: 100%;
     position: absolute;
     right: 0;
     background: transparent;
@@ -127,10 +131,4 @@
 
 .saIcons {
     font: 600 13px FLNTREG;
-}
-
-.taskbar:hover .statusArea {
-    padding-right: 10px;
-    align-items: flex-end;
-    flex-direction: column;
 }
