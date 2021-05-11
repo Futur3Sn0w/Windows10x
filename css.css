@@ -4,11 +4,10 @@
     --wall3: url("Walls/wall3.jpg");
     --wall4: url("Walls/wall4.jpg");
     --wall5: url("Walls/wall5.jpg");
-    --tbSizeS: 40px;
     --tbSizeM: 50px;
-    --tbSizeL: 65px;
     --tbSize: 30px;
     --appSidebar: 300px;
+    --autoHideTB: 1;
 }
 
 body {

@@ -13,7 +13,7 @@
 
 </head>
 
-<body id="body" onload="setWall()">
+<body id="body" onload="setWall(), setTBSize(), autoHideToggle()">
 
     <div class="desktopLayer" id="desktopLayer"></div>
 
@@ -119,20 +119,26 @@
                 <div class="customWall"></div>
             </div>
             <div class="p2page p2Taskbar" id="ssPage7">
+                <div class="taskbarSize">
+                    <label class="taskbarSizeLbl"></label>
+                    <div class="tbSize tbSmall" onclick="smallTB()" data-taskbarSize="Small"></div>
+                    <div class="tbSize tbMedium" onclick="medTB()" data-taskbarSize="Medium (Default)"></div>
+                    <div class="tbSize tbLarge" onclick="largeTB()" data-taskbarSize="Large"></div>
+                </div>
                 <div class="autoHide">
                     <label class="autoHideLbl"></label>
                     <label class="switch">
-                        <input type="checkbox" id="autoHideCheckbox" onclick="autoHideTaskbar()" checked>
+                        <input type="checkbox" id="autoHideCheckbox" onclick="autoHideToggle()" checked>
                         <span class="slider round"></span>
                       </label>
-                      <label id="test"></label>
+                    <label id="test"></label>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="taskBar" id="taskbar" onmouseover="showTaskbar()">
+    <div class="taskBar" id="taskbar">
         <div class="tbIndicator" id="tbIndicator"></div>
         <div class="tbButtons" id="tbButtons">
             <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
@@ -362,20 +368,35 @@
 
     <script>
         let root = document.documentElement;
+        var ahCheckbox = document.getElementById("autoHideCheckbox");
+        var taskbar = document.getElementById("taskbar");
 
-        document.getElementById("taskbar").onmouseleave = autoHideTaskbar();
-
-        function autoHideTaskbar(){
-            if (document.getElementById("autoHideCheckbox").checked) {
-                document.getElementById("taskbar").addEventListener("mouseleave", hideTaskbar());
-
-            } else if (!document.getElementById("autoHideCheckbox").checked) {
-                document.getElementById("taskbar").addEventListener("mouseleave", showTaskbar());
+        function autoHideToggle() {
+            if (ahCheckbox.checked == true) {
+                taskbar.addEventListener("mouseenter", showTaskbar);
+                taskbar.addEventListener("mouseleave", hideTaskbar);
+                hideTaskbar();
+                document.cookie = "autoHideTB=true";
+            } else {
+                taskbar.addEventListener("mouseenter", showTaskbar);
+                taskbar.removeEventListener("mouseleave", hideTaskbar);
+                showTaskbar();
+                document.cookie = "autoHideTB=false";
             }
         }
 
-        function showTaskbar(){
-            root.style.setProperty('--tbSize', '50px');
+        function hideTaskbar() {
+            taskbar.style.height = "30px";
+            document.getElementById("tbButtons").style.opacity = "0";
+            document.getElementById("tbIndicator").style.opacity = "1";
+            document.getElementById("statusArea").style.paddingRight = "0";
+            document.getElementById("statusArea").style.alignItems = "center";
+            document.getElementById("statusArea").style.flexDirection = "row";
+
+        }
+
+        function showTaskbar() {
+            taskbar.style.height = "var(--tbSizeM)";
             document.getElementById("tbButtons").style.opacity = "1";
             document.getElementById("tbIndicator").style.opacity = "0";
             document.getElementById("statusArea").style.paddingRight = "10px";
@@ -383,13 +404,41 @@
             document.getElementById("statusArea").style.flexDirection = "column";
         }
 
-        function hideTaskbar(){
-            root.style.setProperty('--tbSize', '30px');
-            document.getElementById("tbButtons").style.opacity = "0";
-            document.getElementById("tbIndicator").style.opacity = "1";
-            document.getElementById("statusArea").style.paddingRight = "0";
-            document.getElementById("statusArea").style.alignItems = "center";
-            document.getElementById("statusArea").style.flexDirection = "row";
+        function autoHideSave() {
+            const tbAutoHide = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('autoHideTB='))
+                .split('=')[1];
+
+            if (tbAutoHide = "true") {
+                ahCheckbox.checked = true;
+            } else {
+                ahCheckbox.checked = false;
+            }
+        }
+
+        function setTBSize() {
+            const tbSizeCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('tbSize='))
+                .split('=')[1];
+
+            root.style.setProperty('--tbSizeM', tbSizeCookie);
+        }
+
+        function smallTB() {
+            root.style.setProperty('--tbSizeM', '40px');
+            document.cookie = "tbSize=40px";
+        }
+
+        function medTB() {
+            root.style.setProperty('--tbSizeM', '50px');
+            document.cookie = "tbSize=50px";
+        }
+
+        function largeTB() {
+            root.style.setProperty('--tbSizeM', '60px');
+            document.cookie = "tbSize=60px";
         }
     </script>
 

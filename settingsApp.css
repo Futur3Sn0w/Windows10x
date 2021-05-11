@@ -3,7 +3,7 @@
     display: flex;
     position: absolute;
     width: 100vw;
-    height: calc(100% - var(--tbSize));
+    height: 100%;
     background: var(--taskbar);
     opacity: 0;
     transform: scale(0);
@@ -257,7 +257,6 @@
     border-left: 6px solid transparent;
 }
 
-
 .ssTab2,
 .ssTab3,
 .ssTab4,
@@ -309,6 +308,7 @@
     height: 100%;
     background-color: inherit;
     transition: opacity .3s;
+    color: var(--font2);
 }
 
 .p2Background {
@@ -316,6 +316,7 @@
     padding: 70px 40px;
     display: flex;
     flex-direction: column;
+    color: var(--font2);
 }
 
 .p2bLabel {
@@ -400,12 +401,47 @@
     opacity: 0;
 }
 
-.autoHideLbl::before {
-    content: "Automatically collapse the taskbar";
+.taskbarSize {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.taskbarSizeLbl {
+    position: absolute;
+}
+
+.taskbarSizeLbl::before {
+    content: "Taskbar size";
+    font: 400 17px Segsb;
+}
+
+.tbSize {
+    margin-top: 30px;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--context-menu);
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.tbSize:hover {
+    background-color: var(--context-hov);
+}
+
+.tbSize::before {
+    content: attr(data-taskbarSize);
     font: 400 15px Segsb;
 }
 
+.autoHideLbl::before {
+    content: "Automatically collapse the taskbar";
+    font: 400 17px Segsb;
+}
+
 .autoHide {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     position: absolute;

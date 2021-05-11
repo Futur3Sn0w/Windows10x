@@ -1,5 +1,5 @@
 .taskbar {
-    z-index: 10;
+    z-index: 15;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -11,15 +11,6 @@
     background-color: var(--taskbar);
     backdrop-filter: blur(90px) saturate(400%);
     transition: height .2s;
-    overflow: hidden;
-}
-
-.taskbar:hover .tbIndicator {
-    opacity: 0;
-}
-
-.taskbar:hover .tbButtons {
-    opacity: 1;
 }
 
 .tbIndicator {
@@ -65,17 +56,17 @@
     display: grid;
     place-content: center;
     position: relative;
-    width: 70px;
+    width: calc(var(--tbSizeM) + 15px);
     height: var(--tbSizeM);
     background-color: transparent;
     background-repeat: no-repeat;
-    background-size: 22px;
+    background-size: 33%;
     background-position: center;
     transition: background .2s;
 }
 
-.tbbBtn:active{
-    background-size: 18px;
+.tbbBtn:active {
+    background-size: 29%;
 }
 
 .tbbStart {
@@ -89,12 +80,12 @@
 .tbbSettings {
     display: none;
     background-image: url(Icons/WindowsSettings.png);
-    background-size: 30px;
+    background-size: 46%;
     transition: background-size .1s;
 }
 
-.tbbSettings:active{
-    background-size: 26px;
+.tbbSettings:active {
+    background-size: 40%;
 }
 
 .tbbStart:hover {
@@ -126,7 +117,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: .1rem;
 }
 
 .saIcons {
