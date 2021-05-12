@@ -15,6 +15,7 @@
 body {
     background-image: var(--wall1);
     background-size: cover;
+    background-position: center;
     overflow: hidden;
     margin: 0;
     font: 400 14px Seg;
