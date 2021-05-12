@@ -165,7 +165,13 @@
 .ss2Icon11,
 .ss2Icon12,
 .ss2Icon14,
-.ss2Icon15 {
+.ss2Icon15,
+.rt1,
+.rt2,
+.rt3,
+.rt4,
+.rt5,
+.rt6 {
     opacity: .4;
 }
 
@@ -323,6 +329,16 @@
     font: 100 12px Segsb;
     padding-left: 55px;
     content: attr(data-subLabel);
+}
+
+.rt1:hover,
+.rt2:hover,
+.rt3:hover,
+.rt4:hover,
+.rt5:hover,
+.rt6:hover {
+    background-color: transparent;
+    cursor: not-allowed;
 }
 
 .rt1 {

@@ -65,7 +65,7 @@
     background-repeat: no-repeat;
     background-size: 33%;
     background-position: center;
-    transition: background-color .2s, background-size .05s;
+    transition: background-color .2s, background-size .05s, opacity .2s, background-image .2s;
     cursor: pointer;
 }
 
@@ -83,9 +83,9 @@
 
 .tbbSettings {
     display: none;
+    opacity: 0;
     background-image: url(Icons/WindowsSettings.png);
     background-size: 46%;
-    transition: background-color .2s, background-size .05s;
 }
 
 .tbbSettings:active {

@@ -9,6 +9,7 @@
     --appSidebar: 300px;
     --objectRadi: 7px;
     --buttonRadi: 4px;
+    --userImage: url("user.png");
 }
 
 body {
@@ -21,8 +22,8 @@ body {
 
 @media (prefers-color-scheme: light) {
      :root {
-        --taskbar: #efedece0;
-        --startMenu: #efedecb0;
+        --taskbar: #efedecab;
+        --startMenu: #efedec96;
         --searchBar: #ffffff;
         --searchBar2: #ffffff;
         --searchBar-border: #dddddd;
@@ -46,8 +47,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
      :root {
-        --taskbar: #3a3a3ae0;
-        --startMenu: #272727bb;
+        --taskbar: #3a3a3acb;
+        --startMenu: #272727ad;
         --searchBar: #ffffff25;
         --searchBar2: #00000094;
         --searchBar-border: #4b4b4b;
