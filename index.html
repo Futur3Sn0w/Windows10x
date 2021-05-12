@@ -149,7 +149,7 @@
                         <input type="checkbox" id="autoHideCheckbox" onclick="autoHideToggle()" checked>
                         <span class="slider round"></span>
                       </label>
-                    <label id="test"></label>
+                    <label id="ahLabel"></label>
                 </div>
             </div>
 
@@ -442,11 +442,13 @@
                 taskbar.addEventListener("mouseenter", showTaskbar);
                 taskbar.addEventListener("mouseleave", hideTaskbar);
                 hideTaskbar();
+                document.getElementById("ahLabel").innerHTML = "On"
                 document.cookie = "autoHideTB=true";
             } else {
                 taskbar.addEventListener("mouseenter", showTaskbar);
                 taskbar.removeEventListener("mouseleave", hideTaskbar);
                 showTaskbar();
+                document.getElementById("ahLabel").innerHTML = "Off"
                 document.cookie = "autoHideTB=false";
             }
         }

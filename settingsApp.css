@@ -509,3 +509,10 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+#ahLabel {
+    position: absolute;
+    bottom: 1px;
+    left: 43px;
+    font: 400 15px Segsb;
+}
