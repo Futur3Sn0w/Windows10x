@@ -134,7 +134,7 @@
     right: 20.7%;
 }
 
-.page1 {
+.page0 {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -173,11 +173,9 @@
     color: var(--accent);
 }
 
-.st1,
 .st2,
 .st3,
 .st5,
-.st6,
 .st7,
 .st8,
 .st9,
@@ -187,7 +185,9 @@
     cursor: not-allowed;
 }
 
-.st4:hover {
+.st1:hover,
+.st4:hover,
+.st6:hover {
     background-color: var(--btn-hov);
 }
 

@@ -92,7 +92,7 @@
                 <div class="wbClose" onclick="closeSettings()"></div>
             </div>
         </div>
-        <div class="appContent page1" id="page1">
+        <div class="appContent page0" id="page0">
             <div class="acHead" data-achead="Settings"></div>
             <textarea rows="1" placeholder="Find a setting" class="FindaSetting"></textarea>
             <div class="settSearchIcon"></div>
@@ -123,8 +123,11 @@
             <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
             <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
         </div>
+        <div class="appContent page1">
+            SYSTEM
+        </div>
         <div class="appContent page2" id="page2">
-            <div class="p2page p2Background" id="ssPage1">
+            <div class="p2page p2Background" id="sspage0">
                 <label class="p2bLabel">Background</label>
                 <div class="wallPrev" id="wallPrev"></div>
                 <div class="wallStrip">
@@ -383,9 +386,9 @@
         }
 
         function resetSettings() {
-            document.getElementById("page1").style.opacity = "1";
-            document.getElementById("page1").style.zIndex = "5";
-            document.getElementById("page1").style.transform = "scale(1)";
+            document.getElementById("page0").style.opacity = "1";
+            document.getElementById("page0").style.zIndex = "5";
+            document.getElementById("page0").style.transform = "scale(1)";
             document.getElementById("page2").style.opacity = "0";
             document.getElementById("page2").style.zIndex = "4";
             document.getElementById("page2").style.transform = "scale(.8)";
@@ -398,9 +401,9 @@
             document.getElementById("page2").style.zIndex = "5";
             document.getElementById("page2").style.opacity = "1";
             document.getElementById("page2").style.transform = "scale(1)";
-            document.getElementById("page1").style.opacity = "0";
-            document.getElementById("page1").style.zIndex = "4";
-            document.getElementById("page1").style.transform = "scale(1.2)";
+            document.getElementById("page0").style.opacity = "0";
+            document.getElementById("page0").style.zIndex = "4";
+            document.getElementById("page0").style.transform = "scale(1.2)";
             document.getElementById("settBack").style.display = "flex";
             document.getElementById("settingsTitlebarText").style.left = "60px";
         }
@@ -408,8 +411,8 @@
         function settT4P1() {
             document.getElementById("ssTab1").style.borderLeftColor = "var(--accent)"
             document.getElementById("ssTab7").style.borderLeftColor = "transparent"
-            document.getElementById("ssPage1").style.opacity = 1;
-            document.getElementById("ssPage1").style.zIndex = 5;
+            document.getElementById("sspage0").style.opacity = 1;
+            document.getElementById("sspage0").style.zIndex = 5;
             document.getElementById("ssPage7").style.opacity = 0;
             document.getElementById("ssPage7").style.zIndex = 4;
         }
@@ -417,8 +420,8 @@
         function settT4P7() {
             document.getElementById("ssTab1").style.borderLeftColor = "transparent"
             document.getElementById("ssTab7").style.borderLeftColor = "var(--accent)"
-            document.getElementById("ssPage1").style.opacity = 0;
-            document.getElementById("ssPage1").style.zIndex = 4;
+            document.getElementById("sspage0").style.opacity = 0;
+            document.getElementById("sspage0").style.zIndex = 4;
             document.getElementById("ssPage7").style.opacity = 1;
             document.getElementById("ssPage7").style.zIndex = 5;
         }
