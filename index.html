@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="taskbar.css">
     <link rel="stylesheet" href="startMenu.css">
     <link rel="stylesheet" href="settingsApp.css">
+    <link rel="stylesheet" href="actionCenter.css">
 
 </head>
 
@@ -19,6 +20,15 @@
 
     <div class="desktopContext" id="desktopContext">
         <div class="dci dc1" onclick="openSettingsToBackground()"></div>
+    </div>
+
+    <div class="actionCenter" id="actionCenter">
+        <div class="acPage acToggles" id="acToggles">
+            <div class="actHead">
+                <div class="acthCollapse" id="acthCollapse" onclick="acCollapse()"></div>
+            </div>
+            <div class="actBody"></div>
+        </div>
     </div>
 
     <div class="startMenu" id="startMenu">
@@ -145,11 +155,33 @@
             <div class="tbbBtn tbbAppIcon tbbSettings" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
-        <div class="statusArea" id="statusArea" data-tooltip="Action Center">
+        <div class="statusArea" id="statusArea" onclick="actionCenterBtn()" data-tooltip="Action Center">
             <div class="saTime" id="saTime"></div>
             <div class="saIcons" id="saIcons"></div>
         </div>
     </div>
+
+    <script>
+        function acCollapse() {
+            if (document.getElementById("acToggles").style.height === "300px") {
+                document.getElementById("acToggles").style.height = "500px";
+                document.getElementById("acthCollapse").innerHTML = "";
+            } else {
+                document.getElementById("acToggles").style.height = "300px";
+                document.getElementById("acthCollapse").innerHTML = "";
+            }
+        }
+
+        function actionCenterBtn() {
+            if (document.getElementById("actionCenter").style.opacity === "0") {
+                document.getElementById("actionCenter").style.opacity = "1";
+                document.getElementById("actionCenter").style.transform = "translateY(0)";
+            } else {
+                document.getElementById("actionCenter").style.opacity = "0";
+                document.getElementById("actionCenter").style.transform = "translateY(100%)";
+            }
+        }
+    </script>
 
     <script>
         function startBtn() {
@@ -166,9 +198,18 @@
         document.addEventListener('mouseup', function(e) {
             var container = document.getElementById("startMenu");
             if (!container.contains(e.target)) {
-                document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+                container.style.transform = "translateX(-50%) translateY(100%)";
                 container.style.opacity = '0';
+            }
+        });
+    </script>
 
+    <script>
+        document.addEventListener('mouseup', function(e) {
+            var container2 = document.getElementById("actionCenter");
+            if (!container2.contains(e.target)) {
+                container2.style.transform = "translateY(100%)";
+                container2.style.opacity = '0';
             }
         });
     </script>

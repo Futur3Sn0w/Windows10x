@@ -1,5 +1,5 @@
 .settingsApp {
-    z-index: 3;
+    z-index: 4;
     display: flex;
     position: absolute;
     width: 100vw;
@@ -104,7 +104,7 @@
     resize: none;
     width: 320px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     border: none;
     font: 400 16px Segsb;
     line-height: 38px;
@@ -163,7 +163,7 @@
     position: relative;
     width: 250px;
     height: 90px;
-    border-radius: 5px;
+    border-radius: var(--buttonRadi);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -278,7 +278,7 @@
     resize: none;
     width: 90%;
     height: 35px;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     border: none;
     font: 400 14px Segsb;
     line-height: 30px;
@@ -329,7 +329,7 @@
     height: 225px;
     background-image: var(--wall1);
     background-size: cover;
-    border-radius: 5px;
+    border-radius: var(--buttonRadi);
 }
 
 .wallStrip {
@@ -350,7 +350,7 @@
     height: 90px;
     margin-right: 5px;
     background-size: cover;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     transition: opacity .2s;
     cursor: pointer;
 }
@@ -383,7 +383,7 @@
     background-color: var(--btn-hov);
     padding: 5px 10px;
     margin: 10px 0;
-    border-radius: 3px;
+    border-radius: var(--buttonRadi);
     width: max-content;
     color: var(--font2);
     font: 400 14px Segsb;
@@ -422,7 +422,7 @@
     height: fit-content;
     background-color: var(--context-menu);
     padding: 5px 15px;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     cursor: pointer;
 }
 

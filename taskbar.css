@@ -34,9 +34,7 @@
     content: attr(data-tooltip);
     position: absolute;
     top: -40px;
-    left: 50%;
     box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.30);
-    transform: translateX(-50%);
     width: max-content;
     height: max-content;
     background: var(--taskbar);
@@ -45,11 +43,16 @@
     padding: 5px 10px;
     opacity: 0;
     transition: .2s opacity .4s;
+    pointer-events: none;
+}
+
+.tbbBtn::before {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .statusArea::before {
-    right: 0;
-    left: 20px;
+    right: 5px;
 }
 
 .tbbBtn {
@@ -62,11 +65,12 @@
     background-repeat: no-repeat;
     background-size: 33%;
     background-position: center;
-    transition: background .2s;
+    transition: background-color .2s, background-size .05s;
+    cursor: pointer;
 }
 
 .tbbBtn:active {
-    background-size: 29%;
+    background-size: 27%;
 }
 
 .tbbStart {
@@ -81,7 +85,7 @@
     display: none;
     background-image: url(Icons/WindowsSettings.png);
     background-size: 46%;
-    transition: background-size .1s;
+    transition: background-color .2s, background-size .05s;
 }
 
 .tbbSettings:active {
@@ -118,6 +122,7 @@
     align-items: center;
     justify-content: center;
     gap: .1rem;
+    cursor: pointer;
 }
 
 .saIcons {

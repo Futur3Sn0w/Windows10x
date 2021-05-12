@@ -9,7 +9,7 @@
     height: 750px;
     background-color: var(--startMenu);
     backdrop-filter: blur(90px) saturate(400%);
-    border-radius: 6px;
+    border-radius: var(--objectRadi);
     overflow: hidden;
     opacity: 0;
     transition: opacity .2s, transform .3s;
@@ -32,7 +32,7 @@
     resize: none;
     width: 80%;
     height: 50px;
-    border-radius: 5px;
+    border-radius: var(--buttonRadi);
     border: none;
     font: 400 16px Segsb;
     line-height: 50px;
@@ -125,14 +125,18 @@
     position: relative;
     width: 120px;
     height: 90px;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     display: flex;
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 48px;
     background-position: 50% 10px;
-    transition: background-color .1s;
+    transition: background-color .1s, background-size .2s;
     cursor: pointer;
+}
+
+.ss2Icon:active {
+    background-size: 40px;
 }
 
 .ss2Icon:hover,
@@ -146,6 +150,56 @@
     content: attr(data-label);
     font: 400 14px Segsb;
     width: max-content;
+}
+
+.ss2Icon1,
+.ss2Icon2,
+.ss2Icon3,
+.ss2Icon4,
+.ss2Icon5,
+.ss2Icon6,
+.ss2Icon7,
+.ss2Icon8,
+.ss2Icon9,
+.ss2Icon10,
+.ss2Icon11,
+.ss2Icon12,
+.ss2Icon14,
+.ss2Icon15 {
+    opacity: .4;
+}
+
+.ss2Icon1:hover,
+.ss2Icon2:hover,
+.ss2Icon3:hover,
+.ss2Icon4:hover,
+.ss2Icon5:hover,
+.ss2Icon6:hover,
+.ss2Icon7:hover,
+.ss2Icon8:hover,
+.ss2Icon9:hover,
+.ss2Icon10:hover,
+.ss2Icon11:hover,
+.ss2Icon12:hover,
+.ss2Icon14:hover,
+.ss2Icon15:hover,
+.ss2Icon1:focus,
+.ss2Icon2:focus,
+.ss2Icon3:focus,
+.ss2Icon4:focus,
+.ss2Icon5:focus,
+.ss2Icon6:focus,
+.ss2Icon7:focus,
+.ss2Icon8:focus,
+.ss2Icon9:focus,
+.ss2Icon10:focus,
+.ss2Icon11:focus,
+.ss2Icon12:focus,
+.ss2Icon14:focus,
+.ss2Icon15:focus {
+    background-color: transparent;
+    background-size: 48px;
+    cursor: not-allowed;
 }
 
 .ss2Icon1 {
@@ -248,7 +302,7 @@
     width: 180px;
     height: 50px;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: var(--buttonRadi);
     display: flex;
     flex-direction: column;
     justify-content: center;
