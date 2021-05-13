@@ -126,11 +126,12 @@
 }
 
 .settSearchIcon {
+    margin-top: 12px;
     color: var(--font2);
     opacity: .4;
     position: absolute;
     font: 400 17px FLNTREG;
-    top: 12.3%;
+    top: 11%;
     right: 20.7%;
 }
 
@@ -144,6 +145,19 @@
     transform: scale(1);
     opacity: 1;
     transition: opacity .2s, transform .3s;
+}
+
+.page1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - var(--appSidebar));
+    height: 100%;
+    z-index: 4;
+    transform: scale(.8);
+    opacity: 0;
+    transition: opacity .2s, transform .3s;
+    background-color: var(--window-main);
 }
 
 .page2 {

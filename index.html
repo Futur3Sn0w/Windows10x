@@ -97,7 +97,7 @@
             <textarea rows="1" placeholder="Find a setting" class="FindaSetting"></textarea>
             <div class="settSearchIcon"></div>
             <div class="settingsTiles">
-                <div class="setTile st1" data-tileName="System" data-tileDesc="Display, sounds, notifications, battery"></div>
+                <div class="setTile st1" onclick="settTab1()" data-tileName="System" data-tileDesc="Display, sounds, notifications, battery"></div>
                 <div class="setTile st2" data-tileName="Devices" data-tileDesc="Bluetooth, printers, mouse"></div>
                 <div class="setTile st3" data-tileName="Network & Internet" data-tileDesc="Wi-Fi, airplane mode, VPN"></div>
                 <div class="setTile st4" onclick="settTab4()" data-tileName="Personalization" data-tileDesc="Background, colors, taskbar"></div>
@@ -123,7 +123,15 @@
             <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
             <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
         </div>
-        <div class="appContent page1">
+
+        <div class="sp1Sidebar">
+            <div class="sp1sbTab ssTab0" data-tabLabel="Home" onclick="resetSettings()"></div>
+            <textarea rows="1" placeholder="Find a setting" class="FindaSetting2"></textarea>
+            <label class="ssLabel">System</label>
+            <div class="sp1sbTab ssTab1" id="ssTab1" onclick="" data-tabLabel="About"></div>
+        </div>
+
+        <div class="appContent page1" id="page1">
             SYSTEM
         </div>
         <div class="appContent page2" id="page2">
@@ -390,8 +398,6 @@
             document.getElementById("tbbSettings").style.opacity = "1";
             document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
             document.getElementById("startMenu").style.opacity = '0';
-            document.getElementById("settBack").style.display = "none";
-            document.getElementById("settingsTitlebarText").style.left = "15px";
         }
 
         function openSettingsToBackground() {
@@ -430,6 +436,20 @@
             document.getElementById("settBack").style.display = "none";
             document.getElementById("settingsTitlebarText").style.left = "15px";
             settT4P1();
+        }
+
+        function settTab1() {
+            document.getElementById("page1").style.zIndex = "5";
+            document.getElementById("page1").style.opacity = "1";
+            document.getElementById("page1").style.transform = "scale(1)";
+            document.getElementById("page2").style.opacity = "0";
+            document.getElementById("page2").style.zIndex = "4";
+            document.getElementById("page2").style.transform = "scale(.8)";
+            document.getElementById("page0").style.opacity = "0";
+            document.getElementById("page0").style.zIndex = "4";
+            document.getElementById("page0").style.transform = "scale(1.2)";
+            document.getElementById("settBack").style.display = "flex";
+            document.getElementById("settingsTitlebarText").style.left = "60px";
         }
 
         function settTab4() {
