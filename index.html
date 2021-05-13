@@ -51,21 +51,21 @@
                 <div class="ss1Btn"></div>
             </div>
             <div class="smbSection smbSect2">
-                <div class="ss2Icon ss2Icon1" data-label="Microsoft Edge"></div>
-                <div class="ss2Icon ss2Icon2" data-label="Mail"></div>
-                <div class="ss2Icon ss2Icon3" data-label="Calendar"></div>
-                <div class="ss2Icon ss2Icon4" data-label="OneNote"></div>
-                <div class="ss2Icon ss2Icon5" data-label="Photos"></div>
-                <div class="ss2Icon ss2Icon6" data-label="To Do"></div>
-                <div class="ss2Icon ss2Icon7" data-label="Voice Recorder"></div>
-                <div class="ss2Icon ss2Icon8" data-label="Microsoft Store"></div>
-                <div class="ss2Icon ss2Icon9" data-label="News"></div>
-                <div class="ss2Icon ss2Icon10" data-label="Files"></div>
-                <div class="ss2Icon ss2Icon11" data-label="Sticky Notes"></div>
-                <div class="ss2Icon ss2Icon12" data-label="Maps"></div>
-                <div class="ss2Icon ss2Icon13" data-label="Settings" onclick="openSettings()"></div>
-                <div class="ss2Icon ss2Icon14" data-label="Weather"></div>
-                <div class="ss2Icon ss2Icon15" data-label="Calculator"></div>
+                <div class="ss2Icon ss2Icon1" id="ss2Icon" data-label="Microsoft Edge"></div>
+                <div class="ss2Icon ss2Icon2" id="ss2Icon" data-label="Mail"></div>
+                <div class="ss2Icon ss2Icon3" id="ss2Icon" data-label="Calendar"></div>
+                <div class="ss2Icon ss2Icon4" id="ss2Icon" data-label="OneNote"></div>
+                <div class="ss2Icon ss2Icon5" id="ss2Icon" data-label="Photos"></div>
+                <div class="ss2Icon ss2Icon6" id="ss2Icon" data-label="To Do"></div>
+                <div class="ss2Icon ss2Icon7" id="ss2Icon" data-label="Voice Recorder"></div>
+                <div class="ss2Icon ss2Icon8" id="ss2Icon" data-label="Microsoft Store"></div>
+                <div class="ss2Icon ss2Icon9" id="ss2Icon" data-label="News"></div>
+                <div class="ss2Icon ss2Icon10" id="ss2Icon" data-label="Files"></div>
+                <div class="ss2Icon ss2Icon11" id="ss2Icon" data-label="Sticky Notes"></div>
+                <div class="ss2Icon ss2Icon12" id="ss2Icon" data-label="Maps"></div>
+                <div class="ss2Icon ss2Icon13" id="ss2Icon" data-label="Settings" onclick="openSettings()"></div>
+                <div class="ss2Icon ss2Icon14" id="ss2Icon" data-label="Weather"></div>
+                <div class="ss2Icon ss2Icon15" id="ss2Icon" data-label="Calculator"></div>
             </div>
             <div class="smbSep"></div>
             <div class="smbSection smbSect3">
@@ -160,7 +160,6 @@
                 <label class="p2bLabel">Launcher</label>
                 <label class="launcherWidthLabel" data-label="Launcher size"></label>
                 <div class="launcherSize">
-                    <div class="laus lsOpt1" data-label="Compact" onclick="launcherSmall()"></div>
                     <div class="laus lsOpt2" data-label="Normal" onclick="launcherMed()"></div>
                     <div class="laus lsOpt3" data-label="Wide" onclick="launcherLarge()"></div>
                 </div>
@@ -357,10 +356,6 @@
 
     <script>
         var startMenu = document.getElementById("startMenu");
-        function launcherSmall(){
-            startMenu.style.width = "550px";
-            document.cookie = "launcherSize=small";
-        }
 
         function launcherMed(){
             startMenu.style.width = "700px";
@@ -378,9 +373,7 @@
                 .find(row => row.startsWith('launcherSize='))
                 .split('=')[1];
 
-            if (launcherSizeC === "small") {
-                startMenu.style.width = "550px";
-            } else if (launcherSizeC === "medium") {
+             if (launcherSizeC === "medium") {
                 startMenu.style.width = "700px";
             } else if (launcherSizeC === "large") {
                 startMenu.style.width = "900px";
