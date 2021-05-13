@@ -523,9 +523,18 @@ input:checked+.slider:before {
 }
 
 .launcherSize{
+    position: relative;
     display: flex;
     margin-top: 50px;
     gap: 10px;
+}
+
+.launcherSize::after{
+    position: absolute;
+    content: "The Launcher will automatically grow & shrink if your screen size is too small.";
+    bottom: -30px;
+    font: 400 12px Seg;
+    opacity: .5;
 }
 
 .laus{
