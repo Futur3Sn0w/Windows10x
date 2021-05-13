@@ -14,7 +14,7 @@
 
 </head>
 
-<body id="body" onload="setWall(), autoHideSave(), setTBSize(), autoHideToggle()">
+<body id="body" onload="setWall(), autoHideSave(), setTBSize(), autoHideToggle(), loadLauncherSize()">
 
     <div class="desktopLayer" id="desktopLayer"></div>
 
@@ -119,7 +119,7 @@
             <div class="sp2sbTab ssTab3" id="ssTab3" data-tabLabel="Lock screen"></div>
             <div class="sp2sbTab ssTab4" id="ssTab4" data-tabLabel="Themes"></div>
             <div class="sp2sbTab ssTab5" id="ssTab5" data-tabLabel="Fonts"></div>
-            <div class="sp2sbTab ssTab6" id="ssTab6" data-tabLabel="Launcher"></div>
+            <div class="sp2sbTab ssTab6" id="ssTab6" onclick="settT4P6()" data-tabLabel="Launcher"></div>
             <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
             <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
         </div>
@@ -140,6 +140,7 @@
                 <div class="customWall"></div>
             </div>
             <div class="p2page p2Taskbar" id="ssPage7">
+                <label class="p2bLabel">Taskbar</label>
                 <div class="taskbarSize">
                     <label class="taskbarSizeLbl"></label>
                     <div class="tbSize tbSmall" onclick="smallTB()" data-taskbarSize="Small"></div>
@@ -155,7 +156,15 @@
                     <label id="ahLabel"></label>
                 </div>
             </div>
-
+            <div class="p2page p2Launcher" id="ssPage6">
+                <label class="p2bLabel">Launcher</label>
+                <label class="launcherWidthLabel" data-label="Launcher size"></label>
+                <div class="launcherSize">
+                    <div class="laus lsOpt1" data-label="Compact" onclick="launcherSmall()"></div>
+                    <div class="laus lsOpt2" data-label="Normal" onclick="launcherMed()"></div>
+                    <div class="laus lsOpt3" data-label="Wide" onclick="launcherLarge()"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -347,6 +356,39 @@
     </script>
 
     <script>
+        var startMenu = document.getElementById("startMenu");
+        function launcherSmall(){
+            startMenu.style.width = "550px";
+            document.cookie = "launcherSize=small";
+        }
+
+        function launcherMed(){
+            startMenu.style.width = "700px";
+            document.cookie = "launcherSize=medium";
+        }
+
+        function launcherLarge(){
+            startMenu.style.width = "900px";
+            document.cookie = "launcherSize=large";
+        }
+
+        function loadLauncherSize(){
+            const launcherSizeC = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('launcherSize='))
+                .split('=')[1];
+
+            if (launcherSizeC === "small") {
+                startMenu.style.width = "550px";
+            } else if (launcherSizeC === "medium") {
+                startMenu.style.width = "700px";
+            } else if (launcherSizeC === "large") {
+                startMenu.style.width = "900px";
+            }
+        }
+    </script>
+
+    <script>
         function openSettings() {
             document.getElementById("settingsApp").style.transformOrigin = "center";
             document.getElementById("settingsApp").style.transform = "scale(1)";
@@ -410,20 +452,38 @@
 
         function settT4P1() {
             document.getElementById("ssTab1").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab6").style.borderLeftColor = "transparent"
             document.getElementById("ssTab7").style.borderLeftColor = "transparent"
             document.getElementById("sspage0").style.opacity = 1;
-            document.getElementById("sspage0").style.zIndex = 5;
+            document.getElementById("sspage0").style.zIndex = 6;
             document.getElementById("ssPage7").style.opacity = 0;
             document.getElementById("ssPage7").style.zIndex = 4;
+            document.getElementById("ssPage6").style.opacity = 0;
+            document.getElementById("ssPage6").style.zIndex = 4;
+        }
+ 
+        function settT4P6() {
+            document.getElementById("ssTab6").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab7").style.borderLeftColor = "transparent"
+            document.getElementById("ssPage6").style.opacity = 1;
+            document.getElementById("ssPage6").style.zIndex = 6;
+            document.getElementById("ssPage7").style.opacity = 0;
+            document.getElementById("ssPage7").style.zIndex = 4;
+            document.getElementById("sspage0").style.opacity = 0;
+            document.getElementById("sspage0").style.zIndex = 4;
         }
 
         function settT4P7() {
-            document.getElementById("ssTab1").style.borderLeftColor = "transparent"
             document.getElementById("ssTab7").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab6").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssPage7").style.opacity = 1;
+            document.getElementById("ssPage7").style.zIndex = 6;
             document.getElementById("sspage0").style.opacity = 0;
             document.getElementById("sspage0").style.zIndex = 4;
-            document.getElementById("ssPage7").style.opacity = 1;
-            document.getElementById("ssPage7").style.zIndex = 5;
+            document.getElementById("ssPage6").style.opacity = 0;
+            document.getElementById("ssPage6").style.zIndex = 4;
         }
 
         function showHideSettings() {

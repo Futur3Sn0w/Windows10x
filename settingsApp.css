@@ -261,7 +261,6 @@
 .ssTab3,
 .ssTab4,
 .ssTab5,
-.ssTab6,
 .ssTab8 {
     display: none;
 }
@@ -515,4 +514,46 @@ input:checked+.slider:before {
     bottom: 1px;
     left: 43px;
     font: 400 15px Segsb;
+}
+
+.p2Launcher{
+    padding: 70px 40px;
+    z-index: 4;
+    opacity: 0;
+}
+
+.launcherSize{
+    display: flex;
+    margin-top: 50px;
+    gap: 10px;
+}
+
+.laus{
+    font: 400 15px Segsb;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--context-menu);
+    padding: 5px 15px;
+    border-radius: var(--buttonRadi);
+    cursor: pointer;
+    transition: background-color .2s;
+}
+
+.laus:hover{
+    background-color: var(--context-hov);
+}
+
+.laus::before{
+    content: attr(data-label);
+}
+
+.launcherWidthLabel{
+    position: absolute;
+    left: 40px;
+    top: 130px;
+}
+
+.launcherWidthLabel::before{
+    font: 400 17px Segsb;
+    content: attr(data-label);
 }

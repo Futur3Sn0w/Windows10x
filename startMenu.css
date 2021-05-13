@@ -7,6 +7,7 @@
     box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
     width: 700px;
     height: 750px;
+    max-height: 90vh;
     background-color: var(--startMenu);
     backdrop-filter: blur(90px) saturate(400%);
     border-radius: var(--objectRadi);
@@ -364,6 +365,7 @@
 .rt6 {
     background-image: url(Icons/VSCode.png);
 }
+
 
 @media screen and (max-width: 600px) {
     .startMenu {
