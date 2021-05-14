@@ -87,8 +87,9 @@
 
 .acHead {
     position: absolute;
-    top: 10%;
-    left: 20%;
+    top: 10em;
+    left: 50%;
+    transform: translateX(-420%);
 }
 
 .acHead::before {
@@ -99,8 +100,9 @@
 
 .FindaSetting {
     position: absolute;
-    top: 11%;
-    right: 20%;
+    top: 9em;
+    right: 50%;
+    transform: translateX(175%);
     resize: none;
     width: 320px;
     height: 40px;
@@ -126,13 +128,13 @@
 }
 
 .settSearchIcon {
-    margin-top: 12px;
+    margin-top: 155px;
     color: var(--font2);
     opacity: .4;
     position: absolute;
     font: 400 17px FLNTREG;
-    top: 11%;
-    right: 20.7%;
+    right: 50%;
+    transform: translateX(3220%);
 }
 
 .page0 {
@@ -338,11 +340,71 @@
 }
 
 .wallPrev {
+    position: relative;
     width: 400px;
     height: 225px;
     background-image: var(--wall1);
     background-size: cover;
     border-radius: var(--buttonRadi);
+    overflow: hidden;
+}
+
+.wpTaskbar{
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    background-color: var(--taskbar);
+    backdrop-filter: blur(90px) saturate(400%);
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.wptDot{
+    width: 8px;
+    height: 8px;
+    background-color: var(--font2);
+    opacity: .5;
+    border-radius: 20%;
+}
+
+.wptd3{
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    right: 0;
+    border-radius: 0;
+    opacity: .2;
+}
+
+.wpStartMenu{
+    width: 120px;
+    height: 130px;
+    background-color: var(--startMenu);
+    backdrop-filter: blur(90px) saturate(400%);
+    border-radius: 2px;
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wpsmTop{
+    height: 20%;
+    width: 100%;
+    background: rgba(0, 0, 0, .07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wpsmtSearchbar{
+    width: 80%;
+    height: 8px;
+    background-color: white;
+    border-radius: 1px;
 }
 
 .wallStrip {
