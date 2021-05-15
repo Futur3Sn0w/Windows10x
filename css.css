@@ -1,3 +1,7 @@
+html {
+    overflow: hidden;
+}
+
 :root {
     --wall1: url("Walls/wall1.jpg");
     --wall2: url("Walls/wall2.jpg");
@@ -10,13 +14,16 @@
     --objectRadi: 7px;
     --buttonRadi: 4px;
     --userImage: url("user.png");
+    --qsHeight: 240px;
+    --accent: #397079;
+    --accent-hov: #50929c;
 }
 
 body {
     background-image: var(--wall1);
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    padding: 0;
     margin: 0;
     font: 400 14px Seg;
 }
@@ -32,7 +39,6 @@ body {
         --context-menu: #efefef;
         --context-hov: #e0e0e0;
         --tb-indicator: #615F5F;
-        --accent: steelblue;
         --font: #615F5F;
         --font2: #000000;
         --tb-hov: #FFFFFF;
@@ -57,7 +63,6 @@ body {
         --context-menu: #444444;
         --context-hov: #686868;
         --tb-indicator: #B0B0B0;
-        --accent: steelblue;
         --font: #B0B0B0;
         --font2: #FFFFFF;
         --tb-hov: #605D5E;

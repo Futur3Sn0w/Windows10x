@@ -13,6 +13,24 @@
     transition: height .2s;
 }
 
+.taskbar:hover {
+    height: var(--tbSizeM);
+}
+
+.taskbar:hover .tbButtons {
+    opacity: 1;
+}
+
+.taskbar:hover .tbIndicator {
+    opacity: 0;
+}
+
+.taskbar:hover .statusArea {
+    padding-right: 10px;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
 .tbIndicator {
     width: 30px;
     height: 5px;
@@ -114,17 +132,17 @@
     width: 60px;
     height: 100%;
     position: absolute;
-    right: 0;
+    right: 2px;
     background: transparent;
     color: var(--font);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: .1rem;
     cursor: pointer;
 }
 
 .saIcons {
     font: 600 13px FLNTREG;
+    padding-left: 6px;
 }

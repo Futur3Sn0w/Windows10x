@@ -3,13 +3,13 @@
     display: flex;
     position: absolute;
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     background: var(--taskbar);
     opacity: 0;
     transform: scale(0);
     transform-origin: center;
-    transition: transform .3s, opacity .2s;
     overflow: hidden;
+    transition: transform .3s, opacity .2s;
 }
 
 .titlebar {
@@ -85,24 +85,33 @@
     background-color: #E36571;
 }
 
-.acHead {
+.p0Head {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 10em;
+    top: 100px;
     left: 50%;
-    transform: translateX(-420%);
+    transform: translateX(-50%);
+    height: fit-content;
+    width: 90%;
+    max-width: 1120px;
+}
+
+.acHead {
+    float: left;
+    width: fit-content;
 }
 
 .acHead::before {
     font: 600 35px Segb;
     content: attr(data-achead);
     color: var(--font2);
+    float: left;
 }
 
 .FindaSetting {
-    position: absolute;
-    top: 9em;
-    right: 50%;
-    transform: translateX(175%);
+    float: right;
     resize: none;
     width: 320px;
     height: 40px;
@@ -110,7 +119,8 @@
     border: none;
     font: 400 16px Segsb;
     line-height: 38px;
-    padding: 0 50px 0 15px;
+    padding: 0 0 0 15px;
+    margin: 5px;
     border: 2px solid var(--searchBar-border);
     transition: box-shadow .2s;
     background-color: var(--searchBar);
@@ -128,13 +138,12 @@
 }
 
 .settSearchIcon {
-    margin-top: 155px;
+    margin-top: 12px;
     color: var(--font2);
     opacity: .4;
     position: absolute;
     font: 400 17px FLNTREG;
-    right: 50%;
-    transform: translateX(3220%);
+    right: 15px;
 }
 
 .page0 {
@@ -163,7 +172,8 @@
     color: var(--font2);
 }
 
-.sp1Tabs, .sp2Tabs{
+.sp1Tabs,
+.sp2Tabs {
     flex-direction: column;
 }
 
@@ -213,16 +223,17 @@
 }
 
 .settingsTiles {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: grid;
-    place-content: center;
-    place-items: center;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 220px auto;
     gap: 20px;
+    width: 100%;
+    max-width: 1160px;
+    height: fit-content;
+    max-height: 85vh;
+    overflow: scroll;
 }
 
 .setTile::before {
@@ -278,7 +289,6 @@
     border-left: 6px solid transparent;
 }
 
-.ssTab2,
 .ssTab3,
 .ssTab4,
 .ssTab5,
@@ -286,7 +296,8 @@
     display: none;
 }
 
-.ssTab1, .ss2Tab1 {
+.ssTab1,
+.ss2Tab1 {
     border-left-color: var(--accent);
 }
 
@@ -322,7 +333,8 @@
     font: 400 15px Segb;
 }
 
-.p2Page, .p1page {
+.p2Page,
+.p1page {
     padding: 70px 40px;
     position: absolute;
     width: 100%;
@@ -354,7 +366,7 @@
     overflow: hidden;
 }
 
-.wpTaskbar{
+.wpTaskbar {
     position: absolute;
     width: 100%;
     height: 15px;
@@ -367,7 +379,7 @@
     gap: 5px;
 }
 
-.wptDot{
+.wptDot {
     width: 8px;
     height: 8px;
     background-color: var(--font2);
@@ -375,7 +387,7 @@
     border-radius: 20%;
 }
 
-.wptd3{
+.wptd3 {
     height: 15px;
     width: 15px;
     position: absolute;
@@ -384,7 +396,7 @@
     opacity: .2;
 }
 
-.wpStartMenu{
+.wpStartMenu {
     width: 120px;
     height: 130px;
     background-color: var(--startMenu);
@@ -397,7 +409,7 @@
     overflow: hidden;
 }
 
-.wpsmTop{
+.wpsmTop {
     height: 20%;
     width: 100%;
     background: rgba(0, 0, 0, .07);
@@ -406,20 +418,20 @@
     justify-content: center;
 }
 
-.wpsmtSearchbar{
+.wpsmtSearchbar {
     width: 80%;
     height: 8px;
     background-color: white;
     border-radius: 1px;
 }
 
-.wpsmBottom{
+.wpsmBottom {
     display: flex;
     width: 100%;
     height: 80%;
 }
 
-.wpsmbIcons{
+.wpsmbIcons {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto auto auto;
@@ -431,7 +443,7 @@
     padding-top: 10px;
 }
 
-.wpsmbSep{
+.wpsmbSep {
     position: absolute;
     width: 100%;
     height: 1px;
@@ -439,7 +451,7 @@
     background-color: rgba(0, 0, 0, .2);
 }
 
-.wpsmbi{
+.wpsmbi {
     width: 12px;
     height: 12px;
     border-radius: 20%;
@@ -447,7 +459,7 @@
     opacity: .4;
 }
 
-.wpsmbi2{
+.wpsmbi2 {
     width: 25px;
     height: 11px;
     border-radius: 3px;
@@ -455,7 +467,7 @@
     opacity: .4;
 }
 
-.wpsmbIcons2{
+.wpsmbIcons2 {
     position: absolute;
     bottom: 9px;
     display: flex;
@@ -650,19 +662,19 @@ input:checked+.slider:before {
     font: 400 15px Segsb;
 }
 
-.p2Launcher{
+.p2Launcher {
     z-index: 4;
     opacity: 0;
 }
 
-.launcherSize{
+.launcherSize {
     position: relative;
     display: flex;
     margin-top: 50px;
     gap: 10px;
 }
 
-.launcherSize::after{
+.launcherSize::after {
     position: absolute;
     content: "The Launcher will automatically shrink if your screen size is too small.";
     bottom: -30px;
@@ -670,7 +682,7 @@ input:checked+.slider:before {
     opacity: .5;
 }
 
-.laus{
+.laus {
     font: 400 15px Segsb;
     width: fit-content;
     height: fit-content;
@@ -681,21 +693,129 @@ input:checked+.slider:before {
     transition: background-color .2s;
 }
 
-.laus:hover{
+.laus:hover {
     background-color: var(--context-hov);
 }
 
-.laus::before{
+.laus::before {
     content: attr(data-label);
 }
 
-.launcherWidthLabel{
+.launcherWidthLabel {
     position: absolute;
     left: 40px;
     top: 130px;
 }
 
-.launcherWidthLabel::before{
+.launcherWidthLabel::before {
     font: 400 17px Segsb;
     content: attr(data-label);
+}
+
+.deviceSpecs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 150px;
+    width: 500px;
+    position: absolute;
+    padding-top: 100px;
+}
+
+.deviceSpecs::before {
+    content: attr(data-specLBL);
+    position: absolute;
+    font: 400 22px Segsb;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+}
+
+.devspec {
+    font: 400 15px Seg;
+    padding-bottom: 9px;
+}
+
+.devspec::before {
+    content: attr(data-devSpecLBL);
+    position: absolute;
+    font: 400 15px Segsb;
+    left: 0;
+}
+
+.windowsSpecs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 150px;
+    width: 500px;
+    position: absolute;
+    padding-top: 480px;
+}
+
+.windowsSpecs::before {
+    content: attr(data-specLBL);
+    position: absolute;
+    font: 400 22px Segsb;
+    top: 0;
+    left: 0;
+    padding-top: 430px;
+}
+
+.accentColorSect {
+    margin-top: 40px;
+}
+
+.CYAC {
+    font: 400 20px Segsb;
+}
+
+.accentColors {
+    padding-top: 10px;
+    display: flex;
+    gap: 3px;
+    position: relative;
+}
+
+.accentColors::after {
+    position: absolute;
+    content: "Accent color support is in beta. Features may change and update in the future.";
+    bottom: -25px;
+    opacity: .6;
+    font: 400 12px Seg;
+}
+
+.aColor {
+    width: 50px;
+    height: 50px;
+    border: 2px solid transparent;
+    transition: border .1s;
+}
+
+.aColor:hover {
+    border-color: var(--font2);
+}
+
+.ac1 {
+    background-color: #3D7FD5;
+}
+
+.ac2 {
+    background-color: #30AEAA;
+}
+
+.ac3 {
+    background-color: #B32B1D;
+}
+
+.ac4 {
+    background-color: #0283E5;
+}
+
+.ac5 {
+    background-color: #C67AB8;
+}
+
+.ac6 {
+    display: none;
 }

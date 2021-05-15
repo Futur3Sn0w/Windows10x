@@ -11,7 +11,7 @@
 
 .acPage {
     width: 400px;
-    height: 300px;
+    height: var(--qsHeight);
     border-radius: var(--objectRadi);
     box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
     background-color: var(--startMenu);
@@ -20,6 +20,9 @@
     overflow: hidden;
     transition: height .2s;
 }
+
+
+/* HEADER */
 
 .actHead {
     position: absolute;
@@ -54,6 +57,82 @@
     background-color: rgba(255, 255, 255, .3);
 }
 
+
+/* BODY */
+
+.actBody {
+    height: 133px;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    transition: height .2s;
+}
+
+.actbVolume {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.actbvIcon {
+    font: 100 20px FLNTREG;
+    padding-right: 15px;
+}
+
+.actbvSlider {
+    width: 320px;
+    height: 6px;
+    border-radius: 50px;
+    background-color: var(--accent);
+    display: flex;
+    align-items: center;
+    opacity: .8;
+}
+
+.actvbsIndicator {
+    width: 25px;
+    height: 25px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    transition: background-color .1s;
+}
+
+.actbToggles {
+    padding: 67px 0 0 0;
+    display: grid;
+    gap: 16px 15px;
+    width: 100%;
+    place-content: center;
+    place-items: center;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+}
+
+.actbTogg {
+    width: 110px;
+    height: 50px;
+    background-color: var(--accent);
+    border-radius: 3px;
+    transition: background-color .1s;
+}
+
+.actbTogg:hover,
+.actvbsIndicator:hover {
+    background-color: var(--accent-hov);
+}
+
+
+/* FOOTER */
+
 .actFooter {
     position: absolute;
     bottom: 0;
@@ -72,7 +151,7 @@
 .actfButtons {
     position: absolute;
     right: 0;
-    height: 100%;
+    height: calc(100% + 2px);
     width: fit-content;
     display: flex;
     align-items: center;
@@ -88,10 +167,20 @@
     align-items: center;
     justify-content: center;
     font: 100 18px FLNTREG;
+    transition: background-color .2s;
+}
+
+.actfBtn:hover {
+    background-color: rgba(0, 0, 0, .1);
 }
 
 .actfbUsertile {
     background-image: var(--userImage);
     background-size: cover;
     background-position: center;
+    transition: opacity .1s;
+}
+
+.actfbUsertile:hover {
+    opacity: .8;
 }

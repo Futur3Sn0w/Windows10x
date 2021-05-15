@@ -14,7 +14,7 @@
 
 </head>
 
-<body id="body" onload="setWall(), autoHideSave(), setTBSize(), autoHideToggle(), loadLauncherSize()">
+<body id="body" onload="setWall(), autoHideSave(), setTBSize(), autoHideToggle(), loadLauncherSize(), setAccentColorOnLoad()">
 
     <div class="desktopLayer" id="desktopLayer"></div>
 
@@ -27,7 +27,25 @@
             <div class="actHead">
                 <div class="acthCollapse" id="acthCollapse" onclick="acCollapse()"></div>
             </div>
-            <div class="actBody"></div>
+            <div class="actBody" id="actBody">
+                <div class="actbVolume">
+                    <div class="actbvIcon">ﱦ</div>
+                    <div class="actbvSlider">
+                        <div class="actvbsIndicator"></div>
+                    </div>
+                </div>
+                <div class="actbToggles">
+                    <div class="actbTogg actbt1"></div>
+                    <div class="actbTogg actbt2"></div>
+                    <div class="actbTogg actbt3"></div>
+                    <div class="actbTogg actbt4"></div>
+                    <div class="actbTogg actbt5"></div>
+                    <div class="actbTogg actbt6"></div>
+                    <div class="actbTogg actbt7"></div>
+                    <div class="actbTogg actbt8"></div>
+                    <div class="actbTogg actbt9"></div>
+                </div>
+            </div>
             <div class="actFooter">
                 <div class="actfButtons">
                     <div class="actfBtn actfbKeyboard"></div>
@@ -93,9 +111,12 @@
             </div>
         </div>
         <div class="appContent page0" id="page0">
-            <div class="acHead" data-achead="Settings"></div>
-            <textarea rows="1" placeholder="Find a setting" class="FindaSetting"></textarea>
-            <div class="settSearchIcon"></div>
+            <div class="p0Head">
+                <div class="acHead" data-achead="Settings"></div>
+                <div class="p0hSpacer"></div>
+                <textarea rows="1" placeholder="Find a setting" class="FindaSetting"></textarea>
+                <!-- <div class="settSearchIcon"></div> -->
+            </div>
             <div class="settingsTiles">
                 <div class="setTile st1" onclick="settTab1()" data-tileName="System" data-tileDesc="Display, sounds, notifications, battery"></div>
                 <div class="setTile st2" data-tileName="Devices" data-tileDesc="Bluetooth, printers, mouse"></div>
@@ -108,6 +129,7 @@
                 <div class="setTile st9" data-tileName="Search" data-tileDesc="Find my files, permissions"></div>
                 <div class="setTile st10" data-tileName="Privacy" data-tileDesc="Location, camera, microphone, feedback">ﰡ</div>
                 <div class="setTile st11" data-tileName="Update & Security" data-tileDesc="Troubleshoot, Find my device"></div>
+                <div class="setTile stSpacer"></div>
             </div>
         </div>
         <div class="sp2Sidebar">
@@ -115,18 +137,18 @@
             <textarea rows="1" placeholder="Find a setting" class="FindaSetting2"></textarea>
             <label class="ssLabel" id="ssLabel">Personalization</label>
             <div class="sp2Tabs" id="sp2Tabs">
-            <div class="sp2sbTab ssTab1" id="ssTab1" onclick="settT4P1()" data-tabLabel="Background"></div>
-            <div class="sp2sbTab ssTab2" id="ssTab2" data-tabLabel="Colors"></div>
-            <div class="sp2sbTab ssTab3" id="ssTab3" data-tabLabel="Lock screen"></div>
-            <div class="sp2sbTab ssTab4" id="ssTab4" data-tabLabel="Themes"></div>
-            <div class="sp2sbTab ssTab5" id="ssTab5" data-tabLabel="Fonts"></div>
-            <div class="sp2sbTab ssTab6" id="ssTab6" onclick="settT4P6()" data-tabLabel="Launcher"></div>
-            <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
-            <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
-        </div>
-        <div class="sp1Tabs" id="sp1Tabs">
-            <div class="sp2sbTab ss2Tab1" id="ss2Tab1" data-tabLabel="About"></div>
-        </div>
+                <div class="sp2sbTab ssTab1" id="ssTab1" onclick="settT4P1()" data-tabLabel="Background"></div>
+                <div class="sp2sbTab ssTab2" id="ssTab2" onclick="settT4P2()" data-tabLabel="Colors"></div>
+                <div class="sp2sbTab ssTab3" id="ssTab3" data-tabLabel="Lock screen"></div>
+                <div class="sp2sbTab ssTab4" id="ssTab4" data-tabLabel="Themes"></div>
+                <div class="sp2sbTab ssTab5" id="ssTab5" data-tabLabel="Fonts"></div>
+                <div class="sp2sbTab ssTab6" id="ssTab6" onclick="settT4P6()" data-tabLabel="Launcher"></div>
+                <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
+                <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
+            </div>
+            <div class="sp1Tabs" id="sp1Tabs">
+                <div class="sp2sbTab ss2Tab1" id="ss2Tab1" data-tabLabel="About"></div>
+            </div>
         </div>
 
         <div class="sp1Sidebar">
@@ -139,7 +161,24 @@
         <div class="appContent page1" id="page1">
             <div class="p1page p1about" id="ss2page1">
                 <label class="p2bLabel">About</label>
-                
+                <div class="deviceSpecs" data-specLBL="Device specifications">
+                    <div class="devspec dvspc1" data-devSpecLBL="Device name">MinWin10X-PC</div>
+                    <div class="devspec dvspc2" data-devSpecLBL="Manufacturer">Futur3Sn0w Studio</div>
+                    <div class="devspec dvspc3" data-devSpecLBL="Model">HTML5 & CSS3</div>
+                    <div class="devspec dvspc4" data-devSpecLBL="Processor">Chromium</div>
+                    <div class="devspec dvspc5" data-devSpecLBL="Installed RAM">###</div>
+                    <div class="devspec dvspc6" data-devSpecLBL="Serial number">T3I0A1R5SN</div>
+                    <div class="devspec dvspc7" data-devSpecLBL="Device ID">G052003-C050374-H112206-B052276-W103197</div>
+                    <div class="devspec dvspc8" data-devSpecLBL="System type">Web-bit operating system, xWeb-based processor</div>
+                    <div class="devspec dvspc9" data-devSpecLBL="Chip SOC version">Futur3(R) Center(TM) i21-21514X CPU @ 2.21GHz</div>
+                </div>
+                <div class="windowsSpecs" data-specLBL="Windows specifications">
+                    <div class="devspec dvspc1" data-devSpecLBL="Edition">Windows 10X</div>
+                    <div class="devspec dvspc2" data-devSpecLBL="Version">Web</div>
+                    <div class="devspec dvspc3" data-devSpecLBL="Installed on">5/9/21</div>
+                    <div class="devspec dvspc4" data-devSpecLBL="OS build">21513.1</div>
+                    <div class="devspec dvspc5" data-devSpecLBL="Experience">Windows 10X Futur3Sn0w Edition Experience Pack 2.0</div>
+                </div>
             </div>
         </div>
         <div class="appContent page2" id="page2">
@@ -191,6 +230,20 @@
                 </div>
                 <div class="customWall"></div>
             </div>
+            <div class="p2page p2Colors" id="ssPage2">
+                <label class="p2bLabel">Colors</label>
+                <div class="accentColorSect">
+                    <label class="CYAC">Choose your accent color</label>
+                    <div class="accentColors">
+                        <div class="aColor ac1" onclick="accentColor1()"></div>
+                        <div class="aColor ac2" onclick="accentColor2()"></div>
+                        <div class="aColor ac3" onclick="accentColor3()"></div>
+                        <div class="aColor ac4" onclick="accentColor4()"></div>
+                        <div class="aColor ac5" onclick="accentColor5()"></div>
+                        <div class="aColor ac6" onclick="accentColor6()"></div>
+                    </div>
+                </div>
+            </div>
             <div class="p2page p2Taskbar" id="ssPage7">
                 <label class="p2bLabel">Taskbar</label>
                 <div class="taskbarSize">
@@ -234,11 +287,13 @@
 
     <script>
         function acCollapse() {
-            if (document.getElementById("acToggles").style.height === "300px") {
-                document.getElementById("acToggles").style.height = "500px";
+            if (document.getElementById("acthCollapse").innerHTML === "") {
+                document.getElementById("acToggles").style.height = "380px";
+                document.getElementById("actBody").style.height = "275px";
                 document.getElementById("acthCollapse").innerHTML = "";
             } else {
-                document.getElementById("acToggles").style.height = "300px";
+                document.getElementById("acToggles").style.height = "240px";
+                document.getElementById("actBody").style.height = "133px";
                 document.getElementById("acthCollapse").innerHTML = "";
             }
         }
@@ -409,26 +464,79 @@
     <script>
         var startMenu = document.getElementById("startMenu");
 
-        function launcherMed(){
+        function launcherMed() {
             startMenu.style.width = "700px";
             document.cookie = "launcherSize=medium";
         }
 
-        function launcherLarge(){
+        function launcherLarge() {
             startMenu.style.width = "900px";
             document.cookie = "launcherSize=large";
         }
 
-        function loadLauncherSize(){
+        function loadLauncherSize() {
             const launcherSizeC = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('launcherSize='))
                 .split('=')[1];
 
-             if (launcherSizeC === "medium") {
+            if (launcherSizeC === "medium") {
                 startMenu.style.width = "700px";
             } else if (launcherSizeC === "large") {
                 startMenu.style.width = "900px";
+            }
+        }
+    </script>
+
+    <script>
+        var rootAccent = root.style.setProperty;
+
+        function accentColor1() {
+            root.style.setProperty('--accent', "#3D7FD5");
+            root.style.setProperty('--accent-hov', "#2E60A2");
+            document.cookie = "accentColor=ac1"
+        }
+
+        function accentColor2() {
+            root.style.setProperty('--accent', "#30AEAA");
+            root.style.setProperty('--accent-hov', "#217B78");
+            document.cookie = "accentColor=ac2"
+        }
+
+        function accentColor3() {
+            root.style.setProperty('--accent', "#B32B1D");
+            root.style.setProperty('--accent-hov', "#801E14");
+            document.cookie = "accentColor=ac3"
+        }
+
+        function accentColor4() {
+            root.style.setProperty('--accent', "#0283E5");
+            root.style.setProperty('--accent-hov', "#0165B2");
+            document.cookie = "accentColor=ac4"
+        }
+
+        function accentColor5() {
+            root.style.setProperty('--accent', "#C67AB8");
+            root.style.setProperty('--accent-hov', "#935A88");
+            document.cookie = "accentColor=ac5"
+        }
+
+        function setAccentColorOnLoad() {
+            const accentColorCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('accentColor='))
+                .split('=')[1];
+
+            if (accentColorCookie === "ac1") {
+                accentColor1();
+            } else if (accentColorCookie === "ac2") {
+                accentColor2();
+            } else if (accentColorCookie === "ac3") {
+                accentColor3();
+            } else if (accentColorCookie === "ac4") {
+                accentColor4();
+            } else if (accentColorCookie === "ac5") {
+                accentColor5();
             }
         }
     </script>
@@ -518,24 +626,45 @@
 
         function settT4P1() {
             document.getElementById("ssTab1").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab2").style.borderLeftColor = "transparent"
             document.getElementById("ssTab6").style.borderLeftColor = "transparent"
             document.getElementById("ssTab7").style.borderLeftColor = "transparent"
             document.getElementById("sspage0").style.opacity = 1;
             document.getElementById("sspage0").style.zIndex = 6;
+            document.getElementById("ssPage2").style.opacity = 0;
+            document.getElementById("ssPage2").style.zIndex = 4;
             document.getElementById("ssPage7").style.opacity = 0;
             document.getElementById("ssPage7").style.zIndex = 4;
             document.getElementById("ssPage6").style.opacity = 0;
             document.getElementById("ssPage6").style.zIndex = 4;
         }
- 
+
+        function settT4P2() {
+            document.getElementById("ssTab2").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab6").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab7").style.borderLeftColor = "transparent"
+            document.getElementById("ssPage2").style.opacity = 1;
+            document.getElementById("ssPage2").style.zIndex = 6;
+            document.getElementById("sspage0").style.opacity = 0;
+            document.getElementById("sspage0").style.zIndex = 4;
+            document.getElementById("ssPage7").style.opacity = 0;
+            document.getElementById("ssPage7").style.zIndex = 4;
+            document.getElementById("ssPage6").style.opacity = 0;
+            document.getElementById("ssPage6").style.zIndex = 4;
+        }
+
         function settT4P6() {
             document.getElementById("ssTab6").style.borderLeftColor = "var(--accent)"
             document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab2").style.borderLeftColor = "transparent"
             document.getElementById("ssTab7").style.borderLeftColor = "transparent"
             document.getElementById("ssPage6").style.opacity = 1;
             document.getElementById("ssPage6").style.zIndex = 6;
             document.getElementById("ssPage7").style.opacity = 0;
             document.getElementById("ssPage7").style.zIndex = 4;
+            document.getElementById("ssPage2").style.opacity = 0;
+            document.getElementById("ssPage2").style.zIndex = 4;
             document.getElementById("sspage0").style.opacity = 0;
             document.getElementById("sspage0").style.zIndex = 4;
         }
@@ -544,10 +673,13 @@
             document.getElementById("ssTab7").style.borderLeftColor = "var(--accent)"
             document.getElementById("ssTab6").style.borderLeftColor = "transparent"
             document.getElementById("ssTab1").style.borderLeftColor = "transparent"
+            document.getElementById("ssTab2").style.borderLeftColor = "transparent"
             document.getElementById("ssPage7").style.opacity = 1;
             document.getElementById("ssPage7").style.zIndex = 6;
             document.getElementById("sspage0").style.opacity = 0;
             document.getElementById("sspage0").style.zIndex = 4;
+            document.getElementById("ssPage2").style.opacity = 0;
+            document.getElementById("ssPage2").style.zIndex = 4;
             document.getElementById("ssPage6").style.opacity = 0;
             document.getElementById("ssPage6").style.zIndex = 4;
         }
