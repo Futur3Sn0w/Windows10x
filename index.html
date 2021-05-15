@@ -113,7 +113,8 @@
         <div class="sp2Sidebar">
             <div class="sp2sbTab ssTab0" data-tabLabel="Home" onclick="resetSettings()"></div>
             <textarea rows="1" placeholder="Find a setting" class="FindaSetting2"></textarea>
-            <label class="ssLabel">Personalization</label>
+            <label class="ssLabel" id="ssLabel">Personalization</label>
+            <div class="sp2Tabs" id="sp2Tabs">
             <div class="sp2sbTab ssTab1" id="ssTab1" onclick="settT4P1()" data-tabLabel="Background"></div>
             <div class="sp2sbTab ssTab2" id="ssTab2" data-tabLabel="Colors"></div>
             <div class="sp2sbTab ssTab3" id="ssTab3" data-tabLabel="Lock screen"></div>
@@ -122,7 +123,10 @@
             <div class="sp2sbTab ssTab6" id="ssTab6" onclick="settT4P6()" data-tabLabel="Launcher"></div>
             <div class="sp2sbTab ssTab7" id="ssTab7" onclick="settT4P7()" data-tabLabel="Taskbar"></div>
             <div class="sp2sbTab ssTab8" id="ssTab8" data-tabLabel="Device usage">ﴅ</div>
+        </div>
+        <div class="sp1Tabs" id="sp1Tabs">
             <div class="sp2sbTab ss2Tab1" id="ss2Tab1" data-tabLabel="About"></div>
+        </div>
         </div>
 
         <div class="sp1Sidebar">
@@ -133,7 +137,10 @@
         </div>
 
         <div class="appContent page1" id="page1">
-            SYSTEM
+            <div class="p1page p1about" id="ss2page1">
+                <label class="p2bLabel">About</label>
+                
+            </div>
         </div>
         <div class="appContent page2" id="page2">
             <div class="p2page p2Background" id="sspage0">
@@ -160,6 +167,12 @@
                                 <div class="wpsmbi"></div>
                                 <div class="wpsmbi"></div>
                                 <div class="wpsmbi"></div>
+                            </div>
+                            <div class="wpsmbSep"></div>
+                            <div class="wpsmbIcons2">
+                                <div class="wpsmbi2"></div>
+                                <div class="wpsmbi2"></div>
+                                <div class="wpsmbi2"></div>
                             </div>
                         </div>
                     </div>
@@ -484,6 +497,9 @@
             document.getElementById("page0").style.transform = "scale(1.2)";
             document.getElementById("settBack").style.display = "flex";
             document.getElementById("settingsTitlebarText").style.left = "60px";
+            document.getElementById("sp2Tabs").style.display = "none"
+            document.getElementById("sp1Tabs").style.display = "flex"
+            document.getElementById("ssLabel").innerHTML = "System"
         }
 
         function settTab4() {
@@ -495,6 +511,9 @@
             document.getElementById("page0").style.transform = "scale(1.2)";
             document.getElementById("settBack").style.display = "flex";
             document.getElementById("settingsTitlebarText").style.left = "60px";
+            document.getElementById("sp2Tabs").style.display = "flex"
+            document.getElementById("sp1Tabs").style.display = "none"
+            document.getElementById("ssLabel").innerHTML = "Personalization"
         }
 
         function settT4P1() {
@@ -531,6 +550,12 @@
             document.getElementById("sspage0").style.zIndex = 4;
             document.getElementById("ssPage6").style.opacity = 0;
             document.getElementById("ssPage6").style.zIndex = 4;
+        }
+
+        function settT1P1() {
+            document.getElementById("ss2Tab1").style.borderLeftColor = "var(--accent)"
+            document.getElementById("ss2Page1").style.opacity = 1;
+            document.getElementById("ssPage1").style.zIndex = 6;
         }
 
         function showHideSettings() {

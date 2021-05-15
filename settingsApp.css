@@ -160,6 +160,11 @@
     opacity: 0;
     transition: opacity .2s, transform .3s;
     background-color: var(--window-main);
+    color: var(--font2);
+}
+
+.sp1Tabs, .sp2Tabs{
+    flex-direction: column;
 }
 
 .page2 {
@@ -281,7 +286,7 @@
     display: none;
 }
 
-.ssTab1 {
+.ssTab1, .ss2Tab1 {
     border-left-color: var(--accent);
 }
 
@@ -317,7 +322,8 @@
     font: 400 15px Segb;
 }
 
-.p2Page {
+.p2Page, .p1page {
+    padding: 70px 40px;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -328,7 +334,6 @@
 
 .p2Background {
     z-index: 5;
-    padding: 70px 40px;
     display: flex;
     flex-direction: column;
     color: var(--font2);
@@ -389,6 +394,7 @@
     bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden;
 }
 
 .wpsmTop{
@@ -405,6 +411,59 @@
     height: 8px;
     background-color: white;
     border-radius: 1px;
+}
+
+.wpsmBottom{
+    display: flex;
+    width: 100%;
+    height: 80%;
+}
+
+.wpsmbIcons{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    place-content: center;
+    place-items: center;
+    width: 100%;
+    height: fit-content;
+    gap: 8px;
+    padding-top: 10px;
+}
+
+.wpsmbSep{
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 30px;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.wpsmbi{
+    width: 12px;
+    height: 12px;
+    border-radius: 20%;
+    background-color: var(--font2);
+    opacity: .4;
+}
+
+.wpsmbi2{
+    width: 25px;
+    height: 11px;
+    border-radius: 3px;
+    background-color: var(--font2);
+    opacity: .4;
+}
+
+.wpsmbIcons2{
+    position: absolute;
+    bottom: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    gap: 10px;
 }
 
 .wallStrip {
@@ -471,7 +530,6 @@
 }
 
 .p2Taskbar {
-    padding: 70px 40px;
     z-index: 4;
     opacity: 0;
 }
@@ -593,7 +651,6 @@ input:checked+.slider:before {
 }
 
 .p2Launcher{
-    padding: 70px 40px;
     z-index: 4;
     opacity: 0;
 }
@@ -607,7 +664,7 @@ input:checked+.slider:before {
 
 .launcherSize::after{
     position: absolute;
-    content: "The Launcher will automatically grow & shrink if your screen size is too small.";
+    content: "The Launcher will automatically shrink if your screen size is too small.";
     bottom: -30px;
     font: 400 12px Seg;
     opacity: .5;
