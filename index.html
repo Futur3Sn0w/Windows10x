@@ -489,8 +489,6 @@
     </script>
 
     <script>
-        var rootAccent = root.style.setProperty;
-
         function accentColor1() {
             root.style.setProperty('--accent', "#3D7FD5");
             root.style.setProperty('--accent-hov', "#2E60A2");
@@ -522,21 +520,23 @@
         }
 
         function setAccentColorOnLoad() {
-            const accentColorCookie = document.cookie
+            const accentCookie = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('accentColor='))
                 .split('=')[1];
 
-            if (accentColorCookie === "ac1") {
-                accentColor1();
-            } else if (accentColorCookie === "ac2") {
-                accentColor2();
-            } else if (accentColorCookie === "ac3") {
-                accentColor3();
-            } else if (accentColorCookie === "ac4") {
-                accentColor4();
-            } else if (accentColorCookie === "ac5") {
-                accentColor5();
+            if (accentCookie === "ac1") {
+                accentColor1;
+            } else if (accentCookie === "ac2") {
+                accentColor2;
+            } else if (accentCookie === "ac3") {
+                accentColor3;
+            } else if (accentCookie === "ac4") {
+                accentColor4;
+            } else if (accentCookie === "ac5") {
+                accentColor5;
+            } else {
+                alert("welp");
             }
         }
     </script>
