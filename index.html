@@ -14,7 +14,7 @@
 
 </head>
 
-<body id="body" onload="setWall(), autoHideSave(), setTBSize(), autoHideToggle(), loadLauncherSize(), setAccentColorOnLoad()">
+<body id="body" onload="windowLoad()">
 
     <div class="desktopLayer" id="desktopLayer"></div>
 
@@ -492,52 +492,51 @@
         function accentColor1() {
             root.style.setProperty('--accent', "#3D7FD5");
             root.style.setProperty('--accent-hov', "#2E60A2");
-            document.cookie = "accentColor=ac1"
+            document.cookie = "accentColor=#3D7FD5"
+            document.cookie = "accentColorHov=#2E60A2"
         }
 
         function accentColor2() {
             root.style.setProperty('--accent', "#30AEAA");
             root.style.setProperty('--accent-hov', "#217B78");
-            document.cookie = "accentColor=ac2"
+            document.cookie = "accentColor=#30AEAA"
+            document.cookie = "accentColorHov=#217B78"
         }
 
         function accentColor3() {
             root.style.setProperty('--accent', "#B32B1D");
             root.style.setProperty('--accent-hov', "#801E14");
-            document.cookie = "accentColor=ac3"
+            document.cookie = "accentColor=#B32B1D"
+            document.cookie = "accentColorHov=#801E14"
         }
 
         function accentColor4() {
             root.style.setProperty('--accent', "#0283E5");
             root.style.setProperty('--accent-hov', "#0165B2");
-            document.cookie = "accentColor=ac4"
+            document.cookie = "accentColor=#0283E5"
+            document.cookie = "accentColorHov=#0165B2"
         }
 
         function accentColor5() {
             root.style.setProperty('--accent', "#C67AB8");
             root.style.setProperty('--accent-hov', "#935A88");
-            document.cookie = "accentColor=ac5"
+            document.cookie = "accentColor=#C67AB8"
+            document.cookie = "accentColorHov=#935A88"
         }
 
-        function setAccentColorOnLoad() {
+        function accentColorLd() {
             const accentCookie = document.cookie
                 .split('; ')
                 .find(row => row.startsWith('accentColor='))
                 .split('=')[1];
 
-            if (accentCookie === "ac1") {
-                accentColor1;
-            } else if (accentCookie === "ac2") {
-                accentColor2;
-            } else if (accentCookie === "ac3") {
-                accentColor3;
-            } else if (accentCookie === "ac4") {
-                accentColor4;
-            } else if (accentCookie === "ac5") {
-                accentColor5;
-            } else {
-                alert("welp");
-            }
+            const accentCookieHov = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('accentColorHov='))
+                .split('=')[1];
+
+            root.style.setProperty('--accent', accentCookie)
+            root.style.setProperty('--accent-hov', accentCookieHov)
         }
     </script>
 
@@ -776,7 +775,16 @@
             document.cookie = "tbSize=60px";
         }
     </script>
-
+    <script>
+        function windowLoad() {
+            accentColorLd();
+            setWall();
+            autoHideSave();
+            setTBSize();
+            autoHideToggle();
+            loadLauncherSize();
+        }
+    </script>
 </body>
 
 </html>
