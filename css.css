@@ -28,8 +28,29 @@ body {
     font: 400 14px Seg;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track,
+ ::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 20px;
+    transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hov);
+}
+
 @media (prefers-color-scheme: light) {
      :root {
+        --scrollbar: rgba(255, 255, 255, 0.4);
+        --scrollbar-hov: rgba(255, 255, 255, 0.6);
         --taskbar: #efedecab;
         --startMenu: #efedec96;
         --searchBar: #ffffff;
@@ -54,6 +75,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
      :root {
+        --scrollbar: rgba(0, 0, 0, 0.4);
+        --scrollbar-hov: rgba(0, 0, 0, 0.6);
         --taskbar: #3a3a3acb;
         --startMenu: #272727ad;
         --searchBar: #ffffff25;

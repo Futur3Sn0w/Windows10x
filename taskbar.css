@@ -28,7 +28,7 @@
 .taskbar:hover .statusArea {
     padding-right: 10px;
     align-items: flex-end;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .tbIndicator {
@@ -140,9 +140,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    gap: 5px;
 }
 
 .saIcons {
     font: 600 13px FLNTREG;
-    padding-left: 6px;
 }

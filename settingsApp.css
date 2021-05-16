@@ -118,7 +118,7 @@
     border-radius: var(--buttonRadi);
     border: none;
     font: 400 16px Segsb;
-    line-height: 38px;
+    line-height: 36px;
     padding: 0 0 0 15px;
     margin: 5px;
     border: 2px solid var(--searchBar-border);
@@ -230,7 +230,7 @@
     margin: 220px auto;
     gap: 20px;
     width: 100%;
-    max-width: 1160px;
+    max-width: 1170px;
     height: fit-content;
     max-height: 85vh;
     overflow: scroll;

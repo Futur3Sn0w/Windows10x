@@ -18,7 +18,7 @@
     backdrop-filter: blur(90px) saturate(400%);
     color: var(--font2);
     overflow: hidden;
-    transition: height .2s;
+    transition: height .3s;
 }
 
 
@@ -70,7 +70,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    transition: height .2s;
+    transition: height .3s;
 }
 
 .actbVolume {
@@ -101,15 +101,15 @@
 .actvbsIndicator {
     width: 25px;
     height: 25px;
-    background-color: var(--accent);
+    background-color: var(--accent-hov);
     border-radius: 50%;
     transition: background-color .1s;
 }
 
 .actbToggles {
-    padding: 67px 0 0 0;
+    padding: 60px 0 0 0;
     display: grid;
-    gap: 16px 15px;
+    gap: 35px 15px;
     width: 100%;
     place-content: center;
     place-items: center;
@@ -118,16 +118,62 @@
 }
 
 .actbTogg {
+    position: relative;
     width: 110px;
-    height: 50px;
+    height: 45px;
     background-color: var(--accent);
     border-radius: 3px;
     transition: background-color .1s;
+    color: var(--font2);
 }
 
-.actbTogg:hover,
-.actvbsIndicator:hover {
+.actbTogg:hover {
     background-color: var(--accent-hov);
+}
+
+.actvbsIndicator:hover {
+    background-color: var(--accent);
+}
+
+.actbTogg::after {
+    position: absolute;
+    content: attr(data-actLabel);
+    bottom: -20px;
+    left: 50%;
+    width: fit-content;
+    transform: translateX(-50%);
+    font: 100 12px Seg;
+}
+
+.actbTogg::before {
+    font: 400 18px FLNTREG;
+    content: attr(data-actGlyph);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.actbt1::before {
+    padding-right: 45px;
+}
+
+.acbtArrow {
+    height: 100%;
+    width: 40%;
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    font: 400 16px FLNTREG;
+    border-radius: 0 3px 3px 0;
+}
+
+.aa1 {
+    border-left: 1px solid rgba(0, 0, 0, .3);
+    background-color: var(--accent);
 }
 
 
@@ -182,5 +228,5 @@
 }
 
 .actfbUsertile:hover {
-    opacity: .8;
+    opacity: .6;
 }

@@ -35,15 +35,23 @@
                     </div>
                 </div>
                 <div class="actbToggles">
-                    <div class="actbTogg actbt1"></div>
-                    <div class="actbTogg actbt2"></div>
-                    <div class="actbTogg actbt3"></div>
-                    <div class="actbTogg actbt4"></div>
-                    <div class="actbTogg actbt5"></div>
-                    <div class="actbTogg actbt6"></div>
-                    <div class="actbTogg actbt7"></div>
-                    <div class="actbTogg actbt8"></div>
-                    <div class="actbTogg actbt9"></div>
+                    <div class="actbTogg actbt1" data-actGlyph="" data-actLabel="Bluetooth">
+                        <div class="acbtArrow aa1"></div>
+                    </div>
+                    <div class="actbTogg actbt2" data-actGlyph="" data-actLabel="Display">
+                        <div class="acbtArrow"></div>
+                    </div>
+                    <div class="actbTogg actbt3" data-actGlyph="" data-actLabel="Compose Mode"></div>
+                    <div class="actbTogg actbt4" data-actGlyph="ﰺ" data-actLabel="Rotation lock"></div>
+                    <div class="actbTogg actbt5" data-actGlyph="" data-actLabel="Keyboard layout">
+                        <div class="acbtArrow"></div>
+                    </div>
+                    <div class="actbTogg actbt6" data-actGlyph="" data-actLabel="Do not disturb"></div>
+                    <div class="actbTogg actbt7" data-actGlyph="" data-actLabel="Airplane mode"></div>
+                    <div class="actbTogg actbt8" data-actGlyph="" data-actLabel="Location"></div>
+                    <div class="actbTogg actbt9" data-actGlyph="" data-actLabel="Ease of Access">
+                        <div class="acbtArrow"></div>
+                    </div>
                 </div>
             </div>
             <div class="actFooter">
@@ -280,16 +288,16 @@
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
         <div class="statusArea" id="statusArea" onclick="actionCenterBtn()" data-tooltip="Action Center">
-            <div class="saTime" id="saTime"></div>
             <div class="saIcons" id="saIcons"></div>
+            <div class="saTime" id="saTime"></div>
         </div>
     </div>
 
     <script>
         function acCollapse() {
             if (document.getElementById("acthCollapse").innerHTML === "") {
-                document.getElementById("acToggles").style.height = "380px";
-                document.getElementById("actBody").style.height = "275px";
+                document.getElementById("acToggles").style.height = "400px";
+                document.getElementById("actBody").style.height = "290px";
                 document.getElementById("acthCollapse").innerHTML = "";
             } else {
                 document.getElementById("acToggles").style.height = "240px";
@@ -735,7 +743,7 @@
             document.getElementById("tbIndicator").style.opacity = "0";
             document.getElementById("statusArea").style.paddingRight = "10px";
             document.getElementById("statusArea").style.alignItems = "flex-end";
-            document.getElementById("statusArea").style.flexDirection = "column";
+            document.getElementById("statusArea").style.flexDirection = "column-reverse";
         }
 
         function autoHideSave() {
