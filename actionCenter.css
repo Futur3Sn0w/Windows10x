@@ -143,6 +143,7 @@
     width: fit-content;
     transform: translateX(-50%);
     font: 100 12px Seg;
+    pointer-events: none;
 }
 
 .actbTogg::before {
@@ -174,6 +175,36 @@
 .aa1 {
     border-left: 1px solid rgba(0, 0, 0, .3);
     background-color: var(--accent);
+}
+
+.actbt2,
+.actbt3,
+.actbt4,
+.actbt5,
+.actbt6,
+.actbt7,
+.actbt8,
+.actbt9 {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.actbt2:hover,
+.actbt3:hover,
+.actbt4:hover,
+.actbt5:hover,
+.actbt6:hover,
+.actbt9:hover {
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.actbt7:hover,
+.actbt8:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.actbt7,
+.actbt8 {
+    opacity: .5;
 }
 
 
