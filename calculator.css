@@ -1,0 +1,160 @@
+.calculator{
+    z-index: 5;
+    width: 320px;
+    height: 400px;
+    background-color: var(--windowClear);
+    transform: scale(0);
+    border-radius: var(--objectRadi);
+    box-shadow: 0px 20px 30px 0px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(90px) saturate(400%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    opacity: 0;
+    transform-origin: center;
+    transition: transform .3s, opacity .2s;
+}
+
+/* Titlebar */
+
+.calcTitlebar{
+    z-index: 21;
+    position: absolute;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    background: transparent;
+}
+
+.titlebarText {
+    font: 400 12px Seg;
+    position: absolute;
+    width: max-content;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--font2);
+    pointer-events: none;
+}
+
+.windowButtons {
+    top: 0;
+    right: 0;
+    position: absolute;
+    gap: 1px;
+    display: flex;
+    width: fit-content;
+    height: 100%;
+}
+
+.wbMin,
+.wbClose,
+.settingsBackButton {
+    z-index: inherit;
+    font: 400 15px FLNTREG;
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    color: var(--font2);
+}
+
+.settingsBackButton::before {
+    content: "";
+}
+
+.wbMin::before {
+    content: "ﱰ";
+}
+
+.wbClose::before {
+    content: "";
+}
+
+.wbMin:hover,
+.settingsBackButton:hover {
+    background-color: #a0a0a072;
+}
+
+.wbMin:active,
+.settingsBackButton:active {
+    background-color: #a0a0a0b6;
+}
+
+.wbClose:hover {
+    background-color: #E81123;
+    color: white;
+}
+
+.wbClose:active {
+    background-color: #E36571;
+}
+
+/* Content */
+
+#result::placeholder{
+        opacity: 1;
+        color: var(--font2);
+    }
+
+.calcBtn{
+    background-color: var(--btn-hov);
+    color: var(--font2);
+    border: none;
+    width: 73.5px;
+    height: 100%;
+    font: 400 20px Segsb;
+}
+
+.calcBtn:hover{
+    opacity: .6;
+}
+
+#result{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    font: 400 40px Segsb;
+    color: var(--font2);
+    text-align: right;
+    cursor: default;
+}
+
+#result:focus{
+    border: none;
+    outline: none;
+}
+
+.calcTable{
+    border: 4px solid transparent;
+    width: 100%;
+    height: 90%;
+    outline: none;
+}
+
+td{
+    border: none;
+    width: 20px;
+}
+
+tr{
+    height: 20px;
+}
+
+.cbSolve{
+    background-color: var(--accent-hov);
+    border-radius: 0 0 5px 0;
+    font: 400 20px FLNTREG;
+}
+
+.cbSymb{
+    font: 400 20px FLNTREG;
+    background-color: var(--context-hov);
+}
+
+.cbPlaceholder{
+    background-color: transparent;
+}

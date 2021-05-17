@@ -26,6 +26,9 @@ body {
     padding: 0;
     margin: 0;
     font: 400 14px Seg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 ::-webkit-scrollbar {
@@ -57,6 +60,7 @@ body {
         --searchBar2: #ffffff;
         --searchBar-border: #dddddd;
         --searchBar-border2: #dddddd;
+        --windowClear: #efedeccc;
         --context-menu: #efefef;
         --context-hov: #e0e0e0;
         --tb-indicator: #615F5F;
@@ -83,6 +87,7 @@ body {
         --searchBar2: #00000094;
         --searchBar-border: #4b4b4b;
         --searchBar-border2: #7e7e7e;
+        --windowClear: #1f1f1fbe;
         --context-menu: #444444;
         --context-hov: #686868;
         --tb-indicator: #B0B0B0;
@@ -106,16 +111,17 @@ body {
     color: var(--font2);
     font: 400 14px Segsb;
     transition: opacity .1s;
-}
-
-.dci {
-    background-color: var(--context-menu);
-    padding: 8px 15px;
-    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
     border-radius: var(--buttonRadi);
+    background-color: var(--context-menu);
+    overflow: hidden;
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
 }
 
-.dci:hover {
+.dci, .ici {
+    padding: 8px 15px;
+}
+
+.dci:hover, .ici:hover {
     background-color: var(--context-hov);
 }
 
@@ -128,4 +134,26 @@ body {
     z-index: 2;
     width: 100%;
     height: 100%;
+}
+
+.iconContext{
+    z-index: 30;
+    position: absolute;
+    opacity: 0;
+    color: var(--font2);
+    font: 400 14px Segsb;
+    transition: opacity .2s;
+    width: fit-content;
+    height: fit-content;
+    border-radius: var(--buttonRadi);
+    background-color: var(--context-menu);
+    overflow: hidden;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: calc(var(--tbSizeM) + 10px);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+.ici::before {
+    content: attr(data-icLabel);
 }

@@ -28,6 +28,7 @@
     left: 15px;
     transform: translateY(-50%);
     color: var(--font2);
+    pointer-events: none;
 }
 
 .windowButtons {
@@ -37,7 +38,7 @@
     gap: 1px;
     display: flex;
     width: fit-content;
-    height: fit-content;
+    height: 100%;
 }
 
 .wbMin,
@@ -46,7 +47,7 @@
     z-index: inherit;
     font: 400 15px FLNTREG;
     width: 45px;
-    height: 30px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,12 +69,16 @@
 
 .wbMin:hover,
 .settingsBackButton:hover {
-    background-color: #a0a0a022;
+    background-color: #a0a0a072;
+}
+
+.settingsBackButton{
+    display: none;
 }
 
 .wbMin:active,
 .settingsBackButton:active {
-    background-color: #a0a0a033;
+    background-color: #a0a0a0b6;
 }
 
 .wbClose:hover {
@@ -407,6 +412,7 @@
     left: 50%;
     transform: translateX(-50%);
     overflow: hidden;
+    transition: width .2s;
 }
 
 .wpsmTop {
@@ -439,7 +445,7 @@
     place-items: center;
     width: 100%;
     height: fit-content;
-    gap: 8px;
+    gap: 16% 7%;
     padding-top: 10px;
 }
 
@@ -670,8 +676,10 @@ input:checked+.slider:before {
 .launcherSize {
     position: relative;
     display: flex;
-    margin-top: 50px;
+    margin-top: 10px;
     gap: 10px;
+    width: 400px;
+    justify-content: center;
 }
 
 .launcherSize::after {

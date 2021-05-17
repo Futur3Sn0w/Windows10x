@@ -167,10 +167,8 @@
 .ss2Icon11,
 .ss2Icon12,
 .ss2Icon14,
-.ss2Icon15,
 .rt1,
 .rt2,
-.rt3,
 .rt4,
 .rt5,
 .rt6 {
@@ -190,7 +188,6 @@
 .ss2Icon11:hover,
 .ss2Icon12:hover,
 .ss2Icon14:hover,
-.ss2Icon15:hover,
 .ss2Icon1:focus,
 .ss2Icon2:focus,
 .ss2Icon3:focus,
@@ -203,8 +200,7 @@
 .ss2Icon10:focus,
 .ss2Icon11:focus,
 .ss2Icon12:focus,
-.ss2Icon14:focus,
-.ss2Icon15:focus {
+.ss2Icon14:focus {
     background-color: transparent;
     background-size: 48px;
     cursor: not-allowed;
@@ -320,6 +316,10 @@
     transition: background-color .2s;
 }
 
+.recTile:active {
+    background-size: 35px;
+}
+
 .recTile::before {
     font: 100 13px Segsb;
     padding-left: 55px;
@@ -335,12 +335,12 @@
 
 .rt1:hover,
 .rt2:hover,
-.rt3:hover,
 .rt4:hover,
 .rt5:hover,
 .rt6:hover {
     background-color: transparent;
     cursor: not-allowed;
+    background-size: 43px;
 }
 
 .rt1 {

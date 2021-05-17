@@ -7,8 +7,10 @@
     <title>Windows 10X</title>
     <link rel="stylesheet" href="css.css">
     <link rel="stylesheet" href="segoe.css">
+    <link rel="stylesheet" href="twitter.css">
     <link rel="stylesheet" href="taskbar.css">
     <link rel="stylesheet" href="startMenu.css">
+    <link rel="stylesheet" href="calculator.css">
     <link rel="stylesheet" href="settingsApp.css">
     <link rel="stylesheet" href="actionCenter.css">
 
@@ -20,6 +22,65 @@
 
     <div class="desktopContext" id="desktopContext">
         <div class="dci dc1" onclick="openSettingsToBackground()"></div>
+    </div>
+
+    <div class="iconContext" id="icSettings">
+        <div class="ici ics1" id="settPinBtn" onclick="" data-icLabel="Pin to taskbar"></div>
+    </div>
+
+    <div class="iconContext" id="icCalc">
+        <div class="ici icc1" id="calcPinBtn" onclick="" data-icLabel="Pin to taskbar"></div>
+    </div>
+
+    <div class="twitterApp">
+        <object class="taObject" data="http://www.twitter.com">
+            <embed class="taEmbed" src="http://www.twitter.com"> </embed>
+        </object>
+    </div>
+    
+    <div class="calculator" id="calculator">
+        <div class="calcTitlebar" data-titlebar="Calculator">
+            <label class="titlebarText">Calculator</label>
+            <div class="windowButtons">
+                <div class="wbMin" onclick="hideCalculator()"></div>
+                <div class="wbClose" onclick="closeCalculator()"></div>
+            </div>
+        </div>
+        <table class="calcTable">
+            <tr id="tr1">
+               <td colspan="4" rowspan="1"><input placeholder="0" type="text" id="result" readonly/></td>
+            </tr>
+            <tr>
+               <td><input class="calcBtn" type="button" value="C" onclick="clr()"/></td>
+               <td><input class="calcBtn cbPlaceholder" type="button" value=""/></td>
+               <td><input class="calcBtn cbPlaceholder" type="button" value=""/></td>
+               <td><input class="calcBtn cbSymb" type="button" value="÷" onclick="dis('/')"/> </td>
+            </tr>
+            <tr>
+               <td><input class="calcBtn cbNumber" type="button" value="1" onclick="dis('1')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="2" onclick="dis('2')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="3" onclick="dis('3')"/> </td>
+               <td><input class="calcBtn cbSymb" type="button" value="" onclick="dis('*')"/> </td>
+            </tr>
+            <tr>
+               <td><input class="calcBtn cbNumber" type="button" value="4" onclick="dis('4')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="5" onclick="dis('5')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="6" onclick="dis('6')"/> </td>
+               <td><input class="calcBtn cbSymb" type="button" value="ﱰ" onclick="dis('-')"/> </td>
+            </tr>
+            <tr>
+               <td><input class="calcBtn cbNumber" type="button" value="7" onclick="dis('7')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="8" onclick="dis('8')"/> </td>
+               <td><input class="calcBtn cbNumber" type="button" value="9" onclick="dis('9')"/> </td>
+               <td><input class="calcBtn cbSymb" type="button" value="" onclick="dis('+')"/> </td>
+            </tr>
+            <tr>
+               <td><input class="calcBtn cbPlaceholder" type="button" value=""/></td>
+               <td><input class="calcBtn cbNumber" type="button" value="0" onclick="dis('0')"/> </td>
+               <td><input class="calcBtn" type="button" value="." onclick="dis('.')"/> </td>
+               <td><input class="calcBtn cbSolve" type="button" value="" onclick="solve()"/> </td>
+            </tr>
+         </table>
     </div>
 
     <div class="actionCenter" id="actionCenter">
@@ -57,7 +118,7 @@
             <div class="actFooter">
                 <div class="actfButtons">
                     <div class="actfBtn actfbKeyboard"></div>
-                    <div class="actfBtn actfbSettings"></div>
+                    <div class="actfBtn actfbSettings" onclick="openSettings()"></div>
                     <div class="actfBtn actfbPower"></div>
                     <div class="actfBtn actfbUsertile"></div>
                 </div>
@@ -91,19 +152,19 @@
                 <div class="ss2Icon ss2Icon12" id="ss2Icon" data-label="Maps"></div>
                 <div class="ss2Icon ss2Icon13" id="ss2Icon" data-label="Settings" onclick="openSettings()"></div>
                 <div class="ss2Icon ss2Icon14" id="ss2Icon" data-label="Weather"></div>
-                <div class="ss2Icon ss2Icon15" id="ss2Icon" data-label="Calculator"></div>
+                <div class="ss2Icon ss2Icon15" id="ss2Icon" data-label="Calculator" onclick="openCalculator()"></div>
             </div>
             <div class="smbSep"></div>
             <div class="smbSection smbSect3">
                 <label class="ss3Lbl">Recent</label>
                 <label class="ss3Lbl2">The more you use your device, the more we'll show your recent files and new apps here.</label>
                 <div class="recentTiles">
-                    <div class="recTile rt1" data-label1="Teams" data-subLabel="In testing"></div>
+                    <div class="recTile rt1" data-label1="Teams" data-subLabel="Not available"></div>
                     <div class="recTile rt2" data-label1="Spotify" data-subLabel="Recently visited"></div>
                     <div class="recTile rt3" data-label1="Twitter" data-subLabel="Recently visited"></div>
-                    <div class="recTile rt4" data-label1="Groove Music" data-subLabel="In testing"></div>
-                    <div class="recTile rt5" data-label1="Office" data-subLabel="In testing"></div>
-                    <div class="recTile rt6" data-label1="Visual Studio Code" data-subLabel="In testing"></div>
+                    <div class="recTile rt4" data-label1="Groove Music" data-subLabel="Not available"></div>
+                    <div class="recTile rt5" data-label1="Office" data-subLabel="Not available"></div>
+                    <div class="recTile rt6" data-label1="Visual Studio Code" data-subLabel="Not available"></div>
                 </div>
             </div>
         </div>
@@ -193,12 +254,12 @@
             <div class="p2page p2Background" id="sspage0">
                 <label class="p2bLabel">Background</label>
                 <div class="wallPrev" id="wallPrev">
-                    <div class="wpStartMenu">
+                    <div class="wpStartMenu" id="wpStartMenu0">
                         <div class="wpsmTop">
                             <div class="wpsmtSearchbar"></div>
                         </div>
                         <div class="wpsmBottom">
-                            <div class="wpsmbIcons">
+                            <div class="wpsmbIcons" id="wpsmbIcons0">
                                 <div class="wpsmbi"></div>
                                 <div class="wpsmbi"></div>
                                 <div class="wpsmbi"></div>
@@ -272,6 +333,43 @@
             <div class="p2page p2Launcher" id="ssPage6">
                 <label class="p2bLabel">Launcher</label>
                 <label class="launcherWidthLabel" data-label="Launcher size"></label>
+                <div class="wallPrev" id="wallPrev">
+                    <div class="wpStartMenu" id="wpStartMenu">
+                        <div class="wpsmTop">
+                            <div class="wpsmtSearchbar"></div>
+                        </div>
+                        <div class="wpsmBottom">
+                            <div class="wpsmbIcons" id="wpsmbIcons">
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                                <div class="wpsmbi"></div>
+                            </div>
+                            <div class="wpsmbSep"></div>
+                            <div class="wpsmbIcons2">
+                                <div class="wpsmbi2"></div>
+                                <div class="wpsmbi2"></div>
+                                <div class="wpsmbi2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wpTaskbar">
+                        <div class="wptDot wptd1"></div>
+                        <div class="wptDot wptd2"></div>
+                        <div class="wptDot wptd3"></div>
+                    </div>
+                </div>
                 <div class="launcherSize">
                     <div class="laus lsOpt2" data-label="Normal" onclick="launcherMed()"></div>
                     <div class="laus lsOpt3" data-label="Wide" onclick="launcherLarge()"></div>
@@ -284,7 +382,9 @@
         <div class="tbIndicator" id="tbIndicator"></div>
         <div class="tbButtons" id="tbButtons">
             <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
-            <div class="tbbBtn tbbAppIcon tbbSettings" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
+            <div class="tbbBtn tbbAppIcon tbbSettings tbbUnpinned" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
+            <div class="tbbBtn tbbAppIcon tbbCalculator tbbUnpinned" id="tbbCalculator" data-tooltip="Calculator" onclick="showHideCalculator()"></div>
+            <div class="tbPinSep"></div>
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
         <div class="statusArea" id="statusArea" onclick="actionCenterBtn()" data-tooltip="Action Center">
@@ -401,21 +501,21 @@
     </script>
 
     <script>
-        var desktopMenu = document.querySelector(".desktopContext");
-
         document.onclick = hideMenu;
         document.getElementById("desktopLayer").oncontextmenu = rightClick;
 
         function hideMenu() {
-            document.getElementById("desktopContext")
-                .style.opacity = "0"
+            document.getElementById("desktopContext").style.opacity = "0";
+            document.getElementById("icSettings").style.opacity = "0";
+            document.getElementById("icSettings").style.zIndex = "1";
+            document.getElementById("icCalc").style.opacity = "0";
+            document.getElementById("icCalc").style.zIndex = "1";
         }
 
         function rightClick(e) {
             e.preventDefault();
 
-            if (document.getElementById("desktopContext")
-                .style.opacity == "1")
+            if (document.getElementById("desktopContext").style.opacity == "1")
                 hideMenu();
             else {
                 var menu = document.getElementById("desktopContext")
@@ -426,6 +526,37 @@
             }
         }
     </script>
+
+<script>
+    document.getElementById("tbbSettings").oncontextmenu = rightClick2;
+    document.getElementById("tbbCalculator").oncontextmenu = rightClick3;
+
+    function rightClick2(e) {
+        e.preventDefault();
+
+        if (document.getElementById("icSettings").style.opacity == "1")
+            hideMenu();
+        else {
+            var menu2 = document.getElementById("icSettings")
+
+            menu2.style.opacity = '1';
+            menu2.style.zIndex = '30';
+        }
+    }
+
+    function rightClick3(e) {
+        e.preventDefault();
+
+        if (document.getElementById("icCalc").style.opacity == "1")
+            hideMenu();
+        else {
+            var menu2 = document.getElementById("icCalc")
+
+            menu2.style.opacity = '1';
+            menu2.style.zIndex = '30';
+        }
+    }
+</script>
 
     <script>
         function setWall() {
@@ -471,14 +602,26 @@
 
     <script>
         var startMenu = document.getElementById("startMenu");
+        var wpStartMenu = document.getElementById("wpStartMenu");
+        var wpStartMenu0 = document.getElementById("wpStartMenu0");
+        var wpIcons0 = document.getElementById("wpsmbIcons");
+        var wpIcons = document.getElementById("wpsmbIcons0");
 
         function launcherMed() {
             startMenu.style.width = "700px";
+            wpStartMenu.style.width = "120px";
+            wpStartMenu0.style.width = "120px";
+            wpIcons.style.gap = "16% 7%";
+            wpIcons0.style.gap = "16% 7%";
             document.cookie = "launcherSize=medium";
         }
 
         function launcherLarge() {
             startMenu.style.width = "900px";
+            wpStartMenu.style.width = "160px";
+            wpStartMenu0.style.width = "160px";
+            wpIcons.style.gap = "16% 10%";
+            wpIcons0.style.gap = "16% 10%";
             document.cookie = "launcherSize=large";
         }
 
@@ -489,9 +632,9 @@
                 .split('=')[1];
 
             if (launcherSizeC === "medium") {
-                startMenu.style.width = "700px";
+                launcherMed();
             } else if (launcherSizeC === "large") {
-                startMenu.style.width = "900px";
+                launcherLarge();
             }
         }
     </script>
@@ -548,6 +691,51 @@
         }
     </script>
 
+<script>
+    function openCalculator() {
+        document.getElementById("calculator").style.transformOrigin = "center";
+        document.getElementById("calculator").style.transform = "scale(1)";
+        document.getElementById("calculator").style.opacity = "1";
+        document.getElementById("tbbCalculator").style.display = "inline";
+        document.getElementById("tbbCalculator").style.opacity = "1";
+        document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+        document.getElementById("startMenu").style.opacity = '0';
+    }
+
+    function closeCalculator() {
+        document.getElementById("calculator").style.transformOrigin = "center";
+        document.getElementById("calculator").style.transform = "scale(0)";
+        document.getElementById("calculator").style.opacity = "0";
+        document.getElementById("tbbCalculator").style.display = "none";
+        document.getElementById("tbbCalculator").style.opacity = "0";
+        resetCalculator();
+    }
+
+    function hideCalculator() {
+        document.getElementById("calculator").style.transformOrigin = "bottom";
+        document.getElementById("calculator").style.transform = "scale(0)";
+        document.getElementById("calculator").style.opacity = "0";
+    }
+
+    function showCalculator() {
+        document.getElementById("calculator").style.transformOrigin = "bottom";
+        document.getElementById("calculator").style.transform = "scale(1) ";
+        document.getElementById("calculator").style.opacity = "1";
+    }
+
+    function resetCalculator() {
+        document.getElementById("result").value = "";
+    }
+
+    function showHideCalculator() {
+        if (document.getElementById("calculator").style.transform === "scale(0)") {
+            showCalculator();
+        } else {
+            hideCalculator();
+        }
+    }
+</script>
+
     <script>
         function openSettings() {
             document.getElementById("settingsApp").style.transformOrigin = "center";
@@ -557,6 +745,8 @@
             document.getElementById("tbbSettings").style.opacity = "1";
             document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
             document.getElementById("startMenu").style.opacity = '0';
+            document.getElementById("actionCenter").style.transform = "translateY(100%)";
+            document.getElementById("actionCenter").style.opacity = '0';
         }
 
         function openSettingsToBackground() {
@@ -783,6 +973,27 @@
             document.cookie = "tbSize=60px";
         }
     </script>
+    <script>
+        //function that display value
+        function dis(val)
+        {
+            document.getElementById("result").value+=val
+        }
+          
+        //function that evaluates the digit and return result
+        function solve()
+        {
+            let x = document.getElementById("result").value
+            let y = eval(x)
+            document.getElementById("result").value = y
+        }
+          
+        //function that clear the display
+        function clr()
+        {
+            document.getElementById("result").value = ""
+        }
+     </script>
     <script>
         function windowLoad() {
             accentColorLd();

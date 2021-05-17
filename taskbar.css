@@ -106,7 +106,14 @@
     background-size: 46%;
 }
 
-.tbbSettings:active {
+.tbbCalculator {
+    display: none;
+    opacity: 0;
+    background-image: url(Icons/WindowsCalculator.png);
+    background-size: 46%;
+}
+
+.tbbSettings:active, .tbbCalculator:active {
     background-size: 40%;
 }
 
@@ -145,4 +152,12 @@
 
 .saIcons {
     font: 600 13px FLNTREG;
+}
+
+.tbPinSep{
+    margin: auto 5px;
+    height: 30px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
 }
