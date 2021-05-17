@@ -25,17 +25,11 @@
     </div>
 
     <div class="iconContext" id="icSettings">
-        <div class="ici ics1" id="settPinBtn" onclick="" data-icLabel="Pin to taskbar"></div>
+        <div class="ici ics1" id="settPinBtn" onclick="ifPinSettings()">Pin to taskbar</div>
     </div>
 
     <div class="iconContext" id="icCalc">
-        <div class="ici icc1" id="calcPinBtn" onclick="" data-icLabel="Pin to taskbar"></div>
-    </div>
-
-    <div class="twitterApp">
-        <object class="taObject" data="http://www.twitter.com">
-            <embed class="taEmbed" src="http://www.twitter.com"> </embed>
-        </object>
+        <div class="ici icc1" id="calcPinBtn" onclick="ifPinCalc()">Pin to taskbar</div>
     </div>
     
     <div class="calculator" id="calculator">
@@ -43,7 +37,7 @@
             <label class="titlebarText">Calculator</label>
             <div class="windowButtons">
                 <div class="wbMin" onclick="hideCalculator()"></div>
-                <div class="wbClose" onclick="closeCalculator()"></div>
+                <div class="wbClose" id="calcCloseBtn" onclick="closeCalculator()"></div>
             </div>
         </div>
         <table class="calcTable">
@@ -150,9 +144,9 @@
                 <div class="ss2Icon ss2Icon10" id="ss2Icon" data-label="Files"></div>
                 <div class="ss2Icon ss2Icon11" id="ss2Icon" data-label="Sticky Notes"></div>
                 <div class="ss2Icon ss2Icon12" id="ss2Icon" data-label="Maps"></div>
-                <div class="ss2Icon ss2Icon13" id="ss2Icon" data-label="Settings" onclick="openSettings()"></div>
+                <div class="ss2Icon ss2Icon13" id="ss2IconSettings" data-label="Settings" onclick="openSettingsFromStartMenu()"></div>
                 <div class="ss2Icon ss2Icon14" id="ss2Icon" data-label="Weather"></div>
-                <div class="ss2Icon ss2Icon15" id="ss2Icon" data-label="Calculator" onclick="openCalculator()"></div>
+                <div class="ss2Icon ss2Icon15" id="ss2IconCalc" data-label="Calculator" onclick="openCalcFromStartMenu()"></div>
             </div>
             <div class="smbSep"></div>
             <div class="smbSection smbSect3">
@@ -176,7 +170,7 @@
             <div class="settingsBackButton" id="settBack" onclick="resetSettings()"></div>
             <div class="windowButtons">
                 <div class="wbMin" onclick="hideSettings()"></div>
-                <div class="wbClose" onclick="closeSettings()"></div>
+                <div class="wbClose" id="settingsCloseBtn" onclick="closeSettings()"></div>
             </div>
         </div>
         <div class="appContent page0" id="page0">
@@ -382,9 +376,15 @@
         <div class="tbIndicator" id="tbIndicator"></div>
         <div class="tbButtons" id="tbButtons">
             <div class="tbbBtn tbbStart" id="startButton" data-tooltip="Start" onclick="startBtn()"></div>
-            <div class="tbbBtn tbbAppIcon tbbSettings tbbUnpinned" id="tbbSettings" data-tooltip="Settings" onclick="showHideSettings()"></div>
-            <div class="tbbBtn tbbAppIcon tbbCalculator tbbUnpinned" id="tbbCalculator" data-tooltip="Calculator" onclick="showHideCalculator()"></div>
-            <div class="tbPinSep"></div>
+        <div class="tbApplications tbPinned" id="tbPinned">
+        </div>
+            <div class="tbPinSep" id="tbPinSep"></div>
+            <div class="tbNonVisible" id="tbNonVisible">
+                <div class="tbbBtn tbbAppIcon tbbSettings tbbUnpinned" id="tbbSettings" data-tooltip="Settings" onclick="openSettingsFromStartMenu()"></div>
+                <div class="tbbBtn tbbAppIcon tbbCalculator tbbUnpinned" id="tbbCalculator" data-tooltip="Calculator" onclick="openCalcFromStartMenu()"></div>
+            </div>
+        <div class="tbApplications tbUnpinned" id="tbUnpinned">
+        </div>
             <div class="tbbBtn tbbTaskView" data-tooltip="Task View"></div>
         </div>
         <div class="statusArea" id="statusArea" onclick="actionCenterBtn()" data-tooltip="Action Center">
@@ -392,6 +392,108 @@
             <div class="saTime" id="saTime"></div>
         </div>
     </div>
+
+<!-- <script>
+    if (document.getElementById("tbPinned").childElementCount !== 0) {
+        if (document.getElementById("tbUnpinned").childElementCount !== 0){
+            document.getElementById("tbPinSep").style.display = "flex";
+        } else {
+            document.getElementById("tbPinSep").style.display = "none";
+        };
+} else {
+    document.getElementById("tbPinSep").style.display = "none";
+}
+</script> -->
+
+    <script>
+        function ifPinSettings(){
+            if (document.getElementById("settPinBtn").innerHTML === "Pin to taskbar"){
+                pinSettings();
+            } else {
+                unpinSettings();
+            }
+        }
+
+        function pinSettings() {
+            document.getElementById("settPinBtn").innerHTML = "Unpin from taskbar";
+            document.getElementById("tbbSettings").onclick = openSettingsFromTaskbar;
+            document.getElementById("ss2IconSettings").onclick = openSettingsFromTaskbar;
+            document.getElementById("settingsCloseBtn").onclick = closeSettingsPinned;
+            document.getElementById("tbPinned").appendChild(document.getElementById("tbbSettings"));
+            document.cookie = "settingsPinned=tbPinned";
+        }
+        
+        function unpinSettings(){
+            document.getElementById("settPinBtn").innerHTML = "Pin to taskbar";
+            document.getElementById("tbbSettings").onclick = showHideSettings;
+            document.getElementById("ss2IconSettings").onclick = openSettingsFromStartMenu;
+            document.getElementById("settingsCloseBtn").onclick = closeSettings;
+            if (document.getElementById("settingsApp").style.opacity === "1") {
+            document.getElementById("tbUnpinned").appendChild(document.getElementById("tbbSettings"));
+            } else {
+            document.getElementById("tbNonVisible").appendChild(document.getElementById("tbbSettings"));
+            }
+            document.cookie = "settingsPinned=tbUnpinned";
+        }
+
+        function getSettingsPinnedState(){
+            const settPinCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('settingsPinned='))
+                .split('=')[1];
+
+            if (settPinCookie === "tbPinned"){
+                pinSettings();
+            } else {
+                unpinSettings();
+            }
+        }
+    </script>
+
+<script>
+    function ifPinCalc(){
+        if (document.getElementById("calcPinBtn").innerHTML === "Pin to taskbar"){
+            pinCalc();
+        } else {
+            unpinCalc();
+        }
+    }
+
+    function pinCalc() {
+        document.getElementById("calcPinBtn").innerHTML = "Unpin from taskbar";
+        document.getElementById("tbbCalculator").onclick = openCalcFromTaskbar;
+        document.getElementById("ss2IconCalc").onclick = openCalcFromTaskbar;
+        document.getElementById("calcCloseBtn").onclick = closeCalculatorPinned;
+        document.getElementById("tbPinned").appendChild(document.getElementById("tbbCalculator"));
+        document.cookie = "calcPinned=tbPinned";
+    }
+    
+    function unpinCalc(){
+        document.getElementById("calcPinBtn").innerHTML = "Pin to taskbar";
+        document.getElementById("tbbCalculator").onclick = showHideCalculator;
+        document.getElementById("ss2IconCalc").onclick = openCalcFromStartMenu;
+        document.getElementById("calcCloseBtn").onclick = closeCalculator;
+        if (document.getElementById("calculator").style.opacity === "1") {
+        document.getElementById("tbUnpinned").appendChild(document.getElementById("tbbCalculator"));
+        } else {
+        document.getElementById("tbNonVisible").appendChild(document.getElementById("tbbCalculator"));
+        }
+        document.cookie = "calcPinned=tbUnpinned";
+    }
+
+    function getCalcPinnedState(){
+        const calcPinCookie = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('calcPinned='))
+            .split('=')[1];
+
+        if (calcPinCookie === "tbPinned"){
+            pinCalc();
+        } else {
+            unpinCalc();
+        }
+    }
+</script>
 
     <script>
         function acCollapse() {
@@ -692,22 +794,42 @@
     </script>
 
 <script>
-    function openCalculator() {
+    function openCalcFromStartMenu() {
         document.getElementById("calculator").style.transformOrigin = "center";
         document.getElementById("calculator").style.transform = "scale(1)";
         document.getElementById("calculator").style.opacity = "1";
-        document.getElementById("tbbCalculator").style.display = "inline";
-        document.getElementById("tbbCalculator").style.opacity = "1";
+        document.getElementById("tbUnpinned").appendChild(document.getElementById("tbbCalculator"));
         document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
         document.getElementById("startMenu").style.opacity = '0';
+        document.getElementById("actionCenter").style.transform = "translateY(100%)";
+        document.getElementById("actionCenter").style.opacity = '0';
+        document.getElementById("tbbCalculator").onclick = showHideCalculator;
+    }
+
+    function openCalcFromTaskbar() {
+        document.getElementById("calculator").style.transformOrigin = "center";
+        document.getElementById("calculator").style.transform = "scale(1)";
+        document.getElementById("calculator").style.opacity = "1";
+        document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+        document.getElementById("startMenu").style.opacity = '0';
+        document.getElementById("actionCenter").style.transform = "translateY(100%)";
+        document.getElementById("actionCenter").style.opacity = '0';
+        document.getElementById("tbbCalculator").onclick = showHideCalculator;
+    }
+
+    function closeCalculatorPinned() {
+        document.getElementById("calculator").style.transformOrigin = "center";
+        document.getElementById("calculator").style.transform = "scale(0)";
+        document.getElementById("calculator").style.opacity = "0";
+        document.getElementById("tbbSettings").onclick = openCalcFromTaskbar;
+        resetCalculator();
     }
 
     function closeCalculator() {
         document.getElementById("calculator").style.transformOrigin = "center";
         document.getElementById("calculator").style.transform = "scale(0)";
         document.getElementById("calculator").style.opacity = "0";
-        document.getElementById("tbbCalculator").style.display = "none";
-        document.getElementById("tbbCalculator").style.opacity = "0";
+        document.getElementById("tbNonVisible").appendChild(document.getElementById("tbbCalculator"));
         resetCalculator();
     }
 
@@ -737,16 +859,28 @@
 </script>
 
     <script>
-        function openSettings() {
+
+        function openSettingsFromStartMenu() {
             document.getElementById("settingsApp").style.transformOrigin = "center";
             document.getElementById("settingsApp").style.transform = "scale(1)";
             document.getElementById("settingsApp").style.opacity = "1";
-            document.getElementById("tbbSettings").style.display = "inline";
-            document.getElementById("tbbSettings").style.opacity = "1";
+            document.getElementById("tbUnpinned").appendChild(document.getElementById("tbbSettings"));
             document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
             document.getElementById("startMenu").style.opacity = '0';
             document.getElementById("actionCenter").style.transform = "translateY(100%)";
             document.getElementById("actionCenter").style.opacity = '0';
+            document.getElementById("tbbSettings").onclick = showHideSettings;
+        }
+
+        function openSettingsFromTaskbar() {
+            document.getElementById("settingsApp").style.transformOrigin = "center";
+            document.getElementById("settingsApp").style.transform = "scale(1)";
+            document.getElementById("settingsApp").style.opacity = "1";
+            document.getElementById("startMenu").style.transform = "translateX(-50%) translateY(100%)";
+            document.getElementById("startMenu").style.opacity = '0';
+            document.getElementById("actionCenter").style.transform = "translateY(100%)";
+            document.getElementById("actionCenter").style.opacity = '0';
+            document.getElementById("tbbSettings").onclick = showHideSettings;
         }
 
         function openSettingsToBackground() {
@@ -754,12 +888,19 @@
             openSettings();
         }
 
+        function closeSettingsPinned() {
+            document.getElementById("settingsApp").style.transformOrigin = "center";
+            document.getElementById("settingsApp").style.transform = "scale(0)";
+            document.getElementById("settingsApp").style.opacity = "0";
+            document.getElementById("tbbSettings").onclick = openSettingsFromTaskbar;
+            resetSettings();
+        }
+
         function closeSettings() {
             document.getElementById("settingsApp").style.transformOrigin = "center";
             document.getElementById("settingsApp").style.transform = "scale(0)";
             document.getElementById("settingsApp").style.opacity = "0";
-            document.getElementById("tbbSettings").style.display = "none";
-            document.getElementById("tbbSettings").style.opacity = "0";
+            document.getElementById("tbNonVisible").appendChild(document.getElementById("tbbSettings"));
             resetSettings();
         }
 
@@ -996,6 +1137,8 @@
      </script>
     <script>
         function windowLoad() {
+            getSettingsPinnedState();
+            getCalcPinnedState();
             accentColorLd();
             setWall();
             autoHideSave();

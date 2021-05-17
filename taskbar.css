@@ -56,6 +56,7 @@
     width: max-content;
     height: max-content;
     background: var(--taskbar);
+    backdrop-filter: blur(90px) saturate(400%);
     color: var(--font);
     border-radius: 4px;
     padding: 5px 10px;
@@ -74,8 +75,9 @@
 }
 
 .tbbBtn {
-    display: grid;
-    place-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: calc(var(--tbSizeM) + 15px);
     height: var(--tbSizeM);
@@ -100,15 +102,11 @@
 }
 
 .tbbSettings {
-    display: none;
-    opacity: 0;
     background-image: url(Icons/WindowsSettings.png);
     background-size: 46%;
 }
 
 .tbbCalculator {
-    display: none;
-    opacity: 0;
     background-image: url(Icons/WindowsCalculator.png);
     background-size: 46%;
 }
@@ -159,5 +157,15 @@
     height: 30px;
     width: 1px;
     background-color: rgba(0, 0, 0, 0.4);
+    /* display: none; */
+}
+
+.tbApplications, .tbPinned{
+    width: fit-content;
+    height: 100%;
+    display: flex;
+}
+
+.tbNonVisible{
     display: none;
 }

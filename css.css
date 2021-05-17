@@ -153,7 +153,3 @@ body {
     bottom: calc(var(--tbSizeM) + 10px);
     box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.3);
 }
-
-.ici::before {
-    content: attr(data-icLabel);
-}
