@@ -26,6 +26,8 @@ The Settings app (available in the Launcher, or via the icon in the Action Cente
 From the Settings app, you can change your wallpaper, accent color, Taskbar & Launcher sizes, and more.<br>
 Notably, you can also disable the auto-hide function of the Taskbar, if you want it to always be visible.<br><br>
 
+Note, dark mode is supplied by your browser/device. Dark mode enables when you enable it through your host device's settings (e.g, Control Center on iOS).<br><br>
+
 Settings also allows you to change your account details, including your username and email.<br>
 It also lets you change your account picture, which will appear on the lock screen and the Action Center.<br>
 
