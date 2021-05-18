@@ -1,60 +1,50 @@
 .firstBoot{
-    display: none;
+    display: flex;
     position: absolute;
     z-index: 200;
     width: 100vw;
     height: 100vh;
-    background-image: var(--wall1);
-    background-size: cover;
-    background-position: center;
+    transform: scale(1);
+    transition: opacity 3s, transform 3s;
 }
 
 .fbBootScreen{
-    opacity: 0;
-    display: none;
+    display: flex;
     position: absolute;
-    z-index: 202;
     width: 100%;
     height: 100%;
     background-color: black;
     align-items: center;
     justify-content: center;
-    /* animation: displayOOBE 12s forwards; */
+    animation: displayOOBE 12s forwards;
 }
 
 .bootLogo{
-    /* opacity: 0; */
+    opacity: 0;
     width: 170px;
     height: 170px;
     background-image: url("bootBlue.svg");
     background-size: cover;
     position: absolute;
     top: 30%;
-    /* animation: bootAppear 8s forwards; */
-    animation-delay: 1s;
-}
-
-.winUISpin{
-    /* opacity: 0; */
-    width: 90px;
-    position: absolute;
-    bottom: 20%;
-    /* animation: bootAppear 8s forwards; */
+    animation: bootAppear 8s forwards;
     animation-delay: 1s;
 }
 
 #preBootstrapLoading{
+    opacity: 0;
     margin: auto;
-    padding-inline: 10px;
     position: absolute;
     bottom: 20%;
     width: 50px;
     height: 50px;
+    animation: bootAppear 10s forwards;
+    animation-delay: 1s;
 }
 
 .radial{
     fill: none;
-    stroke-width: 3px;
+    stroke-width: 2px;
     stroke-linecap: round;
     transform-origin: 50% 50%;
     transform: rotate(-90deg);
@@ -64,7 +54,7 @@
 .radial-bg{
     fill: none;
     stroke: rgba(255, 255, 255, 0.18);
-    stroke-width: 3px;
+    stroke-width: 2px;
     stroke-linecap: round;
     margin: 10px;
 }
@@ -77,7 +67,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* z-index: 101; */
     width: 100%;
     height: 100%;
     background-color: white;
@@ -89,9 +78,11 @@
     left: 0;
     width: 100%;
     height: 100%;
+    opacity: .5;
     background-image: url("OOBEBack.png");
     background-size: cover;
     background-position: center;
+    transition: opacity .2s;
 }
 
 .fboContainer{
@@ -101,11 +92,12 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    border-radius: 7px;
+    border-radius: 8px;
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
     transform: translate(-50%, -50%);
     display: flex;
     overflow: hidden;
+    transition: opacity .2s;
 }
 
 .fbosLR{
@@ -116,17 +108,27 @@
 
 .fbLeftImage{
     position: absolute;
-    top: 50%;
-    left: 50%;
+}
+
+.fbLeftImg1{
+    top: 48%;
+    left: 53%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 350px;
+}
+
+.fbLeftImg2{
+    top: 48%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+    width: 350px;
 }
 
 .fbosRight{
     padding: 50px;
 }
 
-.fh1::before{
+.fbrH::before{
     content: attr(data-frHeader);
     font: 400 25px Segb;
 }
@@ -139,18 +141,18 @@
 
 .fbrEI{
     position: absolute;
-    top: 48%;
+    top: 17%;
     font: 400 13px Seg;
     color:rgba(0, 0, 0, 0.4);
 }
 
 .fbr1Form{
     position: absolute;
-    top: 40%;
+    top: 35%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
 }
 
 .ffTextbox{
@@ -165,6 +167,7 @@
     transition: border .2s;
     background-color: var(--OOBESearch);
     color: black;
+    
 }
 
 .ffTextbox:focus {
@@ -174,6 +177,10 @@
 
 .ffTextbox::placeholder{
     color:rgba(0, 0, 0, 0.5)
+}
+
+.ffName{
+    margin-bottom: 15px;
 }
 
 .frNextBtn{
@@ -192,51 +199,204 @@
     background-color: rgb(56, 147, 216);
 }
 
-    @keyframes spin-infinite{
-        0%{
-            stroke-dasharray:.01px 43.97px;
-            transform:rotate(0deg)
-        }
-        
-        50%{
-            stroke-dasharray:21.99px 21.99px;
-            transform:rotate(450deg)
-        }
+.fbrError{
+    font: 400 13px Seg;
+    color: rgba(0, 0, 0, 0.6);
+    height: 18px;
+    padding-top: 15px;
+}
 
-        100%{
-            stroke-dasharray:.01px 43.97px;
-            transform:rotate(1080deg)
-        }
+.fbOStatus{
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    font: 400 40px FLNTREG;
+    color:rgba(0, 0, 0, 0.7);
+}
+
+.f1Lbl{
+    font: 400 15px Segsb;
+
+}
+
+.fboScreen1{
+    z-index: 2;
+}
+
+.fboScreen2{
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.fboScreen3{
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+}
+
+.fboScreenLast{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.wsFB::before {
+    content: "Choose your wallpaper";
+    font: 400 20px Segsb;
+    position: absolute;
+    top: 10px;
+}
+
+.frNext2Skip{
+    right: 25%;
+    background-color: transparent;
+    color: black;
+}
+
+.frNext2Skip:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.fboScreenLast{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fbLastCover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.fbLastLbl1{
+    font: 400 40px Segb;
+}
+
+.fbLastLbl2{
+    font: 400 17px Segsb;
+    margin-bottom: 40px;
+}
+
+.fbLastImg{
+    width: 500px;
+}
+
+.fbLeftImg3{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+
+.fbr3Box{
+    width: 95%;
+    height: 65%;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    background-color: rgba(0, 0, 0, 0.05);
+    color: black;
+    font: 400 13px Seg;
+    padding: 10px;
+    overflow: scroll;
+}
+
+.fbosBackBtn{
+    z-index: 300;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    color: black;
+    font: 400 30px FLNTREG;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .1s;
+}
+
+.fbosBackBtn::before{
+    content: "";
+}
+
+.fbosBackBtn:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.fbr1ComeBack{
+    position: absolute;
+    bottom: 23%;
+    font: 400 15px Segsb;
+    color: white;
+    transition: 1s color .1s;
+}
+
+.fbr1ComeBack::before{
+    content: "Your information has been saved. Visit the Settings app later to change this information.";
+}
+
+.frNext4{
+    bottom: 15px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+@keyframes spin-infinite{
+    0%{
+        stroke-dasharray:.01px 43.97px;
+        transform:rotate(0deg)
+    }
+        
+    50%{
+        stroke-dasharray:21.99px 21.99px;
+        transform:rotate(450deg)
     }
 
-  @keyframes bootAppear {
-      0%{
-          opacity: 0;
-      }
+    100%{
+        stroke-dasharray:.01px 43.97px;
+        transform:rotate(1080deg)
+    }
+}
 
-      5%{
-          opacity: 1;
-      }
-
-      95%{
-          opacity: 1;
-      }
-
-      100%{
-          opacity: 0;
-      }
-  }
-
-  @keyframes displayOOBE {
-      0%{
-        opacity: 1;
-      }
-
-      95%{
-        opacity: 1;
-      }
-      
-      100%{
+@keyframes bootAppear {
+    0%{
         opacity: 0;
-      }
-  }
+    }
+
+    5%{
+        opacity: 1;
+    }
+
+    95%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes displayOOBE {
+    0%{
+        opacity: 1;
+        z-index: 202;
+    }
+
+    95%{
+        opacity: 1;
+        z-index: 202;
+    }
+      
+    100%{
+        z-index: 0;
+        opacity: 0;
+    }
+}

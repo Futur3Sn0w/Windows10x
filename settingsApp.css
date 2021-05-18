@@ -490,7 +490,7 @@
     display: flex;
 }
 
-.wallStrip::before {
+.wsSett::before {
     content: "Choose your picture";
     font: 400 16px Segsb;
     position: absolute;
@@ -789,7 +789,7 @@ input:checked+.slider:before {
     position: absolute;
     content: "Accent color support is in beta. Features may change and update in the future.";
     bottom: -25px;
-    opacity: .6;
+    color: rgb(145, 145, 145);
     font: 400 12px Seg;
 }
 
@@ -805,6 +805,7 @@ input:checked+.slider:before {
 }
 
 .ac1 {
+    border-radius: 4px 0 0 4px;
     background-color: #3D7FD5;
 }
 
@@ -821,6 +822,7 @@ input:checked+.slider:before {
 }
 
 .ac5 {
+    border-radius: 0 4px 4px 0;
     background-color: #C67AB8;
 }
 

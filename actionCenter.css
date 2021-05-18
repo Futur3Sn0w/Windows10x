@@ -232,7 +232,7 @@
     width: fit-content;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     padding: 0 13px;
 }
 
@@ -244,7 +244,7 @@
     align-items: center;
     justify-content: center;
     font: 100 18px FLNTREG;
-    transition: background-color .2s;
+    transition: background-color 150ms;
 }
 
 .actfBtn:hover {
@@ -252,12 +252,25 @@
 }
 
 .actfbUsertile {
-    background-image: var(--userImage);
-    background-size: cover;
-    background-position: center;
-    transition: opacity .1s;
+    border-radius: 100px;
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 3px 6px;
 }
 
-.actfbUsertile:hover {
-    opacity: .6;
+.aUTUsername{
+    font: 400 13px Segsb;
+    color: var(--font2);
+    padding-right: 4px;
+}
+.aUTIcon{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-image: var(--userImage);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }

@@ -15,11 +15,12 @@
     <link rel="stylesheet" href="settingsApp.css">
     <link rel="stylesheet" href="actionCenter.css">
     <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+    <script src="eula.js"></script>
 </head>
 
 <body id="body" onload="windowLoad()">
 
-    <div class="firstBoot">
+    <div class="firstBoot" id="firstBoot">
         <div class="fbBootScreen">
             <div class="bootLogo"></div>
             <div id="preBootstrapLoading">
@@ -30,21 +31,74 @@
             </div>
         </div>
         <div class="fbOOBE">
-            <div class="fbOBackground"></div>
-            <div class="fboContainer fboScreen1">
+            <div class="fbOBackground" id="fbOBackground"></div>
+            <div class="fbOStatus"> </div>
+            <div class="fboContainer fboScreen1" id="fboScreen1">
                 <div class="fbosLR fbos1Left">
-                    <img src="OOBE\1.png" class="fbLeftImage">
+                    <img src="OOBE\5.png" class="fbLeftImage fbLeftImg1">
                 </div>
                 <div class="fbosLR fbosRight fbosRight1">
                     <div class="fbrH fh1" data-frHeader="Tell us about yourself"></div>
-                    <div class="fbrB fb1">Enter the information below to get your account set up.</div>
-                    <div class="fbrEI fei1">All information is stored locally on your device. Nothing is sent to Microsoft or Futur3Sn0w Studio.</div>
-                <div class="fbr1Form">
-                    <textarea class="ffTextbox ffName" placeholder="Name"></textarea>
-                    <textarea class="ffTextbox ffEmail" placeholder="Email"></textarea>
+                    <div class="fbrB fb1">Enter the information below to get your account set up.<br>You can change any information you enter here later from the Settings app.</div>
+                    <div class="fbrEI fei1">All information is stored locally, on your device. Nothing is sent to Microsoft or Futur3Sn0w Studio.</div>
+                <div class="fbr1Form" id="fbr1Form">
+                    <label class="f1Lbl f1NameLbl">Name:</label>
+                    <textarea class="ffTextbox ffName" id="ffName" placeholder="John Doe"></textarea>
+                    <label class="f1Lbl f1NameLbl">Email:</label>
+                    <textarea class="ffTextbox ffEmail" id="ffEmail" placeholder="johndoe@contoso.com"></textarea>
+                    <span class="fbrError" id="fbrErr2">Note: Leaving a field blank will result in a placeholder value being used.<br>If you change your mind later, visit the Accounts section of the Settings app.</span>
                 </div>
-                <div class="frNextBtn">Next</div>
+                <div class="fbr1ComeBack" id="fbr1ComeBack"></div>
+                <div class="frNextBtn" onclick="OOBEs1Next();">Next</div>
                 </div>
+            </div>
+            <div class="fboContainer fboScreen2" id="fboScreen2">
+                <div class="fbosBackBtn fbosBack1" onclick="OOBEs1Back()"></div>
+                <div class="fbosLR fbos2Left">
+                    <img src="OOBE\6.png" class="fbLeftImage fbLeftImg2">
+                </div>
+                <div class="fbosLR fbosRight fbosRight2">
+                    <div class="fbrH fh2" data-frHeader="Choose your look"></div>
+                    <div class="fbrB fb2" style="padding-bottom: 30px;">Pick from the options below to customize your device.<br>You can change more at any time from the Settings app.</div>
+                    <div class="wallStrip wsFB">
+                        <div class="wsp ws1" onclick="wall1()"></div>
+                        <div class="wsp ws2" onclick="wall2()"></div>
+                        <div class="wsp ws3" onclick="wall3()"></div>
+                        <div class="wsp ws4" onclick="wall4()"></div>
+                        <div class="wsp ws5" onclick="wall5()"></div>
+                    </div>
+                    <div class="accentColorSect">
+                        <label class="CYAC">Choose your accent color</label>
+                        <div class="accentColors" style="padding-top: 10px;">
+                            <div class="aColor ac1" onclick="accentColor1()"></div>
+                            <div class="aColor ac2" onclick="accentColor2()"></div>
+                            <div class="aColor ac3" onclick="accentColor3()"></div>
+                            <div class="aColor ac4" onclick="accentColor4()"></div>
+                            <div class="aColor ac5" onclick="accentColor5()"></div>
+                        </div>
+                    </div>
+                <div class="frNextBtn frNext2Skip" onclick="OOBEs2Next();">Skip for now</div>
+                <div class="frNextBtn frNext2" onclick="OOBEs2Next();">Next</div>
+                </div>
+            </div>
+            <div class="fboContainer fboScreen3" id="fboScreen3">
+                <div class="fbosBackBtn fbosBack1" onclick="OOBEs1Next()"></div>
+                <div class="fbosLR fbos3Left">
+                    <img src="OOBE\2.png" class="fbLeftImage fbLeftImg3">
+                </div>
+                <div class="fbosLR fbosRight fbosRight3">
+                    <div class="fbrH fh3" data-frHeader="Before we finish..."></div>
+                    <div class="fbrB fb3">Please read the information below to finish setup.</div>
+                    <div class="fbr3Box" id="fbr3Box"></div>
+                <div class="frNextBtn frNext3" onclick="OOBEs3Next();">Next</div>
+            </div>
+            </div>
+            <div class="fboContainer fboScreenLast" id="fboScreenLast">
+                <div class="fbLastCover"></div>
+                <div class="fbLastLbl1">You're all done!</div>
+                <div class="fbLastLbl2">Windows is now all yours. Enjoy!</div>
+                <img src="OOBE\final.svg" class="fbLastImg">
+                <div class="frNextBtn frNext4" onclick="OOBEsLastFinish();">Start using Windows 10X</div>
             </div>
         </div>
     </div>
@@ -145,7 +199,10 @@
                     <div class="actfBtn actfbKeyboard"></div>
                     <div class="actfBtn actfbSettings" onclick="openSettings()"></div>
                     <div class="actfBtn actfbPower"></div>
-                    <div class="actfBtn actfbUsertile"></div>
+                    <div class="actfBtn actfbUsertile">
+                        <div class="aUTUsername" id="aUTUsername">Name</div>
+                        <div class="aUTIcon" id="aUTIcon"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -315,7 +372,7 @@
                         <div class="wptDot wptd3"></div>
                     </div>
                 </div>
-                <div class="wallStrip">
+                <div class="wallStrip wsSett">
                     <div class="wsp ws1" onclick="wall1()"></div>
                     <div class="wsp ws2" onclick="wall2()"></div>
                     <div class="wsp ws3" onclick="wall3()"></div>
@@ -435,6 +492,124 @@
     document.getElementById("tbPinSep").style.display = "none";
 }
 </script> -->
+
+<script>
+    fetch('eula.txt')
+  .then(response => response.text())
+  .then(eulaData => {
+  	// Do something with your data
+  	document.getElementById("fbr3Box").innerHTML = eulaData;
+  });
+</script>
+
+<script>
+    var ffs1Name = document.getElementById("ffName");
+    var ffs1Email = document.getElementById("ffEmail");
+    var errMsg = document.getElementById("fbrErr2");
+    var oobeScreen1 = document.getElementById("fboScreen1");
+    var oobeScreen2 = document.getElementById("fboScreen2");
+    var oobeScreen3 = document.getElementById("fboScreen3");
+    var oobeScreenLast = document.getElementById("fboScreenLast");
+    var firstBoot = document.getElementById("firstBoot");
+
+    function OOBES1SetCookies() {
+        if (ffs1Name.value == ''){
+            document.cookie = "ffNameCookie=User";
+        } else {
+            document.cookie = "ffNameCookie=" + ffs1Name.value;
+        }
+
+        if (ffs1Email.value == ''){
+            document.cookie = "ffEmailCookie=beta@contoso.com";
+        } else {
+            document.cookie = "ffEmailCookie=" + ffs1Email.value;
+        }
+    }
+
+    function OOBESetUsername(){
+        const userNameCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('ffNameCookie='))
+                .split('=')[1];
+
+                document.getElementById("aUTUsername").innerHTML = userNameCookie;
+    }
+    
+    function OOBEs1Next() {
+        OOBES1SetCookies();
+        OOBESetUsername;
+        oobeScreen1.style.opacity = "0"
+        oobeScreen1.style.zIndex = "0"
+        oobeScreen3.style.opacity = "0"
+        oobeScreen3.style.zIndex = "0"
+        oobeScreenLast.style.opacity = "0"
+        oobeScreenLast.style.zIndex = "0"
+        oobeScreen2.style.opacity = "1"
+        oobeScreen2.style.zIndex = "2"
+        document.getElementById("fbr1ComeBack").style.color = "black";
+        document.getElementById("fbr1Form").style.opacity = ".5";
+        document.getElementById("fbr1Form").style.pointerEvents = "none";
+        document.cookie = "OOBEFinished=1"
+    }
+
+    function OOBEs1Back() {
+        oobeScreen2.style.opacity = "0"
+        oobeScreen2.style.zIndex = "0"
+        oobeScreen3.style.opacity = "0"
+        oobeScreen3.style.zIndex = "0"
+        oobeScreenLast.style.opacity = "0"
+        oobeScreenLast.style.zIndex = "0"
+        oobeScreen1.style.opacity = "1"
+        oobeScreen1.style.zIndex = "2"
+        document.cookie = "OOBEFinished=1"
+    }
+
+    function OOBEs2Next(){
+        oobeScreen1.style.opacity = "0"
+        oobeScreen1.style.zIndex = "0"
+        oobeScreen2.style.opacity = "0"
+        oobeScreen2.style.zIndex = "0"
+        oobeScreenLast.style.opacity = "0"
+        oobeScreenLast.style.zIndex = "0"
+        oobeScreen3.style.opacity = "1"
+        oobeScreen3.style.zIndex = "2"
+        document.cookie = "OOBEFinished=2"
+    }
+
+    function OOBEs3Next(){
+        oobeScreen1.style.opacity = "0"
+        oobeScreen1.style.zIndex = "0"
+        oobeScreen2.style.opacity = "0"
+        oobeScreen2.style.zIndex = "0"
+        oobeScreen3.style.opacity = "0"
+        oobeScreen3.style.zIndex = "0"
+        oobeScreenLast.style.opacity = "1"
+        oobeScreenLast.style.zIndex = "1"
+        document.cookie = "OOBEFinished=3"
+    }
+
+    function OOBEsLastFinish() {
+        firstBoot.style.opacity = "0";
+        firstBoot.style.transform = "scale(2)";
+        firstBoot.style.zIndex = "-4";
+        document.cookie = "OOBEFinished=4";
+        OOBECompletedCheck;
+    }
+
+    function OOBECompletedCheck() {
+        const oobeCompCookie = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('OOBEFinished='))
+                .split('=')[1];
+
+        if (oobeCompCookie === "4"){
+        firstBoot.style.display = "none";
+        } else {
+        firstBoot.style.display = "flex";
+        }
+
+    }
+</script>
 
     <script>
         function ifPinSettings(){
@@ -708,30 +883,35 @@
             document.cookie = "wall=var(--wall1)";
             document.getElementById("body").style.backgroundImage = "var(--wall1)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall1)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--wall1)";
         }
 
         function wall2() {
             document.cookie = "wall=var(--wall2)";
             document.getElementById("body").style.backgroundImage = "var(--wall2)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall2)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--wall2)";
         }
 
         function wall3() {
             document.cookie = "wall=var(--wall3)";
             document.getElementById("body").style.backgroundImage = "var(--wall3)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall3)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--wall3)";
         }
 
         function wall4() {
             document.cookie = "wall=var(--wall4)";
             document.getElementById("body").style.backgroundImage = "var(--wall4)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall4)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--wall4)";
         }
 
         function wall5() {
             document.cookie = "wall=var(--wall5)";
             document.getElementById("body").style.backgroundImage = "var(--wall5)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall5)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--wall5)";
         }
     </script>
 
@@ -1175,6 +1355,8 @@
      </script>
     <script>
         function windowLoad() {
+            OOBECompletedCheck();
+            OOBESetUsername();
             getSettingsPinnedState();
             getCalcPinnedState();
             accentColorLd();
