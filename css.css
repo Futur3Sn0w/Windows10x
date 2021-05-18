@@ -17,6 +17,8 @@ html {
     --qsHeight: 240px;
     --accent: #397079;
     --accent-hov: #50929c;
+    --OOBEBack: #ffffff;
+    --OOBESearch: #ffffff;
 }
 
 body {

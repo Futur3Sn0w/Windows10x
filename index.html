@@ -9,19 +9,50 @@
     <link rel="stylesheet" href="segoe.css">
     <link rel="stylesheet" href="twitter.css">
     <link rel="stylesheet" href="taskbar.css">
+    <link rel="stylesheet" href="firstBoot.css">
     <link rel="stylesheet" href="startMenu.css">
     <link rel="stylesheet" href="calculator.css">
     <link rel="stylesheet" href="settingsApp.css">
     <link rel="stylesheet" href="actionCenter.css">
-
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
 </head>
 
 <body id="body" onload="windowLoad()">
 
+    <div class="firstBoot">
+        <div class="fbBootScreen">
+            <div class="bootLogo"></div>
+            <div id="preBootstrapLoading">
+                <svg class="loaderIcon" viewBox="0 0 16 16">
+                    <circle class="radial-bg" cx="8px" cy="8px" r="7px"></circle>
+                    <circle class="radial radial-infinite" cx="8px" cy="8px" r="7px"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="fbOOBE">
+            <div class="fbOBackground"></div>
+            <div class="fboContainer fboScreen1">
+                <div class="fbosLR fbos1Left">
+                    <img src="OOBE\1.png" class="fbLeftImage">
+                </div>
+                <div class="fbosLR fbosRight fbosRight1">
+                    <div class="fbrH fh1" data-frHeader="Tell us about yourself"></div>
+                    <div class="fbrB fb1">Enter the information below to get your account set up.</div>
+                    <div class="fbrEI fei1">All information is stored locally on your device. Nothing is sent to Microsoft or Futur3Sn0w Studio.</div>
+                <div class="fbr1Form">
+                    <textarea class="ffTextbox ffName" placeholder="Name"></textarea>
+                    <textarea class="ffTextbox ffEmail" placeholder="Email"></textarea>
+                </div>
+                <div class="frNextBtn">Next</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="desktopLayer" id="desktopLayer"></div>
 
     <div class="desktopContext" id="desktopContext">
-        <div class="dci dc1" onclick="openSettingsToBackground()"></div>
+        <div class="dci dc1" id="dc1" onclick="openSettingsToBackground()"></div>
     </div>
 
     <div class="iconContext" id="icSettings">
@@ -416,6 +447,7 @@
 
         function pinSettings() {
             document.getElementById("settPinBtn").innerHTML = "Unpin from taskbar";
+            document.getElementById("dc1").onclick = openSettingsToBackgroundTB;
             document.getElementById("tbbSettings").onclick = openSettingsFromTaskbar;
             document.getElementById("ss2IconSettings").onclick = openSettingsFromTaskbar;
             document.getElementById("settingsCloseBtn").onclick = closeSettingsPinned;
@@ -425,6 +457,7 @@
         
         function unpinSettings(){
             document.getElementById("settPinBtn").innerHTML = "Pin to taskbar";
+            document.getElementById("dc1").onclick = openSettingsToBackgroundSM;
             document.getElementById("tbbSettings").onclick = showHideSettings;
             document.getElementById("ss2IconSettings").onclick = openSettingsFromStartMenu;
             document.getElementById("settingsCloseBtn").onclick = closeSettings;
@@ -672,7 +705,7 @@
         }
 
         function wall1() {
-            document.cookie = "wall=" + document.getElementById("body").style.backgroundImage;
+            document.cookie = "wall=var(--wall1)";
             document.getElementById("body").style.backgroundImage = "var(--wall1)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall1)";
         }
@@ -883,9 +916,14 @@
             document.getElementById("tbbSettings").onclick = showHideSettings;
         }
 
-        function openSettingsToBackground() {
+        function openSettingsToBackgroundSM() {
             settTab4();
-            openSettings();
+            openSettingsFromStartMenu();
+        }
+
+        function openSettingsToBackgroundTB() {
+            settTab4();
+            openSettingsFromTaskbar();
         }
 
         function closeSettingsPinned() {

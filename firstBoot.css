@@ -1,0 +1,242 @@
+.firstBoot{
+    display: none;
+    position: absolute;
+    z-index: 200;
+    width: 100vw;
+    height: 100vh;
+    background-image: var(--wall1);
+    background-size: cover;
+    background-position: center;
+}
+
+.fbBootScreen{
+    opacity: 0;
+    display: none;
+    position: absolute;
+    z-index: 202;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    /* animation: displayOOBE 12s forwards; */
+}
+
+.bootLogo{
+    /* opacity: 0; */
+    width: 170px;
+    height: 170px;
+    background-image: url("bootBlue.svg");
+    background-size: cover;
+    position: absolute;
+    top: 30%;
+    /* animation: bootAppear 8s forwards; */
+    animation-delay: 1s;
+}
+
+.winUISpin{
+    /* opacity: 0; */
+    width: 90px;
+    position: absolute;
+    bottom: 20%;
+    /* animation: bootAppear 8s forwards; */
+    animation-delay: 1s;
+}
+
+#preBootstrapLoading{
+    margin: auto;
+    padding-inline: 10px;
+    position: absolute;
+    bottom: 20%;
+    width: 50px;
+    height: 50px;
+}
+
+.radial{
+    fill: none;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    stroke: white;
+}
+
+.radial-bg{
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.18);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    margin: 10px;
+}
+
+.radial-infinite{
+    animation: spin-infinite 2s linear infinite;
+}
+
+.fbOOBE{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: 101; */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.fbOBackground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("OOBEBack.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.fboContainer{
+    width: 70%;
+    height: 80%;
+    background-color: var(--OOBEBack);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 7px;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%);
+    display: flex;
+    overflow: hidden;
+}
+
+.fbosLR{
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.fbLeftImage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+
+.fbosRight{
+    padding: 50px;
+}
+
+.fh1::before{
+    content: attr(data-frHeader);
+    font: 400 25px Segb;
+}
+
+.fbrB{
+    font: 400 15px Seg;
+    color:rgba(0, 0, 0, 0.7);
+    padding-top: 10px;
+}
+
+.fbrEI{
+    position: absolute;
+    top: 48%;
+    font: 400 13px Seg;
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.fbr1Form{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ffTextbox{
+    resize: none;
+    width: 450px;
+    height: 38px;
+    border-radius: var(--buttonRadi);
+    border: 2px solid rgb(218, 218, 218);
+    font: 400 16px Segsb;
+    line-height: 34px;
+    padding: 0 50px 0 15px;
+    transition: border .2s;
+    background-color: var(--OOBESearch);
+    color: black;
+}
+
+.ffTextbox:focus {
+    border: 2px solid rgb(146, 146, 146);
+    outline: none;
+}
+
+.ffTextbox::placeholder{
+    color:rgba(0, 0, 0, 0.5)
+}
+
+.frNextBtn{
+    position: absolute;
+    background-color: rgb(0, 120, 212);
+    color: white;
+    padding: 11px 50px;
+    border-radius: 3px;
+    bottom: 16%;
+    right: 6%;
+    transition: .15s;
+    cursor: pointer;
+}
+
+.frNextBtn:hover{
+    background-color: rgb(56, 147, 216);
+}
+
+    @keyframes spin-infinite{
+        0%{
+            stroke-dasharray:.01px 43.97px;
+            transform:rotate(0deg)
+        }
+        
+        50%{
+            stroke-dasharray:21.99px 21.99px;
+            transform:rotate(450deg)
+        }
+
+        100%{
+            stroke-dasharray:.01px 43.97px;
+            transform:rotate(1080deg)
+        }
+    }
+
+  @keyframes bootAppear {
+      0%{
+          opacity: 0;
+      }
+
+      5%{
+          opacity: 1;
+      }
+
+      95%{
+          opacity: 1;
+      }
+
+      100%{
+          opacity: 0;
+      }
+  }
+
+  @keyframes displayOOBE {
+      0%{
+        opacity: 1;
+      }
+
+      95%{
+        opacity: 1;
+      }
+      
+      100%{
+        opacity: 0;
+      }
+  }
