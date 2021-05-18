@@ -107,21 +107,21 @@
 }
 
 .fbLeftImage{
-    position: absolute;
+    width: 340px;
+    opacity: 0;
+    transform: translateX(-140%);
+    transition: opacity .3s, transform .3s;
 }
 
 .fbLeftImg1{
-    top: 48%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-    width: 350px;
+    animation: s1ImgAppear .3s forwards;
+    animation-delay: 12s;
 }
 
-.fbLeftImg2{
-    top: 48%;
-    left: 53%;
-    transform: translate(-50%, -50%);
-    width: 350px;
+.fbos1Left, .fbos2Left, .fbos3Left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .fbosRight{
@@ -285,14 +285,6 @@
     width: 500px;
 }
 
-.fbLeftImg3{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-}
-
 .fbr3Box{
     width: 95%;
     height: 65%;
@@ -398,5 +390,12 @@
     100%{
         z-index: 0;
         opacity: 0;
+    }
+}
+
+@keyframes s1ImgAppear {
+    100%{
+        opacity: 1;
+        transform: translate(0%);
     }
 }

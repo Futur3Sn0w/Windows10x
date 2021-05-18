@@ -35,7 +35,7 @@
             <div class="fbOStatus"> </div>
             <div class="fboContainer fboScreen1" id="fboScreen1">
                 <div class="fbosLR fbos1Left">
-                    <img src="OOBE\5.png" class="fbLeftImage fbLeftImg1">
+                    <img src="OOBE\5.png" class="fbLeftImage fbLeftImg1" id="oobeImg1">
                 </div>
                 <div class="fbosLR fbosRight fbosRight1">
                     <div class="fbrH fh1" data-frHeader="Tell us about yourself"></div>
@@ -55,7 +55,7 @@
             <div class="fboContainer fboScreen2" id="fboScreen2">
                 <div class="fbosBackBtn fbosBack1" onclick="OOBEs1Back()"></div>
                 <div class="fbosLR fbos2Left">
-                    <img src="OOBE\6.png" class="fbLeftImage fbLeftImg2">
+                    <img src="OOBE\6.png" class="fbLeftImage fbLeftImg2" id="oobeImg2">
                 </div>
                 <div class="fbosLR fbosRight fbosRight2">
                     <div class="fbrH fh2" data-frHeader="Choose your look"></div>
@@ -84,7 +84,7 @@
             <div class="fboContainer fboScreen3" id="fboScreen3">
                 <div class="fbosBackBtn fbosBack1" onclick="OOBEs1Next()"></div>
                 <div class="fbosLR fbos3Left">
-                    <img src="OOBE\2.png" class="fbLeftImage fbLeftImg3">
+                    <img src="OOBE\2.png" class="fbLeftImage fbLeftImg3" id="oobeImg3">
                 </div>
                 <div class="fbosLR fbosRight fbosRight3">
                     <div class="fbrH fh3" data-frHeader="Before we finish..."></div>
@@ -550,6 +550,8 @@
         document.getElementById("fbr1Form").style.opacity = ".5";
         document.getElementById("fbr1Form").style.pointerEvents = "none";
         document.cookie = "OOBEFinished=1"
+        document.getElementById("oobeImg2").style.opacity = "1"
+        document.getElementById("oobeImg2").style.transform = "translate(0%)"
     }
 
     function OOBEs1Back() {
@@ -574,6 +576,8 @@
         oobeScreen3.style.opacity = "1"
         oobeScreen3.style.zIndex = "2"
         document.cookie = "OOBEFinished=2"
+        document.getElementById("oobeImg3").style.opacity = "1"
+        document.getElementById("oobeImg3").style.transform = "translate(0%)"
     }
 
     function OOBEs3Next(){
@@ -1346,7 +1350,7 @@
             let y = eval(x)
             document.getElementById("result").value = y
         }
-        
+
         function clr()
         {
             document.getElementById("result").value = ""
