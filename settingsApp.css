@@ -490,11 +490,19 @@
     display: flex;
 }
 
-.wsSett::before {
-    content: "Choose your picture";
-    font: 400 16px Segsb;
+.wallStrip::before {
+    content: attr(data-wallType);
+    font: 400 17px Segsb;
     position: absolute;
     top: 20px;
+}
+
+.wsSettDyn::after{
+    content: "Dynamic wallpapers will change to darker or lighter colors (respectively) when the system theme is changed.";
+    position: absolute;
+    bottom: -25px;
+    font: 400 13px Seg;
+    opacity: .6;
 }
 
 .wsp {
@@ -531,10 +539,26 @@
     background-image: var(--wall5);
 }
 
+.wsd1 {
+    background-image: var(--dynamicWall1);
+}
+
+.wsd2 {
+    background-image: var(--dynamicWall2);
+}
+
+.wsd3 {
+    background-image: var(--dynamicWall3);
+}
+
+.wsd4 {
+    background-image: var(--dynamicWall4);
+}
+
 .customWall {
     background-color: var(--btn-hov);
     padding: 5px 10px;
-    margin: 10px 0;
+    margin: 40px 0;
     border-radius: var(--buttonRadi);
     width: max-content;
     color: var(--font2);

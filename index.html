@@ -372,12 +372,19 @@
                         <div class="wptDot wptd3"></div>
                     </div>
                 </div>
-                <div class="wallStrip wsSett">
+                <div class="wallStrip wsSettStatic" data-wallType="Static wallpaper">
                     <div class="wsp ws1" onclick="wall1()"></div>
                     <div class="wsp ws2" onclick="wall2()"></div>
                     <div class="wsp ws3" onclick="wall3()"></div>
                     <div class="wsp ws4" onclick="wall4()"></div>
                     <div class="wsp ws5" onclick="wall5()"></div>
+                </div>
+
+                <div class="wallStrip wsSettDyn" data-wallType="Dynamic wallpaper">
+                    <div class="wsp wsd1" onclick="dynaWall1()"></div>
+                    <div class="wsp wsd2" onclick="dynaWall2()"></div>
+                    <div class="wsp wsd3" onclick="dynaWall3()"></div>
+                    <div class="wsp wsd4" onclick="dynaWall4()"></div>
                 </div>
                 <div class="customWall"></div>
             </div>
@@ -881,6 +888,7 @@
 
             document.getElementById("body").style.backgroundImage = wallCookie;
             document.getElementById("wallPrev").style.backgroundImage = wallCookie;
+            document.getElementById("fbOBackground").style.backgroundImage = wallCookie;
         }
 
         function wall1() {
@@ -916,6 +924,34 @@
             document.getElementById("body").style.backgroundImage = "var(--wall5)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall5)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall5)";
+        }
+
+        function dynaWall1() {
+            document.cookie = "wall=var(--dynamicWall1)";
+            document.getElementById("body").style.backgroundImage = "var(--dynamicWall1)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall1)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall1)";
+        }
+
+        function dynaWall2() {
+            document.cookie = "wall=var(--dynamicWall2)";
+            document.getElementById("body").style.backgroundImage = "var(--dynamicWall2)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall2)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall2)";
+        }
+
+        function dynaWall3() {
+            document.cookie = "wall=var(--dynamicWall3)";
+            document.getElementById("body").style.backgroundImage = "var(--dynamicWall3)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall3)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall3)";
+        }
+
+        function dynaWall4() {
+            document.cookie = "wall=var(--dynamicWall4)";
+            document.getElementById("body").style.backgroundImage = "var(--dynamicWall4)";
+            document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall4)";
+            document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall4)";
         }
     </script>
 
@@ -1360,14 +1396,14 @@
         function windowLoad() {
             OOBECompletedCheck();
             OOBESetUsername();
+            setWall();
+            accentColorLd();
+            loadLauncherSize();
+            setTBSize();
+            autoHideSave();
+            autoHideToggle();
             getSettingsPinnedState();
             getCalcPinnedState();
-            accentColorLd();
-            setWall();
-            autoHideSave();
-            setTBSize();
-            autoHideToggle();
-            loadLauncherSize();
         }
     </script>
 </body>

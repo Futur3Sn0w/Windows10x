@@ -76,6 +76,11 @@ body {
         --storeIcon: url(Icons/MicrosoftStoreDark.png);
         --stickiesIcon: url(Icons/MicrosoftStickyNotesDark.png);
         --window-main: #FFFFFF;
+
+        --dynamicWall1: url(DynaWalls/0Light.jpg);
+        --dynamicWall2: url(DynaWalls/1Light.jpg);
+        --dynamicWall3: url(DynaWalls/2Light.jpg);
+        --dynamicWall4: url(DynaWalls/3Light.jpg);
     }
 }
 
@@ -103,6 +108,11 @@ body {
         --storeIcon: url(Icons/MicrosoftStoreLight.png);
         --stickiesIcon: url(Icons/MicrosoftStickyNotesLight.png);
         --window-main: #000000;
+
+        --dynamicWall1: url(DynaWalls/0Dark.jpg);
+        --dynamicWall2: url(DynaWalls/1Dark.jpg);
+        --dynamicWall3: url(DynaWalls/2Dark.jpg);
+        --dynamicWall4: url(DynaWalls/3Dark.jpg);
     }
 }
 
