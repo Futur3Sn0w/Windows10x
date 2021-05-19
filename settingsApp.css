@@ -505,6 +505,10 @@
     opacity: .6;
 }
 
+.wspDyn{
+    transition: background-image 1s;
+}
+
 .wsp {
     width: 90px;
     height: 90px;

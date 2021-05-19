@@ -166,12 +166,7 @@
 .ss2Icon10,
 .ss2Icon11,
 .ss2Icon12,
-.ss2Icon14,
-.rt1,
-.rt2,
-.rt4,
-.rt5,
-.rt6 {
+.ss2Icon14{
     opacity: .4;
 }
 
@@ -313,7 +308,9 @@
     background-repeat: no-repeat;
     background-size: 43px;
     background-position: 10px 50%;
-    transition: background-color .2s;
+    transition: background-color .1s, background-size .2s;
+    text-decoration: none;
+    color: var(--font2);
 }
 
 .recTile:active {
@@ -333,18 +330,8 @@
     content: attr(data-subLabel);
 }
 
-.rt1:hover,
-.rt2:hover,
-.rt4:hover,
-.rt5:hover,
-.rt6:hover {
-    background-color: transparent;
-    cursor: not-allowed;
-    background-size: 43px;
-}
-
 .rt1 {
-    background-image: url(Icons/MicrosoftTeams.png);
+    background-image: url(Icons/Reddit.png);
 }
 
 .rt2 {
@@ -356,7 +343,7 @@
 }
 
 .rt4 {
-    background-image: url(Icons/GrooveMusic.png);
+    background-image: url(Icons/YouTube.png);
 }
 
 .rt5 {
@@ -364,7 +351,13 @@
 }
 
 .rt6 {
-    background-image: url(Icons/VSCode.png);
+    background-image: url(Icons/Netflix.png);
+    background-size: 25px;
+    background-position: 15px 50%;
+}
+
+.rt6:active {
+    background-size: 17px;
 }
 
 @media screen and (max-width: 600px) {

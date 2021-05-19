@@ -1,6 +1,10 @@
 .twitterApp{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    height: calc(100% - var(--tbSizeM));
     width: 100%;
-    height: 100%;
+    background-color: var(--font2);
 }
 
 .taObject, .taEmbed{

@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="calculator.css">
     <link rel="stylesheet" href="settingsApp.css">
     <link rel="stylesheet" href="actionCenter.css">
-    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
-    <script src="eula.js"></script>
+    <script src="area-palette.js"></script>
 </head>
 
 <body id="body" onload="windowLoad()">
@@ -105,6 +104,9 @@
 
     <div class="desktopLayer" id="desktopLayer"></div>
 
+    <div id="colorPrev" style="width: 0; height: 0;"></div>
+    <img id="wallImgAC" src="" style="width: 0;" alt="">
+    
     <div class="desktopContext" id="desktopContext">
         <div class="dci dc1" id="dc1" onclick="openSettingsToBackground()"></div>
     </div>
@@ -116,6 +118,10 @@
     <div class="iconContext" id="icCalc">
         <div class="ici icc1" id="calcPinBtn" onclick="ifPinCalc()">Pin to taskbar</div>
     </div>
+
+    <!-- <div class="twitterApp">
+        <iframe class="taObject" is="x-frame-bypass" src="https://open.spotify.com" frameborder="0"></iframe>
+    </div> -->
     
     <div class="calculator" id="calculator">
         <div class="calcTitlebar" data-titlebar="Calculator">
@@ -238,15 +244,15 @@
             </div>
             <div class="smbSep"></div>
             <div class="smbSection smbSect3">
-                <label class="ss3Lbl">Recent</label>
-                <label class="ss3Lbl2">The more you use your device, the more we'll show your recent files and new apps here.</label>
+                <label class="ss3Lbl">My websites</label>
+                <label class="ss3Lbl2">Visit popular online sites by clicking the links below.</label>
                 <div class="recentTiles">
-                    <div class="recTile rt1" data-label1="Teams" data-subLabel="Not available"></div>
-                    <div class="recTile rt2" data-label1="Spotify" data-subLabel="Recently visited"></div>
-                    <div class="recTile rt3" data-label1="Twitter" data-subLabel="Recently visited"></div>
-                    <div class="recTile rt4" data-label1="Groove Music" data-subLabel="Not available"></div>
-                    <div class="recTile rt5" data-label1="Office" data-subLabel="Not available"></div>
-                    <div class="recTile rt6" data-label1="Visual Studio Code" data-subLabel="Not available"></div>
+                    <a class="recTile rt1" data-label1="Reddit" href="https://www.reddit.com" data-subLabel="Social networking"></a>
+                    <a class="recTile rt2" data-label1="Spotify" href="https://open.spotify.com" data-subLabel="Music & Video"></a>
+                    <a class="recTile rt3" data-label1="Twitter" href="https://www.twitter.com" data-subLabel="Social networking"></a>
+                    <a class="recTile rt4" data-label1="YouTube" href="https://www.youtube.com" data-subLabel="Music & Video"></a>
+                    <a class="recTile rt5" data-label1="Office Online" href="https://www.office.com" data-subLabel="Office apps"></a>
+                    <a class="recTile rt6" data-label1="Netflix" href="https://www.netflix.com" data-subLabel="Music & Video"></a>
                 </div>
             </div>
         </div>
@@ -381,10 +387,10 @@
                 </div>
 
                 <div class="wallStrip wsSettDyn" data-wallType="Dynamic wallpaper">
-                    <div class="wsp wsd1" onclick="dynaWall1()"></div>
-                    <div class="wsp wsd2" onclick="dynaWall2()"></div>
-                    <div class="wsp wsd3" onclick="dynaWall3()"></div>
-                    <div class="wsp wsd4" onclick="dynaWall4()"></div>
+                    <div class="wsp wspDyn wsd1" onclick="dynaWall1()"></div>
+                    <div class="wsp wspDyn wsd2" onclick="dynaWall2()"></div>
+                    <div class="wsp wspDyn wsd3" onclick="dynaWall3()"></div>
+                    <div class="wsp wspDyn wsd4" onclick="dynaWall4()"></div>
                 </div>
                 <div class="customWall"></div>
             </div>
@@ -422,7 +428,7 @@
             <div class="p2page p2Launcher" id="ssPage6">
                 <label class="p2bLabel">Launcher</label>
                 <label class="launcherWidthLabel" data-label="Launcher size"></label>
-                <div class="wallPrev" id="wallPrev">
+                <div class="wallPrev" id="wallPrev2">
                     <div class="wpStartMenu" id="wpStartMenu">
                         <div class="wpsmTop">
                             <div class="wpsmtSearchbar"></div>
@@ -466,6 +472,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <div class="taskBar" id="taskbar">
         <div class="tbIndicator" id="tbIndicator"></div>
@@ -888,6 +896,8 @@
 
             document.getElementById("body").style.backgroundImage = wallCookie;
             document.getElementById("wallPrev").style.backgroundImage = wallCookie;
+            document.getElementById("wallPrev2").style.backgroundImage = wallCookie;
+            document.getElementById("wallImgAC").style.backgroundImage = wallCookie;
             document.getElementById("fbOBackground").style.backgroundImage = wallCookie;
         }
 
@@ -895,6 +905,8 @@
             document.cookie = "wall=var(--wall1)";
             document.getElementById("body").style.backgroundImage = "var(--wall1)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall1)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--wall1)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--wall1)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall1)";
         }
 
@@ -902,6 +914,8 @@
             document.cookie = "wall=var(--wall2)";
             document.getElementById("body").style.backgroundImage = "var(--wall2)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall2)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--wall2)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--wall2)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall2)";
         }
 
@@ -909,6 +923,8 @@
             document.cookie = "wall=var(--wall3)";
             document.getElementById("body").style.backgroundImage = "var(--wall3)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall3)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--wall3)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--wall3)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall3)";
         }
 
@@ -916,6 +932,8 @@
             document.cookie = "wall=var(--wall4)";
             document.getElementById("body").style.backgroundImage = "var(--wall4)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall4)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--wall4)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--wall4)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall4)";
         }
 
@@ -923,6 +941,8 @@
             document.cookie = "wall=var(--wall5)";
             document.getElementById("body").style.backgroundImage = "var(--wall5)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--wall5)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--wall5)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--wall5)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--wall5)";
         }
 
@@ -930,6 +950,8 @@
             document.cookie = "wall=var(--dynamicWall1)";
             document.getElementById("body").style.backgroundImage = "var(--dynamicWall1)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall1)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--dynamicWall1)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--dynamicWall1)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall1)";
         }
 
@@ -937,6 +959,8 @@
             document.cookie = "wall=var(--dynamicWall2)";
             document.getElementById("body").style.backgroundImage = "var(--dynamicWall2)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall2)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--dynamicWall2)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--dynamicWall2)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall2)";
         }
 
@@ -944,6 +968,8 @@
             document.cookie = "wall=var(--dynamicWall3)";
             document.getElementById("body").style.backgroundImage = "var(--dynamicWall3)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall3)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--dynamicWall3)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--dynamicWall3)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall3)";
         }
 
@@ -951,6 +977,8 @@
             document.cookie = "wall=var(--dynamicWall4)";
             document.getElementById("body").style.backgroundImage = "var(--dynamicWall4)";
             document.getElementById("wallPrev").style.backgroundImage = "var(--dynamicWall4)";
+            document.getElementById("wallPrev2").style.backgroundImage = "var(--dynamicWall4)";
+            document.getElementById("wallImgAC").style.backgroundImage = "var(--dynamicWall4)";
             document.getElementById("fbOBackground").style.backgroundImage = "var(--dynamicWall4)";
         }
     </script>
