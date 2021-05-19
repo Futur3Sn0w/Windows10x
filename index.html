@@ -42,9 +42,9 @@
                     <div class="fbrEI fei1">All information is stored locally, on your device. Nothing is sent to Microsoft or Futur3Sn0w Studio.</div>
                 <div class="fbr1Form" id="fbr1Form">
                     <label class="f1Lbl f1NameLbl">Name:</label>
-                    <textarea class="ffTextbox ffName" id="ffName" placeholder="John Doe"></textarea>
+                    <input type="text" class="ffTextbox ffName" id="ffName" placeholder="John Doe"></input>
                     <label class="f1Lbl f1NameLbl">Email:</label>
-                    <textarea class="ffTextbox ffEmail" id="ffEmail" placeholder="johndoe@contoso.com"></textarea>
+                    <input type="text" class="ffTextbox ffEmail" id="ffEmail" placeholder="johndoe@contoso.com"></input>
                     <span class="fbrError" id="fbrErr2">Note: Leaving a field blank will result in a placeholder value being used.<br>If you change your mind later, visit the Accounts section of the Settings app.</span>
                 </div>
                 <div class="fbr1ComeBack" id="fbr1ComeBack"></div>
@@ -405,7 +405,7 @@
                         <div class="aColor ac4" onclick="accentColor4()"></div>
                         <div class="aColor ac5" onclick="accentColor5()"></div>
                         <div class="aColor ac6" onclick="accentColor6()"></div>
-                    </div>
+                </div>
                 </div>
             </div>
             <div class="p2page p2Taskbar" id="ssPage7">
@@ -496,17 +496,16 @@
         </div>
     </div>
 
-<!-- <script>
-    if (document.getElementById("tbPinned").childElementCount !== 0) {
-        if (document.getElementById("tbUnpinned").childElementCount !== 0){
-            document.getElementById("tbPinSep").style.display = "flex";
-        } else {
-            document.getElementById("tbPinSep").style.display = "none";
-        };
-} else {
-    document.getElementById("tbPinSep").style.display = "none";
+<script>
+    $("textarea").keydown(function(e){
+// Enter was pressed without shift key
+if (e.keyCode == 13)
+{
+    // prevent default behavior
+    e.preventDefault();
 }
-</script> -->
+});
+</script>
 
 <script>
     fetch('eula.txt')
