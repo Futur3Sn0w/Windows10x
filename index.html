@@ -223,9 +223,11 @@
         <div class="smBottom">
             <div class="smbSection smbSect1">
                 <label class="ss1Lbl">My apps and websites</label>
-                <div class="ss1Btn"></div>
+                <div class="ss1Btn" id="showAllBtn" onclick="showAllLauncherBtn()">Show all</div>
             </div>
-            <div class="smbSection smbSect2">
+            <div class="smbSection smbSect2" id="smbSect2">
+                <div class="ss2Icon ss2Icon13" id="ss2IconSettings" data-label="Settings" onclick="openSettingsFromStartMenu()"></div>
+                <div class="ss2Icon ss2Icon15" id="ss2IconCalc" data-label="Calculator" onclick="openCalcFromStartMenu()"></div>
                 <div class="ss2Icon ss2Icon1" id="ss2Icon" data-label="Microsoft Edge"></div>
                 <div class="ss2Icon ss2Icon2" id="ss2Icon" data-label="Mail"></div>
                 <div class="ss2Icon ss2Icon3" id="ss2Icon" data-label="Calendar"></div>
@@ -238,12 +240,35 @@
                 <div class="ss2Icon ss2Icon10" id="ss2Icon" data-label="Files"></div>
                 <div class="ss2Icon ss2Icon11" id="ss2Icon" data-label="Sticky Notes"></div>
                 <div class="ss2Icon ss2Icon12" id="ss2Icon" data-label="Maps"></div>
-                <div class="ss2Icon ss2Icon13" id="ss2IconSettings" data-label="Settings" onclick="openSettingsFromStartMenu()"></div>
                 <div class="ss2Icon ss2Icon14" id="ss2Icon" data-label="Weather"></div>
-                <div class="ss2Icon ss2Icon15" id="ss2IconCalc" data-label="Calculator" onclick="openCalcFromStartMenu()"></div>
+                <div class="ss2icon ss2Icon16" id="ss2Icon" data-label="WinFR"></div>
+                <div class="ss2icon ss2Icon17" id="ss2Icon" data-label="Remote Desktop"></div>
+                <div class="ss2icon ss2Icon18" id="ss2Icon" data-label="Teams"></div>
+                <div class="ss2icon ss2Icon19" id="ss2Icon" data-label="Alarms & Clock"></div>
+                <div class="ss2icon ss2Icon20" id="ss2Icon" data-label="Movies & TV"></div>
+                <div class="ss2icon ss2Icon21" id="ss2Icon" data-label="Camera"></div>
+                <div class="ss2icon ss2Icon22" id="ss2Icon" data-label="Get Help"></div>
+                <div class="ss2icon ss2Icon23" id="ss2Icon" data-label="Tips"></div>
+                <div class="ss2icon ss2Icon24" id="ss2Icon" data-label="Solitare Collection"></div>
+                <div class="ss2icon ss2Icon25" id="ss2Icon" data-label="Messaging"></div>
+                <div class="ss2icon ss2Icon26" id="ss2Icon" data-label="OneDrive"></div>
+                <div class="ss2icon ss2Icon27" id="ss2Icon" data-label="People"></div>
+                <div class="ss2icon ss2Icon28" id="ss2Icon" data-label="Whiteboard"></div>
+                <div class="ss2icon ss2Icon29" id="ss2Icon" data-label="Groove Music"></div>
+                <div class="ss2icon ss2Icon30" id="ss2Icon" data-label="Paint 3D"></div>
+                <div class="ss2icon ss2Icon31" id="ss2Icon" data-label="Office"></div>
+                <div class="ss2icon ss2Icon32" id="ss2Icon" data-label="Snip & Sketch"></div>
+                <div class="ss2icon ss2Icon33" id="ss2Icon" data-label="Video Editor"></div>
+                <div class="ss2icon ss2Icon34" id="ss2Icon" data-label="Skype"></div>
+                <div class="ss2icon ss2Icon35" id="ss2Icon" data-label="Notepad"></div>
+                <div class="ss2icon ss2Icon36" id="ss2Icon" data-label="Feedback Hub"></div>
+                <div class="ss2icon ss2Icon37" id="ss2Icon" data-label="Security"></div>
+                <div class="ss2icon ss2Icon38" id="ss2Icon" data-label="Windows Terminal"></div>
+                <div class="ss2icon ss2Icon39" id="ss2Icon" data-label="Your Phone"></div>
+                <i class="iHide" aria-hidden="true"></i>
             </div>
             <div class="smbSep"></div>
-            <div class="smbSection smbSect3">
+            <div class="smbSection smbSect3" id="smbSect3">
                 <label class="ss3Lbl">My websites</label>
                 <label class="ss3Lbl2">Visit popular online sites by clicking the links below.</label>
                 <div class="recentTiles">
@@ -748,6 +773,9 @@ if (e.keyCode == 13)
     <script>
         var startMenu = document.getElementById("startMenu");
         var startButton = document.getElementById("startButton");
+        var appSection = document.getElementById("smbSect2");
+            var siteSection = document.getElementById("smbSect3");
+            var showAll = document.getElementById("showAllBtn");
 
         function startBtn() {
             if (document.getElementById("startMenu").style.opacity === "0") {
@@ -772,6 +800,9 @@ if (e.keyCode == 13)
                 container.style.opacity = '0';
                 startButton.addEventListener("mouseenter", colorStartBtn);
                 startButton.addEventListener("mouseleave", resetStartBtn);
+                appSection.style.height = "300px";
+                siteSection.style.display = "flex";
+                showAll.innerHTML = "Show all";
                 resetStartBtn();
             }
         });
@@ -826,6 +857,24 @@ if (e.keyCode == 13)
         }
 
         showTime();
+    </script>
+
+    <script>
+        function showAllLauncherBtn() {
+            var appSection = document.getElementById("smbSect2");
+            var siteSection = document.getElementById("smbSect3");
+            var showAll = document.getElementById("showAllBtn");
+
+            if (appSection.style.height === "300px") {
+                appSection.style.height = "780px";
+                siteSection.style.display = "none";
+                showAll.innerHTML = "Show less";
+            } else {
+                appSection.style.height = "300px";
+                siteSection.style.display = "flex";
+                showAll.innerHTML = "Show all";
+            }
+        }
     </script>
 
     <script>

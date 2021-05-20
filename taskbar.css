@@ -79,18 +79,18 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    width: calc(var(--tbSizeM) + 15px);
+    width: calc(var(--tbSizeM) + 5px);
     height: var(--tbSizeM);
     background-color: transparent;
     background-repeat: no-repeat;
-    background-size: 33%;
+    background-size: 40%;
     background-position: center;
     transition: background-color .2s, background-size .05s, opacity .2s, background-image .2s;
     cursor: pointer;
 }
 
 .tbbBtn:active {
-    background-size: 27%;
+    background-size: 32%;
 }
 
 .tbbStart {

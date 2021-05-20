@@ -103,14 +103,11 @@
     padding: 4px 15px;
     border-radius: 100px;
     transition: background-color .1s;
+    cursor: pointer;
 }
 
 .ss1Btn:hover {
     background-color: var(--startMenu);
-}
-
-.ss1Btn::after {
-    content: "Show all";
 }
 
 .smbSect2 {
@@ -118,9 +115,12 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    align-items: center;
+    align-content: flex-start;
     gap: 7px;
-    padding: 0 60px 0 0;
+    height: 300px;
+    vertical-align: top;
+    overflow: hidden;
+    transition: height .3s;
 }
 
 .ss2Icon {
@@ -128,7 +128,7 @@
     width: 17.4%;
     height: 90px;
     border-radius: var(--buttonRadi);
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     background-repeat: no-repeat;
     background-size: 48px;
@@ -154,48 +154,12 @@
     width: max-content;
 }
 
-.ss2Icon1,
-.ss2Icon2,
-.ss2Icon3,
-.ss2Icon4,
-.ss2Icon5,
-.ss2Icon6,
-.ss2Icon7,
-.ss2Icon8,
-.ss2Icon9,
-.ss2Icon10,
-.ss2Icon11,
-.ss2Icon12,
-.ss2Icon14{
+#ss2Icon{
     opacity: .4;
 }
 
-.ss2Icon1:hover,
-.ss2Icon2:hover,
-.ss2Icon3:hover,
-.ss2Icon4:hover,
-.ss2Icon5:hover,
-.ss2Icon6:hover,
-.ss2Icon7:hover,
-.ss2Icon8:hover,
-.ss2Icon9:hover,
-.ss2Icon10:hover,
-.ss2Icon11:hover,
-.ss2Icon12:hover,
-.ss2Icon14:hover,
-.ss2Icon1:focus,
-.ss2Icon2:focus,
-.ss2Icon3:focus,
-.ss2Icon4:focus,
-.ss2Icon5:focus,
-.ss2Icon6:focus,
-.ss2Icon7:focus,
-.ss2Icon8:focus,
-.ss2Icon9:focus,
-.ss2Icon10:focus,
-.ss2Icon11:focus,
-.ss2Icon12:focus,
-.ss2Icon14:focus {
+#ss2Icon:hover,
+#ss2Icon:focus {
     background-color: transparent;
     background-size: 48px;
     cursor: not-allowed;
@@ -261,9 +225,105 @@
     background-image: url(Icons/WindowsCalculator.png);
 }
 
+.ss2Icon16 {
+    background-image: url(Icons/WinFR.png);
+}
+
+.ss2Icon17 {
+    background-image: url(Icons/MicrosoftRemoteDesktop.png);
+}
+
+.ss2Icon18 {
+    background-image: url(Icons/MicrosoftTeams.png);
+}
+
+.ss2Icon19 {
+    background-image: url(Icons/WindowsAlarmsAndClock.png);
+}
+
+.ss2Icon20 {
+    background-image: url(Icons/MoviesAndTV.png);
+}
+
+.ss2Icon21 {
+    background-image: url(Icons/WindowsCamera.png);
+}
+
+.ss2Icon22 {
+    background-image: url(Icons/GetHelp.png);
+}
+
+.ss2Icon23 {
+    background-image: url(Icons/MicrosoftTips.png);
+}
+
+.ss2Icon24 {
+    background-image: url(Icons/MicrosoftSolitareCollection.png);
+}
+
+.ss2Icon25 {
+    background-image: url(Icons/MicrosoftMessaging.png);
+}
+
+.ss2Icon26 {
+    background-image: url(Icons/OneDrive.png);
+}
+
+.ss2Icon27 {
+    background-image: url(Icons/MicrosoftPeople.png);
+}
+
+.ss2Icon28 {
+    background-image: url(Icons/MicrosoftWhiteboard.png);
+}
+
+.ss2Icon29 {
+    background-image: url(Icons/GrooveMusic.png);
+}
+
+.ss2Icon30 {
+    background-image: url(Icons/Paint3D.png);
+}
+
+.ss2Icon31 {
+    background-image: url(Icons/Office.png);
+}
+
+.ss2Icon32 {
+    background-image: url(Icons/SnipAndSketch.png);
+}
+
+.ss2Icon33 {
+    background-image: url(Icons/VideoEditor.png);
+}
+
+.ss2Icon34 {
+    background-image: url(Icons/Skype.png);
+}
+
+.ss2Icon35 {
+    background-image: url(Icons/WindowsNotepad.png);
+}
+
+.ss2Icon36 {
+    background-image: url(Icons/FeedbackHub.png);
+}
+
+.ss2Icon37 {
+    background-image: url(Icons/WindowsSecurity.png);
+}
+
+.ss2Icon38 {
+    background-image: url(Icons/WindowsTerminal.png);
+}
+
+.ss2Icon39 {
+    background-image: url(Icons/YourPhone.png);
+}
+
 .smbSep {
     height: 1px;
-    margin-top: 50px;
+    margin-top: 20px;
     background-color: rgba(0, 0, 0, .2);
 }
 
@@ -358,6 +418,10 @@
 
 .rt6:active {
     background-size: 17px;
+}
+
+.iHide{
+    width: 120px;
 }
 
 @media screen and (max-width: 600px) {
