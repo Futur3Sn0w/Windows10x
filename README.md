@@ -14,7 +14,7 @@ As always, following me on Twitter will allow you to get updates on the project.
 You can also comment or DM me at any time for feature requests, or if you want to contribute to the project. I accept any and all help!
 
 # Using the site
-The site is hosted at https://futur3sn0w.com/Windows10x/ 
+The site is hosted at https://futur3sn0w.me/Windows10x/ 
 
 ### Taskbar
 The bar at the bottom (called the 'taskbar' or 'multibar') shows an indicator in the center, and the time on the right. Hovering over the indicator (or anywhere on the multibar) will expand it, revealing the Start (Launcher) and Task View buttons. It also expands the clock, and reveals the icons for the Action Center, where you can access your toggles and sliders.
